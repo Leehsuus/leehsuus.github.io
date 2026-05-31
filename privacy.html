@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - AO3 Advanced Marker</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Official Privacy Policy for the AO3 Advanced Marker browser extension. Read about our privacy practices, data handling, and Google Drive integration.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Inline Modern CSS for Privacy Policy (Matching index.html branding) -->
+    <style>
+        :root {
+            --primary: #990000;
+            --primary-hover: #b30000;
+            --primary-light: #fff0f0;
+            --dark: #0f172a;
+            --dark-muted: #475569;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #ff4d4d;
+                --primary-hover: #ff6666;
+                --primary-light: #2d0000;
+                --dark: #f8fafc;
+                --dark-muted: #94a3b8;
+                --light: #0f172a;
+                --border: #1e293b;
+                --card-bg: #1e293b;
+                --text: #cbd5e1;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Navigation */
+        header {
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            transition: var(--transition);
+        }
+        @media (prefers-color-scheme: dark) {
+            header {
+                background-color: rgba(15, 23, 42, 0.8);
+            }
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4.5rem;
+            max-width: 1000px;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .logo-icon {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 0.5rem;
+            object-fit: contain;
+            box-shadow: 0 4px 10px rgba(153, 0, 0, 0.25);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--dark-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-nav {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-nav:hover {
+            background-color: var(--primary-hover);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Policy Main Content */
+        main {
+            padding: 4rem 0 6rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .last-updated {
+            color: var(--dark-muted);
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+            display: block;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--dark);
+            margin: 2.5rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Highlight Card */
+        .highlight-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .highlight-card h3 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+            font-size: 1.15rem;
+        }
+
+        .highlight-card p {
+            margin-bottom: 0;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            footer {
+                background-color: #0b0f19;
+            }
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo-group">
+                <img src="icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                <span>AO3 Advanced Marker</span>
+            </a>
+            <nav>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#security">Security</a>
+                <a href="privacy.html" style="color: var(--primary);">Privacy Policy</a>
+                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-nav" target="_blank" rel="noopener">Install</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <h1>Privacy Policy</h1>
+        <span class="last-updated">Last updated: May 30, 2026</span>
+
+        <p>This Privacy Policy outlines how the <strong>AO3 Advanced Marker</strong> browser extension handles your data. We are committed to transparency and the security of your information.</p>
+
+        <div class="highlight-card">
+            <h3>Key Privacy Statement</h3>
+            <p>AO3 Advanced Marker is built with a <strong>privacy-first approach</strong>. We do not operate external databases, tracking servers, or analytics. Your fanfiction reading data is entirely yours.</p>
+        </div>
+
+        <h2>1. Data Collection and Usage</h2>
+        <p>The extension collects and stores reading-related details to provide its core functionality. Specifically:</p>
+        <ul>
+            <li><strong>Reading Progress:</strong> Chapter numbers, progress percentage, and timestamps of works read on Archive of Our Own.</li>
+            <li><strong>Want to Read Queue:</strong> A list of bookmarked works marked for later reading.</li>
+            <li><strong>Highlights and Notes:</strong> Excerpts of text you select and notes you write for reference.</li>
+            <li><strong>Settings:</strong> User preferences, custom marker colors, and display options.</li>
+        </ul>
+        <p>All of this data is stored <strong>locally</strong> in your browser's local storage or extension-specific storage API.</p>
+
+        <h2>2. No Server-Side Storage</h2>
+        <p>We do not collect, share, or sell your reading history, personal information, or statistics. There are no central servers running this extension. We cannot access your bookmarks or notes.</p>
+
+        <h2>3. Google Drive Synchronization (Optional)</h2>
+        <p>To enable cross-device backup and synchronization, you may optionally choose to connect your Google Drive account. If enabled:</p>
+        <ul>
+            <li><strong>Limited Scope:</strong> The extension requests permissions for the <code>drive.appdata</code> scope. This is a secure, isolated folder reserved exclusively for this extension.</li>
+            <li><strong>Access Limitations:</strong> AO3 Advanced Marker cannot read, write, modify, or delete any other files or folders in your Google Drive. It is restricted strictly to its own settings and history backup files.</li>
+            <li><strong>Direct Connection:</strong> Synchronization occurs directly between your browser extension and the Google API. No third-party servers or middleware intercept this connection.</li>
+        </ul>
+
+        <h2>4. Account Credentials & Security</h2>
+        <p>The extension does not request or store sensitive credentials. When connecting to Google Drive, authentication is conducted securely via OAuth 2.0 PKCE. Access tokens are kept within the extension's local, sandboxed environment.</p>
+
+        <h2>5. Compliance with Google API Limited Use Policy</h2>
+        <p>AO3 Advanced Marker's use and transfer of information received from Google APIs to any other app will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy#key-requirements" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements. We do not transfer this data to any external parties under any circumstances.</p>
+
+        <h2>6. Changes to this Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page and reflected in the "Last updated" date above.</p>
+
+        <h2>7. Contact</h2>
+        <p>If you have any questions or feedback regarding this policy or the extension's security practices, please open an issue on the official <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub Repository</a>.</p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="icon48.png" alt="" class="logo-icon" style="width: 1.5rem; height: 1.5rem; box-shadow: none;">
+                AO3 Advanced Marker
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Web Store</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

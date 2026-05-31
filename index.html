@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AO3 Advanced Marker - Enhance Your Archive of Our Own Experience</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="AO3 Advanced Marker is a clean, privacy-focused browser extension that enhances your reading experience, bookmarks, highlights, and history on Archive of Our Own (AO3) with optional Google Drive sync.">
+    <meta name="keywords" content="AO3, Archive of Our Own, Chrome Extension, Reading History, Bookmark Sync, Google Drive Sync, AO3 extension">
+    <meta name="author" content="AO3 Advanced Marker Team">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AO3 Advanced Marker - Enhance Your Archive of Our Own Experience">
+    <meta property="og:description" content="Enhance your AO3 reading experience. Save progress, track history, highlight text, and sync across devices via Google Drive.">
+    <meta property="og:image" content="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan">
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="COLE_AQUI_O_SEU_CODIGO_DO_SEARCH_CONSOLE" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Inline Modern CSS for Instant Load & GitHub Pages Compatibility -->
+    <style>
+        :root {
+            --primary: #990000;
+            --primary-hover: #b30000;
+            --primary-light: #fff0f0;
+            --dark: #0f172a;
+            --dark-muted: #475569;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #ff4d4d;
+                --primary-hover: #ff6666;
+                --primary-light: #2d0000;
+                --dark: #f8fafc;
+                --dark-muted: #94a3b8;
+                --light: #0f172a;
+                --border: #1e293b;
+                --success: #34d399;
+                --card-bg: #1e293b;
+                --text: #cbd5e1;
+                --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+                --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+                --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Container & Grid layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Navigation */
+        header {
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            transition: var(--transition);
+        }
+        @media (prefers-color-scheme: dark) {
+            header {
+                background-color: rgba(15, 23, 42, 0.8);
+            }
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4.5rem;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .logo-icon {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 0.5rem;
+            object-fit: contain;
+            box-shadow: 0 4px 10px rgba(153, 0, 0, 0.25);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--dark-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-nav {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-nav:hover {
+            background-color: var(--primary-hover);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.15;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: var(--primary-light);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--dark-muted);
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+        }
+
+        @media (max-width: 968px) {
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: var(--primary);
+            color: white !important;
+            padding: 0.875rem 1.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(153, 0, 0, 0.35);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(153, 0, 0, 0.45);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--card-bg);
+            color: var(--dark) !important;
+            border: 1px solid var(--border);
+            padding: 0.875rem 1.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--dark-muted);
+            background-color: var(--light);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: currentColor;
+        }
+
+        /* Mockup Container */
+        .mockup-container {
+            position: relative;
+            width: 100%;
+            perspective: 1000px;
+        }
+
+        .browser-mockup {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            transition: var(--transition);
+            transform: rotateY(-5deg) rotateX(5deg);
+        }
+
+        .browser-mockup:hover {
+            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+        }
+
+        @media (max-width: 968px) {
+            .browser-mockup {
+                transform: none !important;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        .browser-header {
+            background-color: var(--light);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 0.375rem;
+        }
+
+        .browser-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+        }
+        .browser-dot.red { background-color: #ef4444; }
+        .browser-dot.yellow { background-color: #f59e0b; }
+        .browser-dot.green { background-color: #10b981; }
+
+        .browser-address {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            color: var(--dark-muted);
+            padding: 0.25rem 1rem;
+            flex-grow: 1;
+            text-align: left;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .browser-content {
+            background-color: var(--card-bg);
+            display: block;
+            line-height: 0;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--dark-muted);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            background-color: var(--light);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon-wrapper {
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon-wrapper svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: currentColor;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--dark-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Compliance / Google Drive Sync Info Section */
+        .sync-info {
+            padding: 6rem 0;
+            background-color: var(--light);
+        }
+
+        .sync-box {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 3.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 968px) {
+            .sync-box {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+                gap: 2.5rem;
+            }
+        }
+
+        .sync-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            color: var(--dark);
+            margin-bottom: 1.25rem;
+        }
+
+        .sync-text p {
+            color: var(--dark-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .sync-points {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .sync-points li {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
+        .sync-points svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: var(--success);
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+
+        .google-drive-badge {
+            background-color: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .gdrive-icon {
+            width: 4rem;
+            height: 4rem;
+        }
+
+        .gdrive-badge-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .gdrive-badge-desc {
+            font-size: 0.85rem;
+            color: var(--dark-muted);
+            max-width: 240px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            footer {
+                background-color: #0b0f19;
+            }
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .footer-about h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-about p {
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo-group">
+                <img src="icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                <span>AO3 Advanced Marker</span>
+            </a>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#security">Security & Sync</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-nav" target="_blank" rel="noopener">Install</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Enhance Your <span>AO3 Reading</span> Experience</h1>
+                <p>AO3 Advanced Marker is a clean, browser extension designed to elevate how you read, organize, and track your favorite works on Archive of Our Own. Sync your bookmarks, highlights, and history seamlessly.</p>
+                <div class="hero-actions">
+                    <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-primary" target="_blank" rel="noopener">
+                        <!-- Chrome Web Store Icon -->
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 3.7c4.58 0 8.3 3.72 8.3 8.3S16.58 20.3 12 20.3 3.7 16.58 3.7 12s3.72-8.3 8.3-8.3zm0 3.15c-2.84 0-5.15 2.31-5.15 5.15s2.31 5.15 5.15 5.15 5.15-2.31 5.15-5.15-2.31-5.15-5.15-5.15z"/>
+                        </svg>
+                        Install on Chrome Web Store
+                    </a>
+                    <a href="#features" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="mockup-container">
+                <div class="browser-mockup">
+                    <div class="browser-header">
+                        <div class="browser-dots">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                        </div>
+                        <div class="browser-address">chrome-extension://mfpefhlopjkdhgjmihliggklkkkppfan/options.html</div>
+                    </div>
+                    <div class="browser-content">
+                        <img src="options.png" alt="AO3 Advanced Marker Dashboard Options" style="width: 100%; height: auto; display: block; border-radius: 0 0 0.75rem 0.75rem;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Designed for Avid Readers</h2>
+                <p>Enjoy a host of modern features tailored specifically to optimize your browsing and reading habits on Archive of Our Own.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M3 20v-8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8M3 10V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/></svg>
+                    </div>
+                    <h3>Reading Progress Sync</h3>
+                    <p>Automatically bookmarks your reading position. Pick up exactly where you left off on multi-chapter fanfics, whether you are on desktop or mobile.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3>Want to Read Queue</h3>
+                    <p>Organize your reading list dynamically. Mark works as "Want to Read" and access your customized queue directly from the AO3 header menu.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3>Highlights & Notes</h3>
+                    <p>Highlight your favorite lines, reactions, or dialogue directly within the work. Add personal notes that persist on the page for future re-reads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud Sync & Privacy Section -->
+    <section id="security" class="sync-info">
+        <div class="container">
+            <div class="sync-box">
+                <div class="sync-text">
+                    <h2>Secure & Private Cloud Backup</h2>
+                    <p>We believe your reading habits should remain private. Unlike other extensions, AO3 Advanced Marker does not utilize central servers to store your data. Instead, it utilizes your personal cloud storage.</p>
+                    <ul class="sync-points">
+                        <li>
+                            <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                            <span><strong>Direct Sync:</strong> Syncs bookmarks, highlights, and history directly with your Google Drive.</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                            <span><strong>App-Specific Access:</strong> Only accesses its own dedicated app folder inside your Drive. It cannot view, edit, or delete any other files.</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                            <span><strong>Strict Privacy:</strong> No personal details, passwords, or browsing data are ever collected, sold, or shared with third parties.</span>
+                        </li>
+                    </ul>
+                    <a href="privacy.html" class="btn-secondary">Read Full Privacy Policy</a>
+                </div>
+                
+                <div class="google-drive-badge">
+                    <!-- Google Drive Icon -->
+                    <svg class="gdrive-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-label="Google Drive">
+                        <path d="m126 417q9 5 19 5H367q9 0 19-5V313H99" fill="#4285f4"/>
+                        <path d="m196 87q9-5 20-5h80q12 0 20 5v104h-68" fill="#188038"/>
+                        <path d="m66 313q0-10 5-19l110-191q6-11 15-16l60 104-72 125" fill="#34a853"/>
+                        <path d="M316 87q10 6 15 16L438 289q8 12 8 24l-118 3-72-125" fill="#fbbc04"/>
+                        <path d="m185.714 313H66q0 8 3 15l40 70q7 13 17 19" fill="#1967d2"/>
+                        <path d="m386 417q9-5 16-17l38-66q6-10 6-21H326.3" fill="#ea4335"/>
+                    </svg>
+                    <div class="gdrive-badge-title">Google Drive Verified</div>
+                    <div class="gdrive-badge-desc">Fully compliant with Google API OAuth 2.0 security policies and limited use guidelines.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <h3>
+                    <img src="icon48.png" alt="" class="logo-icon" style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
+                    AO3 Advanced Marker
+                </h3>
+                <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Extension</h4>
+                <ul>
+                    <li><a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Chrome Web Store</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#security">Security & Cloud Sync</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal & Support</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub Repository</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 AO3 Advanced Marker. Independent project not affiliated with Archive of Our Own or the Organization for Transformative Works.</p>
+            <div class="footer-bottom-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
