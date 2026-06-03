@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Sync Guide – AO3 Advanced Marker</title>
+    <meta name="description" content="Step-by-step guide to setting up cloud synchronization for AO3 Advanced Marker Pro using JSONBin.io.">
+    <link rel="icon" type="image/png" href="icon48.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #990000;
+            --primary-hover: #b30000;
+            --primary-light: #fff0f0;
+            --dark: #0f172a;
+            --dark-muted: #475569;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #ff4d4d;
+                --primary-hover: #ff6666;
+                --primary-light: #2d0000;
+                --dark: #f8fafc;
+                --dark-muted: #94a3b8;
+                --light: #0f172a;
+                --border: #1e293b;
+                --success: #34d399;
+                --card-bg: #1e293b;
+                --text: #cbd5e1;
+                --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.5);
+                --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+                --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -2px rgba(0,0,0,0.3);
+                --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.5), 0 10px 10px -5px rgba(0,0,0,0.4);
+            }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── Header ── */
+        header {
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background-color: rgba(255,255,255,0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            transition: var(--transition);
+        }
+        @media (prefers-color-scheme: dark) {
+            header { background-color: rgba(15,23,42,0.8); }
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4.5rem;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .logo-icon {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 0.5rem;
+            object-fit: contain;
+            box-shadow: 0 4px 10px rgba(153,0,0,0.25);
+        }
+
+        nav { display: flex; align-items: center; gap: 1.5rem; }
+
+        nav a {
+            color: var(--dark-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        nav a:hover { color: var(--primary); }
+
+        .btn-nav {
+            background-color: var(--primary);
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-nav:hover {
+            background-color: var(--primary-hover) !important;
+            transform: translateY(-1px);
+        }
+
+        /* ── Page Hero ── */
+        .page-hero {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 0 3rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--dark-muted);
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb a { color: var(--primary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--dark-muted); }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .page-hero h1 span { color: var(--primary); }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            color: var(--dark-muted);
+            max-width: 640px;
+        }
+
+        /* ── Main Content ── */
+        .guide-layout {
+            padding: 4rem 0 6rem;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        @media (max-width: 968px) {
+            .guide-layout { grid-template-columns: 1fr; }
+            .toc-sidebar { display: none; }
+        }
+
+        /* Table of Contents */
+        .toc-sidebar {
+            position: sticky;
+            top: 6rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toc-sidebar h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--dark-muted);
+            margin-bottom: 1rem;
+        }
+
+        .toc-sidebar ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .toc-sidebar a {
+            color: var(--dark-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+            display: block;
+            padding: 0.25rem 0;
+            border-left: 2px solid transparent;
+            padding-left: 0.75rem;
+        }
+        .toc-sidebar a:hover {
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+
+        /* Article Prose */
+        .guide-content { min-width: 0; }
+
+        .guide-content > p {
+            font-size: 1.05rem;
+            color: var(--dark-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .guide-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.25rem;
+            height: 2.25rem;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--dark);
+        }
+
+        .guide-section h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 1.75rem 0 0.75rem;
+        }
+
+        .guide-section p {
+            color: var(--dark-muted);
+            margin-bottom: 1rem;
+            font-size: 0.975rem;
+            line-height: 1.7;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            padding-left: 1.5rem;
+            color: var(--dark-muted);
+            margin-bottom: 1rem;
+        }
+
+        .guide-section li {
+            margin-bottom: 0.5rem;
+            font-size: 0.975rem;
+            line-height: 1.7;
+        }
+
+        .guide-section li strong { color: var(--dark); }
+
+        /* Code */
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            background-color: var(--light);
+            border: 1px solid var(--border);
+            padding: 0.15rem 0.45rem;
+            border-radius: 0.25rem;
+            font-size: 0.875em;
+            color: var(--primary);
+        }
+
+        pre code {
+            display: block;
+            padding: 1rem 1.25rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Callout boxes */
+        .callout {
+            display: flex;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .callout-tip {
+            background-color: var(--primary-light);
+            border-color: var(--primary);
+        }
+
+        .callout-info {
+            background-color: #eff6ff;
+            border-color: #bfdbfe;
+        }
+        @media (prefers-color-scheme: dark) {
+            .callout-info { background-color: #1e3a5f; border-color: #2563eb; }
+        }
+
+        .callout-icon { font-size: 1.25rem; flex-shrink: 0; line-height: 1.5; }
+
+        .callout-body { flex: 1; }
+
+        .callout-body > strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--dark);
+            margin-bottom: 0.35rem;
+        }
+
+        .callout-body p {
+            font-size: 0.9rem;
+            color: var(--dark-muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Step list */
+        .step-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-list li {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .step-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.75rem;
+            height: 1.75rem;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        /* Screenshot figure */
+        .figure {
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            background-color: var(--card-bg);
+        }
+
+        .figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .figure figcaption {
+            padding: 0.75rem 1.25rem;
+            font-size: 0.825rem;
+            color: var(--dark-muted);
+            font-style: italic;
+            border-top: 1px solid var(--border);
+            background-color: var(--light);
+        }
+
+        /* Divider */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        @media (prefers-color-scheme: dark) {
+            footer { background-color: #0b0f19; }
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+
+        .footer-about h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-about p { max-width: 320px; line-height: 1.6; }
+
+        .footer-links h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-links a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p { font-size: 0.85rem; }
+
+        .footer-bottom-links { display: flex; gap: 1.5rem; }
+
+        .footer-bottom-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+        .footer-bottom-links a:hover { color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo-group">
+                <img src="icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                <span>AO3 Advanced Marker</span>
+            </a>
+            <nav>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#security">Security &amp; Sync</a>
+                <a href="syncGuide.html" style="color: var(--primary); font-weight: 600;">Sync Guide</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-nav" target="_blank" rel="noopener">Install</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <span>Cloud Sync Guide</span>
+            </div>
+            <h1>Cloud Synchronization <span>&amp; Backup</span> Guide</h1>
+            <p>Set up cross-device sync for your reading progress, statistics, and reviews using JSONBin.io — your own private cloud storage.</p>
+        </div>
+    </div>
+
+    <!-- Guide Body -->
+    <div class="container">
+        <div class="guide-layout">
+
+            <!-- Main Content -->
+            <article class="guide-content">
+
+                <p>This guide will walk you through setting up cross-device cloud synchronization using JSONBin.io. Follow these steps to back up and sync your reading progress, statistics, and reviews across all your browsers.</p>
+
+                <!-- Section 1 -->
+                <div class="guide-section" id="sync-logic">
+                    <div class="section-title">
+                        <div class="section-num">1</div>
+                        <h2>Understanding the Synchronization Logic</h2>
+                    </div>
+
+                    <p>To avoid accidental data overwrites when switching between different devices (like your phone and your laptop), synchronization in AO3 Advanced Marker is <strong>semi-automatic</strong> by design:</p>
+
+                    <ul>
+                        <li><strong>Automatic Backup:</strong> Pushes your local browser data to the cloud automatically every 24 hours (if enabled).</li>
+                        <li><strong>Manual Control:</strong> Allows you to explicitly pull (Download) or push (Upload) your data on demand directly from the AO3 website interface.</li>
+                    </ul>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>Multi-Device Golden Rule</strong>
+                            <p>If you read on multiple devices, turn <strong>Automatic Backup ON only on your primary device</strong> (the one you use most frequently). Keep it OFF on secondary devices. When switching to a secondary device, manually click <strong>Download</strong> to load your latest progress. Before leaving that device, click <strong>Upload</strong> if you made any updates manually!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 2 -->
+                <div class="guide-section" id="create-bins">
+                    <div class="section-title">
+                        <div class="section-num">2</div>
+                        <h2>Generating Your Cloud Bins on JSONBin.io</h2>
+                    </div>
+
+                    <p>First, you need to create a free account on <a href="https://jsonbin.io" target="_blank" style="color:var(--primary)">JSONBin.io</a> to host your encrypted configuration data files.</p>
+
+                    <h3>Step 2.1 — Creating a New Bin</h3>
+                    <p>In your JSONBin dashboard, click to create a new bin. Inside the initialization text area, you must provide a valid structural format. Type a JSON structure with an empty string key-value pair:</p>
+                    <pre><code>{"":""}</code></pre>
+                    <p>This tells the hosting server that the bin is ready. The extension will automatically overwrite this placeholder with your real reading history once you trigger your first sync.</p>
+
+                    <figure class="figure">
+                        <img src="createBin.jpg" alt="Creating a new Bin on JSONBin.io dashboard">
+                        <figcaption>Figure 1 — Initializing a new bin with an empty JSON key-value pair.</figcaption>
+                    </figure>
+
+                    <h3>Step 2.2 — Retrieving Your Bin IDs</h3>
+                    <p>Once saved, copy the unique alphanumeric identifier code generated for your newly created bin. You will need a Progress Bin ID, and optionally distinct Bin IDs for your reading statistics and chapter reviews.</p>
+
+                    <figure class="figure">
+                        <img src="binID.jpg" alt="Locating the Bin ID on JSONBin dashboard">
+                        <figcaption>Figure 2 — Copying the generated unique Bin ID from the dashboard.</figcaption>
+                    </figure>
+
+                    <h3>Step 2.3 — Finding Your Master Key</h3>
+                    <p>Navigate to your JSONBin account API Keys tab to secure your secret Access Master Key. This token authorizes your extension to securely read and write data to your account.</p>
+
+                    <figure class="figure">
+                        <img src="jsonBinMasterKey.jpg" alt="Locating the Master Key in JSONBin API Keys tab">
+                        <figcaption>Figure 3 — Locating and copying your secret account Master Key.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 3 -->
+                <div class="guide-section" id="configure">
+                    <div class="section-title">
+                        <div class="section-num">3</div>
+                        <h2>Configuring the Extension Settings</h2>
+                    </div>
+
+                    <p>Open the extension's dashboard options panel and navigate to the <strong>Cloud Settings</strong> tab on the sidebar layout.</p>
+
+                    <figure class="figure">
+                        <img src="options.jpg" alt="Extension Options Dashboard showing Cloud Settings tab">
+                        <figcaption>Figure 4 — The Cloud Settings tab inside the AO3 Advanced Marker extension options panel.</figcaption>
+                    </figure>
+
+                    <p>Carefully paste your copied values into their respective input fields:</p>
+
+                    <ul class="step-list">
+                        <li>
+                            <div class="step-badge">1</div>
+                            <span><strong>Master Key:</strong> Paste your secret <code>X-Master-Key</code>.</span>
+                        </li>
+                        <li>
+                            <div class="step-badge">2</div>
+                            <span><strong>Progress Bin ID:</strong> Paste your primary reading progress tracker bin code <em>(Required)</em>.</span>
+                        </li>
+                        <li>
+                            <div class="step-badge">3</div>
+                            <span><strong>Stats Bin ID / Review Bin ID:</strong> Paste your optional secondary tracking storage codes.</span>
+                        </li>
+                    </ul>
+
+                    <figure class="figure">
+                        <img src="uploaded.jpg" alt="Cloud credentials saved in the extension fields">
+                        <figcaption>Figure 5 — Cloud configurations securely saved into the extension fields.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 4 -->
+                <div class="guide-section" id="using-sync">
+                    <div class="section-title">
+                        <div class="section-num">4</div>
+                        <h2>Using Sync Features Inside AO3</h2>
+                    </div>
+
+                    <p>Once your Master Key and Progress Bin ID are saved, navigate to any work or history list page on AO3. Look at the top bar labeled <strong>Marker Tools</strong>.</p>
+
+                    <h3>Scenario A — Manual Sync Mode</h3>
+                    <p>With Automatic Backup disabled, both manual action buttons are fully available on your navbar layout:</p>
+                    <ul>
+                        <li><strong>Upload Backup (API):</strong> Pushes your local browser markers up to the cloud server storage.</li>
+                        <li><strong>Download Backup (API):</strong> Pulls your cloud record down to refresh your active browser history.</li>
+                    </ul>
+
+                    <figure class="figure">
+                        <img src="upload-download.jpg" alt="Manual Upload and Download Buttons on AO3 toolbar">
+                        <figcaption>Figure 6 — Manual controls visible on AO3 when Automatic Backup is inactive.</figcaption>
+                    </figure>
+
+                    <h3>Scenario B — Automatic Backup Mode</h3>
+                    <p>If you toggle the <strong>Automatic Backup</strong> switch ON inside your settings dashboard, the extension handles background updates automatically every 24 hours.</p>
+
+                    <figure class="figure">
+                        <img src="autoBackupActive.jpg" alt="Automatic Backup toggle enabled in settings">
+                        <figcaption>Figure 7 — Turning on the background daily automatic backup cycle.</figcaption>
+                    </figure>
+
+                    <p>When this mode is active, the manual <strong>Upload Backup</strong> button is automatically hidden from the top bar to keep your UI clean and prevent redundant API overwrites. The <strong>Download Backup</strong> button remains accessible so you can pull states whenever needed.</p>
+
+                    <div class="callout callout-info">
+                        <div class="callout-icon">🚀</div>
+                        <div class="callout-body">
+                            <strong>Coming Soon: Seamless Google Drive Sync!</strong>
+                            <p>We have fully developed an integrated <strong>Google Drive Sync</strong> protocol that completely eliminates third-party developer platforms, API keys, or manual configuration strings. You will be able to securely authorize your personal Google storage with one click. The implementation is code-complete — the update will apply automatically soon!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- Sidebar TOC -->
+            <aside class="toc-sidebar">
+                <h4>On This Page</h4>
+                <ul>
+                    <li><a href="#sync-logic">1. Synchronization Logic</a></li>
+                    <li><a href="#create-bins">2. Creating JSONBin Bins</a></li>
+                    <li><a href="#configure">3. Configuring the Extension</a></li>
+                    <li><a href="#using-sync">4. Using Sync on AO3</a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <h3>
+                    <img src="icon48.png" alt="" class="logo-icon" style="width:1.75rem;height:1.75rem;box-shadow:none;">
+                    AO3 Advanced Marker
+                </h3>
+                <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Extension</h4>
+                <ul>
+                    <li><a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Chrome Web Store</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#security">Security &amp; Cloud Sync</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal &amp; Support</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
+                    <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub Repository</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 AO3 Advanced Marker. Independent project not affiliated with Archive of Our Own or the Organization for Transformative Works.</p>
+            <div class="footer-bottom-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

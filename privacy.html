@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - AO3 Advanced Marker</title>
+    <link rel="icon" type="image/png" href="icon48.png">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Official Privacy Policy for the AO3 Advanced Marker browser extension. Read about our privacy practices, data handling, and Google Drive integration.">
@@ -77,17 +78,17 @@
             transition: var(--transition);
         }
         @media (prefers-color-scheme: dark) {
-            header {
-                background-color: rgba(15, 23, 42, 0.8);
-            }
+            header { background-color: rgba(15, 23, 42, 0.8); }
         }
+
+        /* Match header width to index.html so the nav doesn't shrink on navigation */
+        header .container { max-width: 1200px; }
 
         .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 4.5rem;
-            max-width: 1000px;
         }
 
         .logo-group {
@@ -111,14 +112,14 @@
         nav {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         nav a {
             color: var(--dark-muted);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: var(--transition);
         }
 
@@ -268,7 +269,8 @@
             </a>
             <nav>
                 <a href="index.html#features">Features</a>
-                <a href="index.html#security">Security</a>
+                <a href="index.html#security">Security &amp; Sync</a>
+                <a href="syncGuide.html">Sync Guide</a>
                 <a href="privacy.html" style="color: var(--primary);">Privacy Policy</a>
                 <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-nav" target="_blank" rel="noopener">Install</a>
             </nav>
