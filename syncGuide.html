@@ -63,7 +63,11 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .container { padding: 0 2rem; }
         }
 
         /* ── Header ── */
@@ -95,7 +99,12 @@
             text-decoration: none;
             color: var(--dark);
             font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 480px) {
+            .logo-group { font-size: 1.25rem; }
         }
 
         .logo-icon {
@@ -105,6 +114,39 @@
             object-fit: contain;
             box-shadow: 0 4px 10px rgba(153,0,0,0.25);
         }
+
+        /* Hamburger Button */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 2.25rem;
+            height: 2.25rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 0.375rem;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .nav-toggle:hover { background-color: var(--primary-light); }
+
+        .nav-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--dark);
+            border-radius: 2px;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         nav { display: flex; align-items: center; gap: 1.5rem; }
 
@@ -124,17 +166,60 @@
             border-radius: 0.375rem;
             font-weight: 600;
             box-shadow: var(--shadow-sm);
+            white-space: nowrap;
         }
         .btn-nav:hover {
             background-color: var(--primary-hover) !important;
             transform: translateY(-1px);
         }
 
+        /* Mobile Nav */
+        @media (max-width: 860px) {
+            .nav-toggle { display: flex; }
+
+            nav {
+                display: none;
+                position: fixed;
+                top: 4.5rem;
+                left: 0;
+                right: 0;
+                background-color: var(--card-bg);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 0.5rem 0;
+                z-index: 99;
+                box-shadow: var(--shadow-lg);
+            }
+
+            nav.open { display: flex; }
+
+            nav a {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav a:last-child { border-bottom: none; }
+
+            .btn-nav {
+                margin: 0.75rem 1.5rem;
+                border-radius: 0.375rem;
+                text-align: center;
+                padding: 0.75rem 1rem;
+            }
+        }
+
         /* ── Page Hero ── */
         .page-hero {
             background-color: var(--card-bg);
             border-bottom: 1px solid var(--border);
-            padding: 4rem 0 3rem;
+            padding: 2.5rem 0 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .page-hero { padding: 4rem 0 3rem; }
         }
 
         .breadcrumb {
@@ -151,7 +236,7 @@
 
         .page-hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.75rem;
+            font-size: clamp(1.75rem, 5vw, 2.75rem);
             color: var(--dark);
             margin-bottom: 1rem;
             line-height: 1.2;
@@ -167,20 +252,28 @@
 
         /* ── Main Content ── */
         .guide-layout {
-            padding: 4rem 0 6rem;
+            padding: 2.5rem 0 3rem;
             display: grid;
-            grid-template-columns: 1fr 260px;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
             align-items: start;
         }
 
-        @media (max-width: 968px) {
-            .guide-layout { grid-template-columns: 1fr; }
-            .toc-sidebar { display: none; }
+        @media (min-width: 768px) {
+            .guide-layout { padding: 4rem 0 6rem; }
+        }
+
+        @media (min-width: 968px) {
+            .guide-layout {
+                grid-template-columns: 1fr 260px;
+                gap: 4rem;
+            }
+            .toc-sidebar { display: block; }
         }
 
         /* Table of Contents */
         .toc-sidebar {
+            display: none;
             position: sticky;
             top: 6rem;
             background-color: var(--card-bg);
@@ -419,22 +512,39 @@
         footer {
             background-color: var(--dark);
             color: #94a3b8;
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 2rem;
             border-top: 1px solid var(--border);
             font-size: 0.9rem;
         }
+
+        @media (min-width: 768px) {
+            footer { padding: 4rem 0 2rem; }
+        }
+
         @media (prefers-color-scheme: dark) {
             footer { background-color: #0b0f19; }
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
         }
-        @media (max-width: 768px) {
-            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+        @media (min-width: 560px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 4rem;
+                margin-bottom: 3rem;
+            }
         }
 
         .footer-about h3 {
@@ -496,18 +606,23 @@
 
     <!-- Header -->
     <header>
-        <div class="container nav-wrapper">
-            <a href="index.html" class="logo-group">
-                <img src="icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
-                <span>AO3 Advanced Marker</span>
-            </a>
-            <nav>
-                <a href="index.html#features">Features</a>
-                <a href="index.html#security">Security &amp; Sync</a>
-                <a href="syncGuide.html" style="color: var(--primary); font-weight: 600;">Sync Guide</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-nav" target="_blank" rel="noopener">Install</a>
-            </nav>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo-group">
+                    <img src="icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <span>AO3 Advanced Marker</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#security">Security &amp; Sync</a>
+                    <a href="syncGuide.html" style="color: var(--primary); font-weight: 600;">Sync Guide</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-nav" target="_blank" rel="noopener">Install</a>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -693,39 +808,60 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-grid">
-            <div class="footer-about">
-                <h3>
-                    <img src="icon48.png" alt="" class="logo-icon" style="width:1.75rem;height:1.75rem;box-shadow:none;">
-                    AO3 Advanced Marker
-                </h3>
-                <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>
+                        <img src="icon48.png" alt="" class="logo-icon" style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
+                        AO3 Advanced Marker
+                    </h3>
+                    <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Extension</h4>
+                    <ul>
+                        <li><a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Chrome Web Store</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#security">Security &amp; Cloud Sync</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal &amp; Support</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="syncGuide.html" style="color: white;">Cloud Sync Guide</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub Repository</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Extension</h4>
-                <ul>
-                    <li><a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Chrome Web Store</a></li>
-                    <li><a href="index.html#features">Features</a></li>
-                    <li><a href="index.html#security">Security &amp; Cloud Sync</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Legal &amp; Support</h4>
-                <ul>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
-                    <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub Repository</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2026 AO3 Advanced Marker. Independent project not affiliated with Archive of Our Own or the Organization for Transformative Works.</p>
-            <div class="footer-bottom-links">
-                <a href="privacy.html">Privacy</a>
-                <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AO3 Advanced Marker. Not affiliated with Archive of Our Own or the OTW.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Rate on Chrome Web Store</a>
+                    <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+                </div>
             </div>
         </div>
     </footer>
 
 </body>
 </html>
+
+<script>
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav   = document.getElementById('main-nav');
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        navToggle.classList.toggle('open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    mainNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mainNav.classList.remove('open');
+            navToggle.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+</script>

@@ -71,6 +71,16 @@
             padding: 0;
         }
 
+        /* Global overflow guard */
+        h1, h2, h3 {
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        img, svg, video {
+            max-width: 100%;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--light);
@@ -82,8 +92,14 @@
         /* Container & Grid layout */
         .container {
             max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 640px) {
+            .container { padding: 0 2rem; }
         }
 
         /* Header Navigation */
@@ -117,7 +133,12 @@
             text-decoration: none;
             color: var(--dark);
             font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 480px) {
+            .logo-group { font-size: 1.25rem; }
         }
 
         .logo-icon {
@@ -127,6 +148,39 @@
             object-fit: contain;
             box-shadow: 0 4px 10px rgba(153, 0, 0, 0.25);
         }
+
+        /* Hamburger Button */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 2.25rem;
+            height: 2.25rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 0.375rem;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .nav-toggle:hover { background-color: var(--primary-light); }
+
+        .nav-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--dark);
+            border-radius: 2px;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         nav {
             display: flex;
@@ -151,81 +205,140 @@
 
         .btn-nav {
             background-color: var(--primary);
-            color: white;
+            color: white !important;
             padding: 0.5rem 1rem;
             border-radius: 0.375rem;
             font-weight: 600;
             box-shadow: var(--shadow-sm);
+            white-space: nowrap;
         }
 
         .btn-nav:hover {
             background-color: var(--primary-hover);
-            color: white;
+            color: white !important;
             transform: translateY(-1px);
+        }
+
+        /* Mobile Nav */
+        @media (max-width: 860px) {
+            .nav-toggle { display: flex; }
+
+            nav {
+                display: none;
+                position: fixed;
+                top: 4.5rem;
+                left: 0;
+                right: 0;
+                background-color: var(--card-bg);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 0.5rem 0;
+                z-index: 99;
+                box-shadow: var(--shadow-lg);
+            }
+
+            nav.open { display: flex; }
+
+            nav a {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav a:last-child { border-bottom: none; }
+
+            .btn-nav {
+                margin: 0.75rem 1.5rem;
+                border-radius: 0.375rem;
+                text-align: center;
+                padding: 0.75rem 1rem;
+            }
         }
 
         /* Hero Section */
         .hero {
-            padding: 6rem 0 4rem;
+            padding: 4rem 0 3rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        @media (min-width: 768px) {
+            .hero { padding: 6rem 0 4rem; }
         }
 
-        @media (max-width: 968px) {
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* All grid children must have min-width: 0 to prevent overflow */
+        .hero-grid > * {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .hero-content {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .hero-actions {
+            justify-content: center;
+        }
+
+        @media (min-width: 968px) {
             .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                text-align: left;
             }
             .hero-actions {
-                justify-content: center;
+                justify-content: flex-start;
             }
         }
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            line-height: 1.15;
+            font-size: clamp(1.6rem, 6vw, 3.5rem);
+            line-height: 1.2;
             color: var(--dark);
             margin-bottom: 1.5rem;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            max-width: 100%;
         }
 
         .hero-content h1 span {
             color: var(--primary);
             position: relative;
-            display: inline-block;
-        }
-
-        .hero-content h1 span::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background-color: var(--primary-light);
-            z-index: -1;
-            border-radius: 4px;
+            display: inline;
+            background-image: linear-gradient(var(--primary-light), var(--primary-light));
+            background-repeat: no-repeat;
+            background-position: 0 90%;
+            background-size: 100% 8px;
+            padding-bottom: 2px;
         }
 
         .hero-content p {
-            font-size: 1.125rem;
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
             color: var(--dark-muted);
             margin-bottom: 2.5rem;
-            max-width: 540px;
+            max-width: min(540px, 100%);
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        @media (max-width: 968px) {
+        @media (min-width: 968px) {
             .hero-content p {
-                margin-left: auto;
-                margin-right: auto;
+                margin-left: 0;
+                margin-right: 0;
             }
         }
 
@@ -233,6 +346,26 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Stack buttons on very small screens */
+        @media (max-width: 480px) {
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .hero-actions a {
+                justify-content: center;
+                text-align: center;
+                white-space: normal;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+
+        @media (min-width: 968px) {
+            .hero-actions { justify-content: flex-start; }
         }
 
         .btn-primary {
@@ -241,13 +374,21 @@
             gap: 0.75rem;
             background-color: var(--primary);
             color: white !important;
-            padding: 0.875rem 1.75rem;
+            padding: 0.75rem 1.25rem;
             border-radius: 0.5rem;
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             text-decoration: none;
             box-shadow: 0 4px 14px rgba(153, 0, 0, 0.35);
             transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        @media (min-width: 560px) {
+            .btn-primary {
+                padding: 0.875rem 1.75rem;
+                font-size: 1.05rem;
+            }
         }
 
         .btn-primary:hover {
@@ -263,13 +404,21 @@
             background-color: var(--card-bg);
             color: var(--dark) !important;
             border: 1px solid var(--border);
-            padding: 0.875rem 1.75rem;
+            padding: 0.75rem 1.25rem;
             border-radius: 0.5rem;
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             text-decoration: none;
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
+            white-space: nowrap;
+        }
+
+        @media (min-width: 560px) {
+            .btn-secondary {
+                padding: 0.875rem 1.75rem;
+                font-size: 1.05rem;
+            }
         }
 
         .btn-secondary:hover {
@@ -282,13 +431,15 @@
             width: 1.25rem;
             height: 1.25rem;
             fill: currentColor;
+            flex-shrink: 0;
         }
 
         /* Mockup Container */
         .mockup-container {
             position: relative;
             width: 100%;
-            perspective: 1000px;
+            min-width: 0;
+            overflow: hidden;
         }
 
         .browser-mockup {
@@ -298,17 +449,22 @@
             box-shadow: var(--shadow-xl);
             overflow: hidden;
             transition: var(--transition);
-            transform: rotateY(-5deg) rotateX(5deg);
+            transform: none;
         }
 
-        .browser-mockup:hover {
-            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+        @media (min-width: 968px) {
+            .mockup-container { perspective: 1000px; }
+            .browser-mockup {
+                transform: rotateY(-5deg) rotateX(5deg);
+            }
+            .browser-mockup:hover {
+                transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+            }
         }
 
         @media (max-width: 968px) {
             .browser-mockup {
-                transform: none !important;
-                max-width: 500px;
+                max-width: 100%;
                 margin: 0 auto;
             }
         }
@@ -358,34 +514,53 @@
 
         /* Features Section */
         .features {
-            padding: 6rem 0;
+            padding: 3rem 0;
             background-color: var(--card-bg);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
         }
 
+        @media (min-width: 768px) {
+            .features { padding: 6rem 0; }
+        }
+
         .section-header {
             text-align: center;
             max-width: 600px;
-            margin: 0 auto 4rem;
+            margin: 0 auto 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-header { margin: 0 auto 4rem; }
         }
 
         .section-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
             color: var(--dark);
             margin-bottom: 1rem;
         }
 
         .section-header p {
             color: var(--dark-muted);
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 560px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
         }
 
         .feature-card {
@@ -436,33 +611,41 @@
 
         /* Compliance / Google Drive Sync Info Section */
         .sync-info {
-            padding: 6rem 0;
+            padding: 3rem 0;
             background-color: var(--light);
+        }
+
+        @media (min-width: 768px) {
+            .sync-info { padding: 6rem 0; }
         }
 
         .sync-box {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
             align-items: center;
             background-color: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 1rem;
-            padding: 3.5rem;
+            padding: 1.75rem;
             box-shadow: var(--shadow-lg);
         }
 
-        @media (max-width: 968px) {
+        @media (min-width: 560px) {
+            .sync-box { padding: 2.5rem; }
+        }
+
+        @media (min-width: 968px) {
             .sync-box {
-                grid-template-columns: 1fr;
-                padding: 2rem;
-                gap: 2.5rem;
+                grid-template-columns: 1.2fr 1fr;
+                gap: 4rem;
+                padding: 3.5rem;
             }
         }
 
         .sync-text h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.25rem;
+            font-size: clamp(1.6rem, 4vw, 2.25rem);
             color: var(--dark);
             margin-bottom: 1.25rem;
         }
@@ -530,9 +713,13 @@
         footer {
             background-color: var(--dark);
             color: #94a3b8;
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 2rem;
             border-top: 1px solid var(--border);
             font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            footer { padding: 4rem 0 2rem; }
         }
 
         @media (prefers-color-scheme: dark) {
@@ -543,15 +730,23 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 560px) {
             .footer-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 2.5rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 4rem;
+                margin-bottom: 3rem;
             }
         }
 
@@ -628,51 +823,58 @@
 
     <!-- Header Navigation -->
     <header>
-        <div class="container nav-wrapper">
-            <a href="index.html" class="logo-group">
-                <img src="icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
-                <span>AO3 Advanced Marker</span>
-            </a>
-            <nav>
-                <a href="#features">Features</a>
-                <a href="#security">Security &amp; Sync</a>
-                <a href="syncGuide.html">Sync Guide</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-nav" target="_blank" rel="noopener">Install</a>
-            </nav>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo-group">
+                    <img src="icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <span>AO3 Advanced Marker</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <a href="#features">Features</a>
+                    <a href="#security">Security &amp; Sync</a>
+                    <a href="syncGuide.html">Sync Guide</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-nav" target="_blank" rel="noopener">Install</a>
+                </nav>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <h1>Enhance Your <span>AO3 Reading</span> Experience</h1>
-                <p>AO3 Advanced Marker is a clean, browser extension designed to elevate how you read, organize, and track your favorite works on Archive of Our Own. Sync your bookmarks, highlights, and history seamlessly.</p>
-                <div class="hero-actions">
-                    <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-primary" target="_blank" rel="noopener">
-                        <!-- Chrome Web Store Icon -->
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 3.7c4.58 0 8.3 3.72 8.3 8.3S16.58 20.3 12 20.3 3.7 16.58 3.7 12s3.72-8.3 8.3-8.3zm0 3.15c-2.84 0-5.15 2.31-5.15 5.15s2.31 5.15 5.15 5.15 5.15-2.31 5.15-5.15-2.31-5.15-5.15-5.15z"/>
-                        </svg>
-                        Install on Chrome Web Store
-                    </a>
-                    <a href="#features" class="btn-secondary">Learn More</a>
-                </div>
-            </div>
-            
-            <div class="mockup-container">
-                <div class="browser-mockup">
-                    <div class="browser-header">
-                        <div class="browser-dots">
-                            <div class="browser-dot red"></div>
-                            <div class="browser-dot yellow"></div>
-                            <div class="browser-dot green"></div>
-                        </div>
-                        <div class="browser-address">chrome-extension://mfpefhlopjkdhgjmihliggklkkkppfan/options.html</div>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Enhance Your <span>AO3 Reading</span> Experience</h1>
+                    <p>AO3 Advanced Marker is a clean, browser extension designed to elevate how you read, organize, and track your favorite works on Archive of Our Own. Sync your bookmarks, highlights, and history seamlessly.</p>
+                    <div class="hero-actions">
+                        <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-primary" target="_blank" rel="noopener">
+                            <!-- Chrome Web Store Icon -->
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 3.7c4.58 0 8.3 3.72 8.3 8.3S16.58 20.3 12 20.3 3.7 16.58 3.7 12s3.72-8.3 8.3-8.3zm0 3.15c-2.84 0-5.15 2.31-5.15 5.15s2.31 5.15 5.15 5.15 5.15-2.31 5.15-5.15-2.31-5.15-5.15-5.15z"/>
+                            </svg>
+                            Install on Chrome Web Store
+                        </a>
+                        <a href="#features" class="btn-secondary">Learn More</a>
                     </div>
-                    <div class="browser-content">
-                        <img src="options.png" alt="AO3 Advanced Marker Dashboard Options" style="width: 100%; height: auto; display: block; border-radius: 0 0 0.75rem 0.75rem;">
+                </div>
+                
+                <div class="mockup-container">
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-dots">
+                                <div class="browser-dot red"></div>
+                                <div class="browser-dot yellow"></div>
+                                <div class="browser-dot green"></div>
+                            </div>
+                            <div class="browser-address">chrome-extension://mfpefhlopjkdhgjmihliggklkkkppfan/options.html</div>
+                        </div>
+                        <div class="browser-content">
+                            <img src="options.png" alt="AO3 Advanced Marker Dashboard Options" style="width: 100%; height: auto; display: block; border-radius: 0 0 0.75rem 0.75rem;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -761,42 +963,61 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-grid">
-            <div class="footer-about">
-                <h3>
-                    <img src="icon48.png" alt="" class="logo-icon" style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
-                    AO3 Advanced Marker
-                </h3>
-                <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>
+                        <img src="icon48.png" alt="" class="logo-icon" style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
+                        AO3 Advanced Marker
+                    </h3>
+                    <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Extension</h4>
+                    <ul>
+                        <li><a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Chrome Web Store</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#security">Security &amp; Cloud Sync</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal &amp; Support</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub Repository</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Extension</h4>
-                <ul>
-                    <li><a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Chrome Web Store</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#security">Security & Cloud Sync</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Legal &amp; Support</h4>
-                <ul>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
-                    <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub Repository</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="container footer-bottom">
-            <p>&copy; 2026 AO3 Advanced Marker. Independent project not affiliated with Archive of Our Own or the Organization for Transformative Works.</p>
-            <div class="footer-bottom-links">
-                <a href="privacy.html">Privacy</a>
-                <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AO3 Advanced Marker. Not affiliated with Archive of Our Own or the OTW.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Rate on Chrome Web Store</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
+        // Hamburger menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const mainNav   = document.getElementById('main-nav');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('open');
+            navToggle.classList.toggle('open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close nav on link click (mobile)
+        mainNav.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                mainNav.classList.remove('open');
+                navToggle.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
         // Highlight the active nav link based on visible section or URL hash
         const navAnchors = document.querySelectorAll('nav a[href^="#"]');
 
