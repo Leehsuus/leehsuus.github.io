@@ -1,824 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AO3 Advanced Marker - Enhance Your Archive of Our Own Experience</title>
     <link rel="icon" type="image/png" href="icon48.png">
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="AO3 Advanced Marker is a clean, privacy-focused browser extension that enhances your reading experience, bookmarks, highlights, and history on Archive of Our Own (AO3) with optional Google Drive sync.">
-    <meta name="keywords" content="AO3, Archive of Our Own, Chrome Extension, Reading History, Bookmark Sync, Google Drive Sync, AO3 extension">
+    <meta name="description"
+        content="AO3 Advanced Marker is a clean, privacy-focused browser extension that enhances your reading experience, bookmarks, highlights, and history on Archive of Our Own (AO3) with optional Google Drive sync.">
+    <meta name="keywords"
+        content="AO3, Archive of Our Own, Chrome Extension, Reading History, Bookmark Sync, Google Drive Sync, AO3 extension">
     <meta name="author" content="AO3 Advanced Marker Team">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="AO3 Advanced Marker - Enhance Your Archive of Our Own Experience">
-    <meta property="og:description" content="Enhance your AO3 reading experience. Save progress, track history, highlight text, and sync across devices via Google Drive.">
-    <meta property="og:image" content="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan">
-    
+    <meta property="og:description"
+        content="Enhance your AO3 reading experience. Save progress, track history, highlight text, and sync across devices via Google Drive.">
+    <meta property="og:image"
+        content="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan">
+
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="ImAikalIVeGy25T-uvCDtjsGHdWL4EyFHMEjF8WJggw" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-
-    <!-- Inline Modern CSS for Instant Load & GitHub Pages Compatibility -->
-    <style>
-        :root {
-            --primary: #990000;
-            --primary-hover: #b30000;
-            --primary-light: #fff0f0;
-            --dark: #0f172a;
-            --dark-muted: #475569;
-            --light: #f8fafc;
-            --border: #e2e8f0;
-            --success: #10b981;
-            --card-bg: #ffffff;
-            --text: #1e293b;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary: #ff4d4d;
-                --primary-hover: #ff6666;
-                --primary-light: #2d0000;
-                --dark: #f8fafc;
-                --dark-muted: #94a3b8;
-                --light: #0f172a;
-                --border: #1e293b;
-                --success: #34d399;
-                --card-bg: #1e293b;
-                --text: #cbd5e1;
-                --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-                --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-                --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
-            }
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Global overflow guard */
-        h1, h2, h3 {
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
-
-        img, svg, video {
-            max-width: 100%;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--light);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Container & Grid layout */
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            box-sizing: border-box;
-        }
-
-        @media (min-width: 640px) {
-            .container { padding: 0 2rem; }
-        }
-
-        /* Header Navigation */
-        header {
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 100;
-            transition: var(--transition);
-        }
-        @media (prefers-color-scheme: dark) {
-            header {
-                background-color: rgba(15, 23, 42, 0.8);
-            }
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 4.5rem;
-        }
-
-        .logo-group {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 700;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        @media (min-width: 480px) {
-            .logo-group { font-size: 1.25rem; }
-        }
-
-        .logo-icon {
-            width: 2.25rem;
-            height: 2.25rem;
-            border-radius: 0.5rem;
-            object-fit: contain;
-            box-shadow: 0 4px 10px rgba(153, 0, 0, 0.25);
-        }
-
-        /* Hamburger Button */
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            width: 2.25rem;
-            height: 2.25rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.25rem;
-            border-radius: 0.375rem;
-            transition: var(--transition);
-            flex-shrink: 0;
-        }
-
-        .nav-toggle:hover { background-color: var(--primary-light); }
-
-        .nav-toggle span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: var(--dark);
-            border-radius: 2px;
-            transition: var(--transition);
-            transform-origin: center;
-        }
-
-        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: var(--dark-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        nav a:hover { color: var(--primary); }
-
-        nav a.nav-active {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .btn-nav {
-            background-color: var(--primary);
-            color: white !important;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 600;
-            box-shadow: var(--shadow-sm);
-            white-space: nowrap;
-        }
-
-        .btn-nav:hover {
-            background-color: var(--primary-hover);
-            color: white !important;
-            transform: translateY(-1px);
-        }
-
-        /* Mobile Nav */
-        @media (max-width: 860px) {
-            .nav-toggle { display: flex; }
-
-            nav {
-                display: none;
-                position: fixed;
-                top: 4.5rem;
-                left: 0;
-                right: 0;
-                background-color: var(--card-bg);
-                border-bottom: 1px solid var(--border);
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0;
-                padding: 0.5rem 0;
-                z-index: 99;
-                box-shadow: var(--shadow-lg);
-            }
-
-            nav.open { display: flex; }
-
-            nav a {
-                padding: 0.875rem 1.5rem;
-                font-size: 1rem;
-                border-bottom: 1px solid var(--border);
-            }
-
-            nav a:last-child { border-bottom: none; }
-
-            .btn-nav {
-                margin: 0.75rem 1.5rem;
-                border-radius: 0.375rem;
-                text-align: center;
-                padding: 0.75rem 1rem;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 4rem 0 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @media (min-width: 768px) {
-            .hero { padding: 6rem 0 4rem; }
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            align-items: center;
-            text-align: center;
-            width: 100%;
-            max-width: 100%;
-        }
-
-        /* All grid children must have min-width: 0 to prevent overflow */
-        .hero-grid > * {
-            min-width: 0;
-            max-width: 100%;
-        }
-
-        .hero-content {
-            min-width: 0;
-            max-width: 100%;
-        }
-
-        .hero-actions {
-            justify-content: center;
-        }
-
-        @media (min-width: 968px) {
-            .hero-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 4rem;
-                text-align: left;
-            }
-            .hero-actions {
-                justify-content: flex-start;
-            }
-        }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.6rem, 6vw, 3.5rem);
-            line-height: 1.2;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            overflow-wrap: break-word;
-            word-break: break-word;
-            max-width: 100%;
-        }
-
-        .hero-content h1 span {
-            color: var(--primary);
-            position: relative;
-            display: inline;
-            background-image: linear-gradient(var(--primary-light), var(--primary-light));
-            background-repeat: no-repeat;
-            background-position: 0 90%;
-            background-size: 100% 8px;
-            padding-bottom: 2px;
-        }
-
-        .hero-content p {
-            font-size: clamp(1rem, 2.5vw, 1.125rem);
-            color: var(--dark-muted);
-            margin-bottom: 2.5rem;
-            max-width: min(540px, 100%);
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @media (min-width: 968px) {
-            .hero-content p {
-                margin-left: 0;
-                margin-right: 0;
-            }
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        /* Stack buttons on very small screens */
-        @media (max-width: 480px) {
-            .hero-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .hero-actions a {
-                justify-content: center;
-                text-align: center;
-                white-space: normal;
-                width: 100%;
-                box-sizing: border-box;
-            }
-        }
-
-        @media (min-width: 968px) {
-            .hero-actions { justify-content: flex-start; }
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background-color: var(--primary);
-            color: white !important;
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            box-shadow: 0 4px 14px rgba(153, 0, 0, 0.35);
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-
-        @media (min-width: 560px) {
-            .btn-primary {
-                padding: 0.875rem 1.75rem;
-                font-size: 1.05rem;
-            }
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(153, 0, 0, 0.45);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: var(--card-bg);
-            color: var(--dark) !important;
-            border: 1px solid var(--border);
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-            white-space: nowrap;
-        }
-
-        @media (min-width: 560px) {
-            .btn-secondary {
-                padding: 0.875rem 1.75rem;
-                font-size: 1.05rem;
-            }
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--dark-muted);
-            background-color: var(--light);
-            transform: translateY(-2px);
-        }
-
-        .btn-primary svg {
-            width: 1.25rem;
-            height: 1.25rem;
-            fill: currentColor;
-            flex-shrink: 0;
-        }
-
-        /* Mockup Container */
-        .mockup-container {
-            position: relative;
-            width: 100%;
-            min-width: 0;
-            overflow: hidden;
-        }
-
-        .browser-mockup {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-xl);
-            overflow: hidden;
-            transition: var(--transition);
-            transform: none;
-        }
-
-        @media (min-width: 968px) {
-            .mockup-container { perspective: 1000px; }
-            .browser-mockup {
-                transform: rotateY(-5deg) rotateX(5deg);
-            }
-            .browser-mockup:hover {
-                transform: rotateY(0deg) rotateX(0deg) scale(1.02);
-            }
-        }
-
-        @media (max-width: 968px) {
-            .browser-mockup {
-                max-width: 100%;
-                margin: 0 auto;
-            }
-        }
-
-        .browser-header {
-            background-color: var(--light);
-            border-bottom: 1px solid var(--border);
-            padding: 0.75rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .browser-dots {
-            display: flex;
-            gap: 0.375rem;
-        }
-
-        .browser-dot {
-            width: 0.75rem;
-            height: 0.75rem;
-            border-radius: 50%;
-        }
-        .browser-dot.red { background-color: #ef4444; }
-        .browser-dot.yellow { background-color: #f59e0b; }
-        .browser-dot.green { background-color: #10b981; }
-
-        .browser-address {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 0.25rem;
-            font-size: 0.75rem;
-            color: var(--dark-muted);
-            padding: 0.25rem 1rem;
-            flex-grow: 1;
-            text-align: left;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-
-        .browser-content {
-            background-color: var(--card-bg);
-            display: block;
-            line-height: 0;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 3rem 0;
-            background-color: var(--card-bg);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        @media (min-width: 768px) {
-            .features { padding: 6rem 0; }
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .section-header { margin: 0 auto 4rem; }
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            color: var(--dark);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--dark-muted);
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        @media (min-width: 560px) {
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (min-width: 900px) {
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-            }
-        }
-
-        .feature-card {
-            padding: 2.5rem 2rem;
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            background-color: var(--light);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-
-        .feature-icon-wrapper {
-            width: 3rem;
-            height: 3rem;
-            background-color: var(--primary-light);
-            color: var(--primary);
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .feature-icon-wrapper svg {
-            width: 1.5rem;
-            height: 1.5rem;
-            fill: currentColor;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            color: var(--dark);
-            font-weight: 600;
-        }
-
-        .feature-card p {
-            color: var(--dark-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Compliance / Google Drive Sync Info Section */
-        .sync-info {
-            padding: 3rem 0;
-            background-color: var(--light);
-        }
-
-        @media (min-width: 768px) {
-            .sync-info { padding: 6rem 0; }
-        }
-
-        .sync-box {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            align-items: center;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            padding: 1.75rem;
-            box-shadow: var(--shadow-lg);
-        }
-
-        @media (min-width: 560px) {
-            .sync-box { padding: 2.5rem; }
-        }
-
-        @media (min-width: 968px) {
-            .sync-box {
-                grid-template-columns: 1.2fr 1fr;
-                gap: 4rem;
-                padding: 3.5rem;
-            }
-        }
-
-        .sync-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.6rem, 4vw, 2.25rem);
-            color: var(--dark);
-            margin-bottom: 1.25rem;
-        }
-
-        .sync-text p {
-            color: var(--dark-muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .sync-points {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .sync-points li {
-            display: flex;
-            gap: 0.75rem;
-            align-items: flex-start;
-            font-size: 0.95rem;
-            color: var(--dark);
-        }
-
-        .sync-points svg {
-            width: 1.25rem;
-            height: 1.25rem;
-            fill: var(--success);
-            flex-shrink: 0;
-            margin-top: 0.15rem;
-        }
-
-        .google-drive-badge {
-            background-color: var(--light);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .gdrive-icon {
-            width: 4rem;
-            height: 4rem;
-        }
-
-        .gdrive-badge-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--dark);
-        }
-
-        .gdrive-badge-desc {
-            font-size: 0.85rem;
-            color: var(--dark-muted);
-            max-width: 240px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: #94a3b8;
-            padding: 3rem 0 2rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.9rem;
-        }
-
-        @media (min-width: 768px) {
-            footer { padding: 4rem 0 2rem; }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            footer {
-                background-color: #0b0f19;
-            }
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        @media (min-width: 560px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 2.5rem;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .footer-grid {
-                grid-template-columns: 2fr 1fr 1fr;
-                gap: 4rem;
-                margin-bottom: 3rem;
-            }
-        }
-
-        .footer-about h3 {
-            color: white;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-about p {
-            max-width: 320px;
-            line-height: 1.6;
-        }
-
-        .footer-links h4 {
-            color: white;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .footer-links ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .footer-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #1e293b;
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-bottom p {
-            font-size: 0.85rem;
-        }
-
-        .footer-bottom-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-bottom-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: var(--transition);
-        }
-
-        .footer-bottom-links a:hover {
-            color: white;
-        }
-    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <!-- Header Navigation -->
@@ -834,129 +52,305 @@
                 </button>
                 <nav id="main-nav">
                     <a href="#features">Features</a>
-                    <a href="#security">Security &amp; Sync</a>
-                    <a href="syncGuide.html">Sync Guide</a>
+                    <a href="#pro">Support (PRO)</a>
+                    <a href="manuals.html">Manuals</a>
                     <a href="privacy.html">Privacy Policy</a>
-                    <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-nav" target="_blank" rel="noopener">Install</a>
+                    <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                        class="btn-nav" target="_blank" rel="noopener">Install</a>
                 </nav>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="container">
             <div class="hero-grid">
-                <div class="hero-content">
-                    <h1>Enhance Your <span>AO3 Reading</span> Experience</h1>
-                    <p>AO3 Advanced Marker is a clean, browser extension designed to elevate how you read, organize, and track your favorite works on Archive of Our Own. Sync your bookmarks, highlights, and history seamlessly.</p>
+                <div class="hero-content fade-up">
+                    <h1>Ultimate Tool for <span>Archive of Our Own</span></h1>
+                    <p>Upgrade your fic reading experience. Track your history, highlight quotes, manage your queue, and
+                        sync securely across devices—all without leaving AO3.</p>
                     <div class="hero-actions">
-                        <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-primary" target="_blank" rel="noopener">
-                            <!-- Chrome Web Store Icon -->
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 3.7c4.58 0 8.3 3.72 8.3 8.3S16.58 20.3 12 20.3 3.7 16.58 3.7 12s3.72-8.3 8.3-8.3zm0 3.15c-2.84 0-5.15 2.31-5.15 5.15s2.31 5.15 5.15 5.15 5.15-2.31 5.15-5.15-2.31-5.15-5.15-5.15z"/>
+                        <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                            class="btn-primary" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
                             </svg>
-                            Install on Chrome Web Store
+                            Install Extension
                         </a>
-                        <a href="#features" class="btn-secondary">Learn More</a>
+                        <a href="#pro" class="btn-secondary">Explore PRO Features</a>
                     </div>
                 </div>
-                
-                <div class="mockup-container">
-                    <div class="browser-mockup">
+
+                <div class="hero-visual fade-up" style="transition-delay: 200ms;">
+                    <div class="hero-mockup">
                         <div class="browser-header">
                             <div class="browser-dots">
                                 <div class="browser-dot red"></div>
                                 <div class="browser-dot yellow"></div>
                                 <div class="browser-dot green"></div>
                             </div>
-                            <div class="browser-address">chrome-extension://mfpefhlopjkdhgjmihliggklkkkppfan/options.html</div>
                         </div>
-                        <div class="browser-content">
-                            <img src="options.png" alt="AO3 Advanced Marker Dashboard Options" style="width: 100%; height: auto; display: block; border-radius: 0 0 0.75rem 0.75rem;">
-                        </div>
+                        <img src="options.png" alt="AO3 Advanced Marker Dashboard Interface"
+                            style="display: block; width: 100%;">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Features Showcase -->
+    <section id="features" class="showcase-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Designed for Avid Readers</h2>
-                <p>Enjoy a host of modern features tailored specifically to optimize your browsing and reading habits on Archive of Our Own.</p>
+            <div class="section-header fade-up">
+                <h2>Powerful Tools. Seamless Integration.</h2>
+                <p>Everything you need to organize your reading, built directly into the AO3 interface you already know
+                    and love.</p>
             </div>
-            
-            <div class="features-grid">
-                <!-- Feature 1 -->
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M3 20v-8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8M3 10V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/></svg>
-                    </div>
-                    <h3>Reading Progress Sync</h3>
-                    <p>Automatically bookmarks your reading position. Pick up exactly where you left off on multi-chapter fanfics, whether you are on desktop or mobile.</p>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <h3>Want to Read Queue</h3>
-                    <p>Organize your reading list dynamically. Mark works as "Want to Read" and access your customized queue directly from the AO3 header menu.</p>
-                </div>
 
-                <!-- Feature 3 -->
-                <div class="feature-card">
-                    <div class="feature-icon-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <h3>Highlights & Notes</h3>
-                    <p>Highlight your favorite lines, reactions, or dialogue directly within the work. Add personal notes that persist on the page for future re-reads.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cloud Sync & Privacy Section -->
-    <section id="security" class="sync-info">
-        <div class="container">
-            <div class="sync-box">
-                <div class="sync-text">
-                    <h2>Secure & Private Cloud Backup</h2>
-                    <p>We believe your reading habits should remain private. Unlike other extensions, AO3 Advanced Marker does not utilize central servers to store your data. Instead, it utilizes your personal cloud storage.</p>
-                    <ul class="sync-points">
+            <!-- Feature 1: Reading Status -->
+            <div class="feature-row fade-up">
+                <div class="feature-text">
+                    <h3>
+                        Reading Status &amp; Progress
+                        <span class="feature-badge">FREE</span>
+                    </h3>
+                    <p>Never lose your place again. Mark works as Read, Partially Read, or Do Not Read directly from the
+                        blurb or the work page itself.</p>
+                    <ul class="feature-list">
                         <li>
-                            <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-                            <span><strong>Direct Sync:</strong> Syncs bookmarks, highlights, and history directly with your Google Drive.</span>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Visual tags on blurbs
                         </li>
                         <li>
-                            <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-                            <span><strong>App-Specific Access:</strong> Only accesses its own dedicated app folder inside your Drive. It cannot view, edit, or delete any other files.</span>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Chapter-level progress tracking
                         </li>
                         <li>
-                            <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-                            <span><strong>Strict Privacy:</strong> No personal details, passwords, or browsing data are ever collected, sold, or shared with third parties.</span>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Automatic native AO3 bookmark sync
                         </li>
                     </ul>
-                    <a href="privacy.html" class="btn-secondary">Read Full Privacy Policy</a>
                 </div>
-                
-                <div class="google-drive-badge">
-                    <!-- Google Drive Icon -->
-                    <svg class="gdrive-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-label="Google Drive">
-                        <path d="m126 417q9 5 19 5H367q9 0 19-5V313H99" fill="#4285f4"/>
-                        <path d="m196 87q9-5 20-5h80q12 0 20 5v104h-68" fill="#188038"/>
-                        <path d="m66 313q0-10 5-19l110-191q6-11 15-16l60 104-72 125" fill="#34a853"/>
-                        <path d="M316 87q10 6 15 16L438 289q8 12 8 24l-118 3-72-125" fill="#fbbc04"/>
-                        <path d="m185.714 313H66q0 8 3 15l40 70q7 13 17 19" fill="#1967d2"/>
-                        <path d="m386 417q9-5 16-17l38-66q6-10 6-21H326.3" fill="#ea4335"/>
-                    </svg>
-                    <div class="gdrive-badge-title">Google Drive Verified</div>
-                    <div class="gdrive-badge-desc">Fully compliant with Google API OAuth 2.0 security policies and limited use guidelines.</div>
+                <div class="feature-media">
+                    <!-- scale=2, x/y move the zoomed frame: negative x → pan right, negative y → pan down -->
+                    <div class="video-zoom-wrap" style="--vz-scale: 2.2; --vz-x: -5%; --vz-y: -2%;">
+                        <video autoplay loop muted playsinline>
+                            <source src="assets/visualtags.mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Feature 2: Text Highlights (PRO) -->
+            <div class="feature-row reverse fade-up">
+                <div class="feature-text">
+                    <h3>
+                        Text Highlights &amp; Notes
+                        <span class="feature-badge"
+                            style="background: rgba(255, 215, 0, 0.2); color: #b8860b;">PRO</span>
+                    </h3>
+                    <p>Select any text to highlight it in vibrant colors. Write private chapter reviews, rate chapters
+                        with stars, and view all your annotations in your personal Notebook.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Floating color menu with dark/light mode support
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Scrollbar minimap to easily locate annotations
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Searchable Notebook dashboard
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <div class="video-zoom-wrap" style="--vz-scale: 2.2; --vz-x: -5%; --vz-y: -2%;">
+                        <video autoplay loop muted playsinline>
+                            <source src="assets/highlight-demo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3: Want to Read (PRO) -->
+            <div class="feature-row fade-up">
+                <div class="feature-text">
+                    <h3>
+                        Want To Read Queue
+                        <span class="feature-badge"
+                            style="background: rgba(255, 215, 0, 0.2); color: #b8860b;">PRO</span>
+                    </h3>
+                    <p>Build your reading list effortlessly. Click the bookmark icon on any blurb to add it to your
+                        queue, accessible instantly from the AO3 header dropdown anywhere on the site.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            One-click queueing from search results
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Auto-cleanup when a work is marked as read
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Dedicated WTR filter for your bookmarks page
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <div class="video-zoom-wrap" style="--vz-scale: 2.2; --vz-x: -5%; --vz-y: -2%;">
+                        <video autoplay loop muted playsinline>
+                            <source src="assets/wtr-demo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 4: Cloud Sync -->
+            <div class="feature-row reverse fade-up">
+                <div class="feature-text">
+                    <h3>
+                        Google Drive Sync
+                        <span class="feature-badge">FREE</span>
+                    </h3>
+                    <p>Never lose your reading history. Automatically backup your reading status, settings, highlights,
+                        and reviews to your personal Google Drive or JSONBin.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Secure OAuth 2.0 connection
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Cross-device synchronization
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            100% private. We don't host any of your data.
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-media"
+                    style="padding: 2rem; background: var(--light); display: flex; align-items: center; justify-content: center; border-radius: 1rem; border: 1px solid var(--border);">
+                    <div style="text-align: center;">
+                        <svg viewBox="0 0 24 24" style="width: 4rem; height: 4rem; fill: #10b981; margin-bottom: 1rem;">
+                            <path
+                                d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" />
+                        </svg>
+                        <h4 style="font-size: 1.25rem; font-weight: 600;">Seamless Cloud Backup</h4>
+                        <p style="color: var(--dark-muted); font-size: 0.95rem;">Sync securely to your personal Drive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 5: Bookmark Grouping (PRO) -->
+            <div class="feature-row fade-up">
+                <div class="feature-text">
+                    <h3>
+                        Bookmark Folder Grouping
+                        <span class="feature-badge"
+                            style="background: rgba(255, 215, 0, 0.2); color: #b8860b;">PRO</span>
+                    </h3>
+                    <p>Clean up your massive bookmark list. Automatically group your AO3 bookmarks into beautiful,
+                        color-coded collapsible folders sorted by Fandom.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Custom folder colors
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                            Collapsible UI for better navigation
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-media">
+                    <div class="video-zoom-wrap" style="--vz-scale: 2.2; --vz-x: -5%; --vz-y: -2%;">
+                        <video autoplay loop muted playsinline>
+                            <source src="assets/bookmarks-demo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- Support / PRO Section -->
+    <section id="pro" class="pro-section">
+        <div class="container">
+            <div class="pro-card fade-up">
+                <h2>Support the Project &amp; Unlock PRO</h2>
+                <p>AO3 Advanced Marker is built with love by a solo developer. By supporting the project with a one-time
+                    purchase, you get a lifetime license to all premium features and help keep the extension ad-free and
+                    tracking-free forever.</p>
+
+                <div class="pro-features">
+                    <div class="pro-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                        </svg>
+                        <span>Text Highlights &amp; Annotations Minimap</span>
+                    </div>
+                    <div class="pro-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                        </svg>
+                        <span>Want To Read (WTR) Queue &amp; Header UI</span>
+                    </div>
+                    <div class="pro-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                        </svg>
+                        <span>Bookmark Fandom Grouping Folders</span>
+                    </div>
+                    <div class="pro-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                        </svg>
+                        <span>Books Progress Tracking and Reading Stats (Coming soon)</span>
+                    </div>
+                </div>
+
+                <a href="https://leehsuus.gumroad.com/l/ao3AdvancedMarkerPro" target="_blank" rel="noopener"
+                    class="btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                    Support the Creator
+                </a>
             </div>
         </div>
     </section>
@@ -967,41 +361,49 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <h3>
-                        <img src="icon48.png" alt="" class="logo-icon" style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
+                        <img src="icon48.png" alt="" class="logo-icon"
+                            style="width: 1.5rem; height: 1.5rem; box-shadow: none;">
                         AO3 Advanced Marker
                     </h3>
-                    <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+                    <p>A privacy-first browser extension designed to enhance your Archive of Our Own reading experience
+                        with history tracking, bookmarks, and cloud sync.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Extension</h4>
+                    <h4>Resources</h4>
                     <ul>
-                        <li><a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Chrome Web Store</a></li>
                         <li><a href="#features">Features</a></li>
-                        <li><a href="#security">Security &amp; Cloud Sync</a></li>
+                        <li><a href="#pro">Support (PRO)</a></li>
+                        <li><a href="manuals.html">Manuals &amp; Guides</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Legal &amp; Support</h4>
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
-                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub Repository</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site/issues" target="_blank"
+                                rel="noopener">Report an Issue</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank"
+                                rel="noopener">GitHub Repository</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 AO3 Advanced Marker. Not affiliated with Archive of Our Own or the OTW.</p>
-                <div class="footer-bottom-links">
-                    <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" target="_blank" rel="noopener">Rate on Chrome Web Store</a>
-                </div>
+                <p>&copy; 2026 AO3 Advanced Marker. Not affiliated with the Organization for Transformative Works.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Video Lightbox Overlay (driven by JS) -->
+    <div id="video-lightbox-backdrop"></div>
+    <div id="video-lightbox">
+        <video autoplay loop muted playsinline></video>
+    </div>
+
+
     <script>
-        // Hamburger menu toggle
+        // Mobile navigation toggle
         const navToggle = document.getElementById('nav-toggle');
-        const mainNav   = document.getElementById('main-nav');
+        const mainNav = document.getElementById('main-nav');
 
         navToggle.addEventListener('click', () => {
             const isOpen = mainNav.classList.toggle('open');
@@ -1009,7 +411,6 @@
             navToggle.setAttribute('aria-expanded', isOpen);
         });
 
-        // Close nav on link click (mobile)
         mainNav.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
                 mainNav.classList.remove('open');
@@ -1018,35 +419,87 @@
             });
         });
 
-        // Highlight the active nav link based on visible section or URL hash
-        const navAnchors = document.querySelectorAll('nav a[href^="#"]');
-
-        function setActive(hash) {
-            navAnchors.forEach(a => a.classList.remove('nav-active'));
-            if (!hash) return;
-            const link = document.querySelector(`nav a[href="${hash}"]`);
-            if (link) link.classList.add('nav-active');
-        }
-
-        // Set on initial load if there is a hash
-        if (location.hash) setActive(location.hash);
-
-        // Update on scroll using IntersectionObserver
-        const sections = document.querySelectorAll('section[id]');
-        const observer = new IntersectionObserver((entries) => {
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setActive('#' + entry.target.id);
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.35 });
+        }, { threshold: 0.15 });
 
-        sections.forEach(s => observer.observe(s));
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        // Clear active when scrolled back to the very top (hero)
-        window.addEventListener('scroll', () => {
-            if (window.scrollY < 80) setActive(null);
-        }, { passive: true });
+        // Scroll Spy for Nav Links
+        const spyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('#main-nav a[href^="#"]').forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -60% 0px' });
+
+        document.querySelectorAll('section[id]').forEach(sec => spyObserver.observe(sec));
+
+        // ---- Video Click Lightbox ----
+        const lb = document.getElementById('video-lightbox');
+        const lbBg = document.getElementById('video-lightbox-backdrop');
+        const lbVideo = lb.querySelector('video');
+        let lbOpen = false;
+
+        // Expand size: 72 vw wide, max 960 px, centered on screen
+        function getLbSize() {
+            const w = Math.min(window.innerWidth * 0.72, 960);
+            return { w, h: w * (9 / 16) };
+        }
+
+        function openLightbox(wrap) {
+            const src = wrap.querySelector('source').src;
+            lbVideo.src = src;
+            lbVideo.load();
+            lbVideo.play().catch(() => { });
+
+            const { w, h } = getLbSize();
+            lb.style.width = w + 'px';
+            lb.style.height = h + 'px';
+            lb.style.left = ((window.innerWidth - w) / 2) + 'px';
+            lb.style.top = ((window.innerHeight - h) / 2) + 'px';
+
+            lb.style.display = 'block';
+            lbBg.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            lbOpen = true;
+        }
+
+        function closeLightbox() {
+            lb.style.display = 'none';
+            lbBg.style.display = 'none';
+            lbVideo.pause();
+            document.body.style.overflow = '';
+            lbOpen = false;
+        }
+
+        document.querySelectorAll('.video-zoom-wrap').forEach(wrap => {
+            wrap.addEventListener('click', () => openLightbox(wrap));
+        });
+
+        lbBg.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && lbOpen) closeLightbox();
+        });
+
+        window.addEventListener('resize', () => {
+            if (!lbOpen) return;
+            const { w, h } = getLbSize();
+            lb.style.width = w + 'px';
+            lb.style.height = h + 'px';
+            lb.style.left = ((window.innerWidth - w) / 2) + 'px';
+            lb.style.top = ((window.innerHeight - h) / 2) + 'px';
+        });
     </script>
 </body>
+
 </html>
