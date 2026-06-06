@@ -1373,3 +1373,72 @@ footer {
         font-size: 0.8rem;
     }
 }
+
+/* --- RELEASES STYLES --- */
+.release-major-group {
+    margin-bottom: 3rem;
+    background: var(--card-bg-solid);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.release-major-title {
+    background: var(--light);
+    padding: 1.5rem 2rem;
+    font-size: 1.5rem;
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+}
+
+.release-minor-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.release-block {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.release-block:last-child {
+    border-bottom: none;
+}
+
+.release-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.release-version {
+    font-size: 1.25rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    margin: 0;
+}
+
+.release-date {
+    font-size: 0.9rem;
+    color: var(--dark-muted);
+    font-weight: 500;
+}
+
+.release-features {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.release-features li {
+    font-size: 1.05rem;
+}

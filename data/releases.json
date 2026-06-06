@@ -1,0 +1,105 @@
+[
+  {
+    "major": "15",
+    "versions": [
+      {
+        "version": "15.0",
+        "date": "Coming Soon",
+        "features": [
+          "Active Notification Engine to alert you whenever your saved fics get new chapter updates."
+        ]
+      }
+    ]
+  },
+  {
+    "major": "14",
+    "versions": [
+      {
+        "version": "14.0",
+        "date": "In Development",
+        "features": [
+          "Books Tracking Module to log pages read, track annual book goals, and rate physical/e-books alongside your AO3 fics."
+        ]
+      }
+    ]
+  },
+  {
+    "major": "13",
+    "versions": [
+      {
+        "version": "13.1",
+        "date": "2026-06-05",
+        "features": [
+          "Added a 'Notebook' tab to view and manage all your saved chapter reviews in one place.",
+          "Optimized the extension's package size by loading demonstration media dynamically, making it faster to install and lighter on your browser."
+        ]
+      },
+      {
+        "version": "13.0",
+        "date": "2026-06-05",
+        "features": [
+          "Introduced Google Drive synchronization to easily backup and restore your reading data across devices.",
+          "Implemented secure Google account login for seamless cloud storage access.",
+          "Added automatic daily background backups for JSONBin.io to keep your data safe without manual effort.",
+          "Added the ability to manually download and restore your cloud backups directly from the interface.",
+          "Redesigned the review and analysis modal interface for a cleaner and more modern look."
+        ]
+      }
+    ]
+  },
+  {
+    "major": "12",
+    "versions": [
+      {
+        "version": "12.1",
+        "date": "2026-06-05",
+        "features": [
+          "Fixed a bug where the 'Want to Read' button would incorrectly re-enable after reading subsequent chapters of a work."
+        ]
+      },
+      {
+        "version": "12.0",
+        "date": "2026-05-16",
+        "features": [
+          "Introduced the 'Want to Read' queue (PRO feature), allowing you to save fics for later directly from the search and tag pages."
+        ]
+      }
+    ]
+  },
+  {
+    "major": "11",
+    "versions": [
+      {
+        "version": "11.1",
+        "date": "2026-05-11",
+        "features": [
+          "Streamlined cloud settings by unifying the synchronization process for both reading progress and chapter reviews.",
+          "Added a custom scrollbar to the Highlights menu to prevent infinite scrolling issues when managing many saved highlights."
+        ]
+      },
+      {
+        "version": "11.0",
+        "date": "2026-05-08",
+        "features": [
+          "Completely redesigned the extension's Options Dashboard for a more intuitive, user-friendly, and premium experience."
+        ]
+      }
+    ]
+  },
+  {
+    "major": "10",
+    "versions": [
+      {
+        "version": "10.1",
+        "date": "2026-04-27",
+        "features": [
+          "Added color-coded visual indicators directly on the scrollbar so you can easily spot your highlights while reading.",
+          "Improved statistics formatting to display 'Millions' instead of thousands for very high word counts.",
+          "Adjusted the extension icon size for better visibility on Firefox Mobile.",
+          "Fixed an issue where the highlight color menu could overlap with other page elements.",
+          "Ensured the highlight menu dynamically respects your PRO status and feature toggles."
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Releases & Changelog - AO3 Advanced Marker</title>
+    <link rel="icon" type="image/png" href="icon48.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Release notes, changelog, and updates for the AO3 Advanced Marker extension.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="manual-header" style="background: var(--surface);">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo-group">
+                    <img src="icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <span>AO3 Advanced Marker</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#pro">Support (PRO)</a>
+                    <a href="manuals.html">Manuals</a>
+                    <a href="releases.html" class="active">Releases</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-nav" target="_blank" rel="noopener">Install</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="manual-hero" style="padding: 100px 0 60px;">
+        <div class="container">
+            <h1 style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 1rem;">Release Notes</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px;">Keep up to date with the latest features, fixes, and improvements added to the extension.</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="page-content" style="padding-bottom: 80px;">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <div id="releases-container">
+                <p>Loading releases...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>
+                        <img src="icon48.png" alt="" class="logo-icon" style="width: 1.5rem; height: 1.5rem; box-shadow: none;">
+                        AO3 Advanced Marker
+                    </h3>
+                    <p>A privacy-first browser extension designed to enhance your Archive of Our Own reading experience.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#pro">Support (PRO)</a></li>
+                        <li><a href="manuals.html">Manuals & Guides</a></li>
+                        <li><a href="releases.html">Release Notes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal & Support</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site/issues" target="_blank" rel="noopener">Report an Issue</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AO3 Advanced Marker. Not affiliated with the Organization for Transformative Works.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const mainNav = document.getElementById('main-nav');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('open');
+            navToggle.classList.toggle('open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Load Releases Logic
+        async function loadReleases() {
+            const container = document.getElementById('releases-container');
+            try {
+                const res = await fetch('data/releases.json');
+                const data = await res.json();
+                
+                if (!data || data.length === 0) {
+                    container.innerHTML = '<p>No release notes found.</p>';
+                    return;
+                }
+
+                container.innerHTML = '';
+                
+                // Group by Major versions
+                data.forEach(majorGroup => {
+                    const groupEl = document.createElement('div');
+                    groupEl.className = 'release-major-group';
+                    
+                    const groupTitle = document.createElement('h2');
+                    groupTitle.className = 'release-major-title';
+                    groupTitle.textContent = `Version ${majorGroup.major}`;
+                    groupEl.appendChild(groupTitle);
+                    
+                    const listEl = document.createElement('div');
+                    listEl.className = 'release-minor-list';
+                    
+                    majorGroup.versions.forEach(rel => {
+                        const relBlock = document.createElement('div');
+                        relBlock.className = 'release-block';
+                        
+                        let featuresHtml = '';
+                        if (rel.features && rel.features.length > 0) {
+                            featuresHtml = '<ul class="release-features">' + 
+                                rel.features.map(f => `<li>${f}</li>`).join('') + 
+                            '</ul>';
+                        }
+                        
+                        relBlock.innerHTML = `
+                            <div class="release-header">
+                                <h3 class="release-version">v${rel.version}</h3>
+                                <span class="release-date">${rel.date}</span>
+                            </div>
+                            ${featuresHtml}
+                        `;
+                        listEl.appendChild(relBlock);
+                    });
+                    
+                    groupEl.appendChild(listEl);
+                    container.appendChild(groupEl);
+                });
+                
+            } catch (err) {
+                console.error("Error loading releases:", err);
+                container.innerHTML = '<p>Error loading release notes.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadReleases);
+    </script>
+</body>
+</html>
