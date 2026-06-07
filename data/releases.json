@@ -27,6 +27,18 @@
     "major": "13",
     "versions": [
       {
+        "version": "13.2",
+        "date": "2026-06-06",
+        "features": [
+          "Fixed an issue where submitting a comment would cause the page to lose its references and the extension to stop functioning.",
+          "Added a custom scrollbar to the Notebook tab to prevent infinite scrolling on the main page.",
+          "Hidden the manual upload button on AO3 when automatic backups (Google Drive or JSONBin.io) are enabled.",
+          "Fixed an issue where the saved chapter link in the notebook did not correctly navigate to the chapter page.",
+          "Fixed an issue where restoring a Drive backup caused notebook items to display incorrect metadata (e.g., unknown author or tag IDs instead of names) when local reading history was missing.",
+          "Fixed the infinite scrolling issue in the reading history table on the stats panel by implementing a robust IntersectionObserver pagination system."
+        ]
+      },
+      {
         "version": "13.1",
         "date": "2026-06-05",
         "features": [
