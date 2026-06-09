@@ -27,6 +27,15 @@
     "major": "13",
     "versions": [
       {
+        "version": "13.3",
+        "date": "2026-06-09",
+        "features": [
+          "Completed the logic for bidirectional hexadecimal color synchronization.",
+          "Enforced global and local infinite scroll configuration settings.",
+          "Ensured consistent pagination behavior across listing types and bookmark grouping modes."
+        ]
+      },
+      {
         "version": "13.2",
         "date": "2026-06-06",
         "features": [
