@@ -27,6 +27,14 @@
     "major": "13",
     "versions": [
       {
+        "version": "13.4",
+        "date": "2026-06-21",
+        "features": [
+          "Separated 'Want to Read' bookmarks from the standard bookmark listing — WTR items are now hidden by default and accessible via a dedicated 'Want to Read' button.",
+          "Added a persistent floating Chapter Review button that follows the scroll on work pages, with auto-save when clicking outside the modal and a toggle in the Options dashboard to enable/disable it."
+        ]
+      },
+      {
         "version": "13.3",
         "date": "2026-06-09",
         "features": [
