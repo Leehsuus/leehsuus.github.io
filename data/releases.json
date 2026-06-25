@@ -27,6 +27,13 @@
     "major": "13",
     "versions": [
       {
+        "version": "13.5",
+        "date": "2026-06-25",
+        "features": [
+          "Fixed an incorrect word count being recorded on Firefox for Android — numbers formatted with locale-specific thousand separators (spaces or non-breaking spaces) are now correctly parsed."
+        ]
+      },
+      {
         "version": "13.4",
         "date": "2026-06-21",
         "features": [
