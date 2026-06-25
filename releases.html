@@ -14,7 +14,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
 
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="styles.css">
@@ -39,7 +41,8 @@
                     <a href="manuals.html">Manuals</a>
                     <a href="releases.html" class="active">Releases</a>
                     <a href="privacy.html">Privacy Policy</a>
-                    <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank" rel="noopener">Install</a>
+                    <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank"
+                        rel="noopener">Install</a>
                 </nav>
             </div>
         </div>
@@ -49,7 +52,8 @@
     <section class="manual-hero" style="padding: 100px 0 60px;">
         <div class="container">
             <h1 style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 1rem;">Release Notes</h1>
-            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px;">Keep up to date with the latest features, fixes, and improvements added to the extension.</p>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px;">Keep up to date with the latest
+                features, fixes, and improvements added to the extension.</p>
         </div>
     </section>
 
@@ -68,10 +72,12 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <h3>
-                        <img src="icon48.png" alt="" class="logo-icon" style="width: 1.5rem; height: 1.5rem; box-shadow: none;">
+                        <img src="icon48.png" alt="" class="logo-icon"
+                            style="width: 1.5rem; height: 1.5rem; box-shadow: none;">
                         AO3 Advanced Marker
                     </h3>
-                    <p>A privacy-first browser extension designed to enhance your Archive of Our Own reading experience.</p>
+                    <p>A privacy-first browser extension designed to enhance your Archive of Our Own reading experience.
+                    </p>
                 </div>
                 <div class="footer-links">
                     <h4>Resources</h4>
@@ -86,13 +92,16 @@
                     <h4>Legal & Support</h4>
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="https://github.com/leehsuus/ao3-extension-site/issues" target="_blank" rel="noopener">Report an Issue</a></li>
-                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub Repository</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site/issues" target="_blank"
+                                rel="noopener">Report an Issue</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank"
+                                rel="noopener">GitHub Repository</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 AO3 Advanced Marker. Not affiliated with the Organization for Transformative Works.</p>
+                <p>&copy; 2025-2026 AO3 Advanced Marker. Not affiliated with the Organization for Transformative Works.
+                </p>
             </div>
         </div>
     </footer>
@@ -114,38 +123,38 @@
             try {
                 const res = await fetch('data/releases.json');
                 const data = await res.json();
-                
+
                 if (!data || data.length === 0) {
                     container.innerHTML = '<p>No release notes found.</p>';
                     return;
                 }
 
                 container.innerHTML = '';
-                
+
                 // Group by Major versions
                 data.forEach(majorGroup => {
                     const groupEl = document.createElement('div');
                     groupEl.className = 'release-major-group';
-                    
+
                     const groupTitle = document.createElement('h2');
                     groupTitle.className = 'release-major-title';
                     groupTitle.textContent = `Version ${majorGroup.major}`;
                     groupEl.appendChild(groupTitle);
-                    
+
                     const listEl = document.createElement('div');
                     listEl.className = 'release-minor-list';
-                    
+
                     majorGroup.versions.forEach(rel => {
                         const relBlock = document.createElement('div');
                         relBlock.className = 'release-block';
-                        
+
                         let featuresHtml = '';
                         if (rel.features && rel.features.length > 0) {
-                            featuresHtml = '<ul class="release-features">' + 
-                                rel.features.map(f => `<li>${f}</li>`).join('') + 
-                            '</ul>';
+                            featuresHtml = '<ul class="release-features">' +
+                                rel.features.map(f => `<li>${f}</li>`).join('') +
+                                '</ul>';
                         }
-                        
+
                         relBlock.innerHTML = `
                             <div class="release-header">
                                 <h3 class="release-version">v${rel.version}</h3>
@@ -155,11 +164,11 @@
                         `;
                         listEl.appendChild(relBlock);
                     });
-                    
+
                     groupEl.appendChild(listEl);
                     container.appendChild(groupEl);
                 });
-                
+
             } catch (err) {
                 console.error("Error loading releases:", err);
                 container.innerHTML = '<p>Error loading release notes.</p>';
@@ -176,12 +185,20 @@
         <h3>Choose your browser</h3>
         <p>Select the store for your browser to install the extension.</p>
         <div class="install-options">
-            <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-install-option btn-chrome" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+            <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                class="btn-install-option btn-chrome" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+                </svg>
                 Chrome Web Store
             </a>
-            <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/" class="btn-install-option btn-firefox" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0"><path d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z"/></svg>
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/"
+                class="btn-install-option btn-firefox" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                    <path
+                        d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z" />
+                </svg>
                 Firefox Add-ons
             </a>
         </div>
@@ -204,4 +221,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive Sync Guide – AO3 Advanced Marker</title>
+    <link rel="icon" type="image/png" href="icon48.png">
+    <meta name="description"
+        content="Step-by-step guide to setting up Google Drive cloud synchronization for AO3 Advanced Marker Pro.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo-group">
+                    <img src="icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <span>AO3 Advanced Marker</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#pro">Support (PRO)</a>
+                    <a href="manuals.html" class="active">Manuals</a>
+                    <a href="releases.html">Releases</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank"
+                        rel="noopener">Install</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <a href="manuals.html">Manuals</a>
+                <span>›</span>
+                <span>Google Drive Sync</span>
+            </div>
+            <h1>Google Drive <span>Sync</span> Guide</h1>
+            <p>Set up seamless cross-device sync using your personal Google Drive account — no API keys or third-party
+                accounts required.</p>
+        </div>
+    </div>
+
+    <!-- Guide Body -->
+    <div class="container">
+        <div class="guide-layout">
+
+            <!-- Main Content -->
+            <article class="guide-content">
+
+                <p>Seamless cross-device syncing is here! With the Google Drive integration, you no longer need to
+                    manually manage third-party API accounts, secret keys, or long Bin IDs. Your reading data is stored
+                    privately inside your own personal Google Drive account and is never shared.</p>
+
+                <!-- Section 1 -->
+                <div class="guide-section" id="sync-logic">
+                    <div class="section-title">
+                        <div class="section-num">1</div>
+                        <h2>The Synchronization Logic &amp; Multi-Device Rule</h2>
+                    </div>
+
+                    <p>To ensure total control over your reading data and protect your progress from accidental
+                        overwrites when hopping between devices, synchronization remains
+                        <strong>semi-automatic</strong>:
+                    </p>
+
+                    <ul>
+                        <li><strong>Automatic Backup:</strong> When turned on, the extension pushes your local markers
+                            to your Google Drive in the background every 24 hours.</li>
+                        <li><strong>Manual Sync:</strong> Triggered via the dedicated buttons placed directly inside the
+                            Archive of Our Own (AO3) interface.</li>
+                    </ul>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>Multi-Device Golden Rule</strong>
+                            <p>If you read on multiple devices (like your PC and a smartphone), enable <strong>Automatic
+                                    Backup ONLY on your primary device</strong> (the one you use most often). Keep it
+                                disabled on secondary devices. When switching to a secondary device, click
+                                <strong>Download</strong> to sync your local state before reading.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 2 -->
+                <div class="guide-section" id="desktop-setup">
+                    <div class="section-title">
+                        <div class="section-num">2</div>
+                        <h2>Desktop Setup (Chrome, Firefox, Edge, Opera, Opera GX, Brave)</h2>
+                    </div>
+
+                    <p>Setting up your cloud connection on a desktop browser takes just two clicks:</p>
+
+                    <ol class="step-list">
+                        <li>
+                            <div class="step-badge">1</div>
+                            <span>Navigate to the extension menu and select the <strong>Cloud Settings</strong>
+                                tab.</span>
+                        </li>
+                        <li>
+                            <div class="step-badge">2</div>
+                            <span>Under <strong>Storage Provider</strong>, select <strong>Google Drive</strong>.</span>
+                        </li>
+                        <li>
+                            <div class="step-badge">3</div>
+                            <span>Click <strong>Log In with Google</strong> and complete the authorization
+                                prompt.</span>
+                        </li>
+                    </ol>
+
+                    <figure class="figure">
+                        <img src="driveButton.png" alt="Google Drive Storage Provider Settings">
+                        <figcaption>Figure 1 — Activating Google Drive as your storage provider in Cloud Settings.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 3 -->
+                <div class="guide-section" id="firefox-android">
+                    <div class="section-title">
+                        <div class="section-num">3</div>
+                        <h2>Firefox for Android Setup (Manual Token Import)</h2>
+                    </div>
+
+                    <p>Firefox for Android restricts extensions from spawning external authentication popups. To bypass
+                        this limitation, copy an authentication token generated from any of your desktop browsers.</p>
+
+                    <h3>Step 3.1 — Exporting the Token from Desktop</h3>
+                    <p>On your logged-in desktop extension, go to <strong>Cloud Settings</strong>. Under the active
+                        Google Account panel, click <strong>Export Sync Token</strong>. Copy the long encrypted string
+                        that appears in the text area.</p>
+
+                    <figure class="figure">
+                        <img src="exportingToken.png" alt="Exporting Google Sync Token from Desktop">
+                        <figcaption>Figure 2 — Generating and copying your manual cross-device sync token on desktop.
+                        </figcaption>
+                    </figure>
+
+                    <h3>Step 3.2 — Importing the Token into Firefox Mobile</h3>
+                    <p>Open the extension settings in your Firefox for Android app. Select <strong>Google
+                            Drive</strong>, then click <em>"Using Firefox for Android? Import Token manually"</em>.
+                        Paste your copied string and click <strong>Import</strong>.</p>
+
+                    <figure class="figure">
+                        <img src="loginButtons.png" alt="Importing Token into Firefox Mobile">
+                        <figcaption>Figure 3 — Pasting and importing the token on your Android device to log in
+                            automatically.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 4 -->
+                <div class="guide-section" id="using-sync">
+                    <div class="section-title">
+                        <div class="section-num">4</div>
+                        <h2>Using Sync Features Inside AO3</h2>
+                    </div>
+
+                    <p>Once connected to your Google account, load any works list or history page on AO3. Look at the
+                        top bar labeled <strong>Marker Tools</strong>:</p>
+
+                    <ul>
+                        <li><strong>Upload to Drive:</strong> Saves your current local state to your cloud folder.
+                            <em>(Hidden when Automatic Backup is active.)</em>
+                        </li>
+                        <li><strong>Download from Drive:</strong> Pulls your cloud copy to refresh your active device
+                            history.</li>
+                    </ul>
+
+                    <figure class="figure">
+                        <img src="driveButtonsAO3.png" alt="Google Drive Sync Toolbar on AO3">
+                        <figcaption>Figure 4 — Cloud markers tool bar visible above work lists on AO3.</figcaption>
+                    </figure>
+
+                    <div class="callout callout-info">
+                        <div class="callout-icon">🔒</div>
+                        <div class="callout-body">
+                            <strong>Privacy Note</strong>
+                            <p>The extension only accesses its own dedicated <code>appdata</code> folder inside your
+                                Drive. It cannot view, edit, or delete any other files. No data is shared with third
+                                parties.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- Sidebar TOC -->
+            <aside class="toc-sidebar">
+                <h4>On This Page</h4>
+                <ul>
+                    <li><a href="#sync-logic">1. Synchronization Logic</a></li>
+                    <li><a href="#desktop-setup">2. Desktop Setup</a></li>
+                    <li><a href="#firefox-android">3. Firefox for Android</a></li>
+                    <li><a href="#using-sync">4. Using Sync on AO3</a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>
+                        <img src="icon48.png" alt="" class="logo-icon"
+                            style="width:1.5rem;height:1.5rem;box-shadow:none;">
+                        AO3 Advanced Marker
+                    </h3>
+                    <p>A privacy-first browser extension designed to enhance your Archive of Our Own reading experience
+                        with history tracking, bookmarks, and cloud sync.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#pro">Support (PRO)</a></li>
+                        <li><a href="manuals.html">Manuals &amp; Guides</a></li>
+                        <li><a href="releases.html">Release Notes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal &amp; Support</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site/issues" target="_blank"
+                                rel="noopener">Report an Issue</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank"
+                                rel="noopener">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025-2026 AO3 Advanced Marker. Not affiliated with the Organization for Transformative Works.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Install Modal -->
+    <div id="install-modal-backdrop"></div>
+    <div id="install-modal">
+        <button class="install-close" aria-label="Close" onclick="closeInstallModal()">&times;</button>
+        <h3>Choose your browser</h3>
+        <p>Select the store for your browser to install the extension.</p>
+        <div class="install-options">
+            <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                class="btn-install-option btn-chrome" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+                </svg>
+                Chrome Web Store
+            </a>
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/"
+                class="btn-install-option btn-firefox" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                    <path
+                        d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z" />
+                </svg>
+                Firefox Add-ons
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const mainNav = document.getElementById('main-nav');
+        navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('open');
+            navToggle.classList.toggle('open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+        mainNav.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                mainNav.classList.remove('open');
+                navToggle.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        function openInstallModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('install-modal-backdrop').style.display = 'block';
+            document.getElementById('install-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeInstallModal() {
+            document.getElementById('install-modal-backdrop').style.display = 'none';
+            document.getElementById('install-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.getElementById('install-modal-backdrop')?.addEventListener('click', closeInstallModal);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && document.getElementById('install-modal').style.display === 'block') closeInstallModal();
+        });
+    </script>
+</body>
+
+</html>

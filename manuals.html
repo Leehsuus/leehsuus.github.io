@@ -34,8 +34,8 @@
                     <a href="manuals.html" class="active">Manuals</a>
                     <a href="releases.html">Releases</a>
                     <a href="privacy.html">Privacy Policy</a>
-                    <a href="#" onclick="openInstallModal(event)"
-                        class="btn-nav" target="_blank" rel="noopener">Install</a>
+                    <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank"
+                        rel="noopener">Install</a>
                 </nav>
             </div>
         </div>
@@ -60,17 +60,17 @@
         <div class="manuals-grid">
 
             <!-- Sync Guide -->
-            <a href="syncGuide.html" class="manual-card fade-up">
+            <div class="manual-card fade-up" onclick="openSyncModal()" role="button" tabindex="0"
+                onkeydown="if(event.key==='Enter')openSyncModal()" style="cursor:pointer;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-cloud" width="20"
-                    height="20">
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
                     <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
                 </svg>
                 <h3>Cloud Sync Setup</h3>
-                <p>Learn how to connect your JSONBin.io account to sync your reading history, stats, and reviews across
-                    all your devices.</p>
-                <span>Read Guide →</span>
-            </a>
+                <p>Learn how to sync your reading history, stats, and reviews across all your devices using
+                    Google Drive or JSONBin.io.</p>
+                <span>Choose Provider →</span>
+            </div>
 
             <!-- Highlights Guide (Placeholder) -->
             <a href="#" class="manual-card fade-up" style="transition-delay: 100ms;">
@@ -148,7 +148,8 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 AO3 Advanced Marker. Not affiliated with the Organization for Transformative Works.</p>
+                <p>&copy; 2025-2026 AO3 Advanced Marker. Not affiliated with the Organization for Transformative Works.
+                </p>
             </div>
         </div>
     </footer>
@@ -164,16 +165,63 @@
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.fade-up').forEach((el) => {
-            observer.observe(el);
+        // Sync provider modal
+        function openSyncModal() {
+            document.getElementById('sync-modal-backdrop').style.display = 'block';
+            document.getElementById('sync-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeSyncModal() {
+            document.getElementById('sync-modal-backdrop').style.display = 'none';
+            document.getElementById('sync-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('sync-modal-backdrop')?.addEventListener('click', closeSyncModal);
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && document.getElementById('sync-modal')?.style.display === 'block') closeSyncModal();
         });
     </script>
+
+    <!-- Sync Provider Modal -->
+    <div id="sync-modal-backdrop"></div>
+    <div id="sync-modal">
+        <button class="install-close" aria-label="Close" onclick="closeSyncModal()">&times;</button>
+        <h3>Choose Your Sync Provider</h3>
+        <p>Select how you'd like to back up and sync your reading data across devices.</p>
+        <div class="sync-provider-options">
+            <a href="syncGuideDrive.html" class="sync-provider-card">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="sync-provider-icon">
+                    <path d="m126 417q9 5 19 5H367q9 0 19-5V313H99" fill="#4285f4" />
+                    <path d="m196 87q9-5 20-5h80q12 0 20 5v104h-68" fill="#188038" />
+                    <path d="m66 313q0-10 5-19l110-191q6-11 15-16l60 104-72 125" fill="#34a853" />
+                    <path d="M316 87q10 6 15 16L438 289q8 12 8 24l-118 3-72-125" fill="#fbbc04" />
+                    <path d="m185.714 313H66q0 8 3 15l40 70q7 13 17 19" fill="#1967d2" />
+                    <path d="m386 417q9-5 16-17l38-66q6-10 6-21H326.3" fill="#ea4335" />
+                </svg>
+                <strong>Google Drive</strong>
+                <span>One-click auth. No API keys or manual config required.</span>
+                <em>Recommended →</em>
+            </a>
+            <a href="syncGuide.html" class="sync-provider-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="sync-provider-icon" style="stroke:var(--primary);">
+                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                </svg>
+                <strong>JSONBin.io</strong>
+                <span>API-based setup. No Google account needed.</span>
+                <em>Manual Setup →</em>
+            </a>
+        </div>
+    </div>
 
     <!-- Install Modal -->
     <div id="install-modal-backdrop"></div>
@@ -182,12 +230,20 @@
         <h3>Choose your browser</h3>
         <p>Select the store for your browser to install the extension.</p>
         <div class="install-options">
-            <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan" class="btn-install-option btn-chrome" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+            <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                class="btn-install-option btn-chrome" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+                </svg>
                 Chrome Web Store
             </a>
-            <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/" class="btn-install-option btn-firefox" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0"><path d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z"/></svg>
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/"
+                class="btn-install-option btn-firefox" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                    <path
+                        d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z" />
+                </svg>
                 Firefox Add-ons
             </a>
         </div>
