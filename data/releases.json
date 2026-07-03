@@ -27,6 +27,13 @@
     "major": "13",
     "versions": [
       {
+        "version": "13.6",
+        "date": "2026-07-03",
+        "features": [
+          "Improved the UX/UI of the PRO showcase panel: moved the 'Hide Showcase Icon Permanently' button to the header as a highlighted pill button, and made the 'x' close button also hide the icon permanently."
+        ]
+      },
+      {
         "version": "13.5",
         "date": "2026-06-25",
         "features": [
