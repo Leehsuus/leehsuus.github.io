@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Releases & Changelog - AO3 Advanced Marker</title>
+    <title>All Features - AO3 Advanced Marker</title>
     <link rel="icon" type="image/png" href="icon48.png">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Release notes, changelog, and updates for the AO3 Advanced Marker extension.">
+    <meta name="description"
+        content="A complete list of all Free and PRO features available in the AO3 Advanced Marker extension.">
     <meta name="robots" content="index, follow">
 
     <!-- Google Fonts -->
@@ -20,6 +21,56 @@
 
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .feature-card.pro-card h3 {
+            color: #d4af37;
+            /* Gold color for PRO */
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin: 3rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+    </style>
 </head>
 
 <body>
@@ -37,10 +88,10 @@
                 </button>
                 <nav id="main-nav">
                     <a href="index.html#features">Showcase</a>
-                    <a href="features.html">All Features</a>
+                    <a href="features.html" class="active">All Features</a>
                     <a href="index.html#pro">Support (PRO)</a>
                     <a href="manuals.html">Manuals</a>
-                    <a href="releases.html" class="active">Releases</a>
+                    <a href="releases.html">Releases</a>
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank"
                         rel="noopener">Install</a>
@@ -52,18 +103,99 @@
     <!-- Page Title -->
     <section class="manual-hero" style="padding: 100px 0 60px;">
         <div class="container">
-            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Release Notes</h1>
-            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px;">Keep up to date with the latest
-                features, fixes, and improvements added to the extension.</p>
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Extension Features</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px;">Explore all the tools designed to
+                elevate your AO3 reading experience, completely privacy-first.</p>
         </div>
     </section>
 
     <!-- Content Section -->
     <section class="page-content" style="padding-bottom: 80px;">
-        <div class="container" style="max-width: 800px; margin: 0 auto;">
-            <div id="releases-container">
-                <p>Loading releases...</p>
+        <div class="container" style="max-width: 900px; margin: 0 auto;">
+
+            <h2 class="section-title">Free Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Reading Status Tracking</h3>
+                    <p>Mark works as Read, track your Chapter-by-Chapter progress, or mark works as "Do Not Read".
+                        Visual badges and background colors easily highlight your progress directly on AO3 listings.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Chapter Reviews & Notebook</h3>
+                    <p>Write personal reviews and notes for individual chapters directly on the reading page. View and
+                        manage all your notes centrally in a dedicated Notebook dashboard in the options menu.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Star Ratings</h3>
+                    <p>Rate chapters from 1 to 5 stars. The extension automatically calculates and displays the overall
+                        average rating for the whole work on blurb listings to help you remember your favorites.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Reading Statistics</h3>
+                    <p>Track your reading habits with detailed stats! View your total words read, yearly book goals,
+                        reading streaks, and charts showcasing your top fandoms and most-read authors.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Infinite Scroll</h3>
+                    <p>Say goodbye to clicking "Next". Seamlessly and infinitely scroll through search pages, tags, and
+                        bookmarks with automatic next-page loading (fully configurable and can be disabled at any time).</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Active Reading Filter</h3>
+                    <p>Tired of seeing fics you've already read? Automatically hide works you've marked as "Read" or "Do
+                        Not Read" from search results with a single click, keeping your listings fresh.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Native AO3 Bookmark Sync</h3>
+                    <p>Automatically sync your extension's "Read" status directly to your private AO3 bookmarks, and
+                        keep your native bookmarks page auto-sorted by the latest update date.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Cloud Backup & Sync</h3>
+                    <p>Securely back up your reading progress, stats, and reviews using Google Drive or JSONBin,
+                        allowing seamless synchronization and data recovery across all your devices.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Custom Colors</h3>
+                    <p>Fully personalize the extension's badges and buttons. Choose your favorite hex colors via the
+                        options panel to match your aesthetic and dark modes.</p>
+                </div>
             </div>
+
+            <h2 class="section-title">PRO Features</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Unlock these premium features by supporting the
+                development of the extension.</p>
+
+            <div class="features-grid">
+                <div class="feature-card pro-card">
+                    <h3>👑 'Want to Read' Queue</h3>
+                    <p>Save works for later with a single click. Keep your 'Want to Read' list neatly organized and
+                        accessible via a quick dropdown menu in the header, entirely separated from your regular
+                        bookmarks.</p>
+                </div>
+
+                <div class="feature-card pro-card">
+                    <h3>👑 Text Highlights</h3>
+                    <p>Highlight your favorite quotes directly in the text using multiple custom colors. Find your
+                        highlights effortlessly with a scrollbar minimap and manage them all in the Highlights
+                        dashboard.</p>
+                </div>
+
+                <div class="feature-card pro-card">
+                    <h3>👑 Bookmark Folder Grouping</h3>
+                    <p>Organize your messy bookmarks into collapsible, color-coded folders grouped by fandom,
+                        transforming your bookmark page into a beautifully structured and easy-to-navigate library.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -83,8 +215,8 @@
                 <div class="footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="index.html#features">Showcase</a>
-                    <a href="features.html">All Features</a></li>
+                        <li><a href="index.html#features">Showcase</a></li>
+                        <li><a href="features.html">All Features</a></li>
                         <li><a href="index.html#pro">Support (PRO)</a></li>
                         <li><a href="manuals.html">Manuals & Guides</a></li>
                         <li><a href="releases.html">Release Notes</a></li>
@@ -108,8 +240,8 @@
         </div>
     </footer>
 
+    <!-- Mobile Navigation Script -->
     <script>
-        // Mobile navigation toggle
         const navToggle = document.getElementById('nav-toggle');
         const mainNav = document.getElementById('main-nav');
 
@@ -118,66 +250,6 @@
             navToggle.classList.toggle('open', isOpen);
             navToggle.setAttribute('aria-expanded', isOpen);
         });
-
-        // Load Releases Logic
-        async function loadReleases() {
-            const container = document.getElementById('releases-container');
-            try {
-                const res = await fetch('data/releases.json');
-                const data = await res.json();
-
-                if (!data || data.length === 0) {
-                    container.innerHTML = '<p>No release notes found.</p>';
-                    return;
-                }
-
-                container.innerHTML = '';
-
-                // Group by Major versions
-                data.forEach(majorGroup => {
-                    const groupEl = document.createElement('div');
-                    groupEl.className = 'release-major-group';
-
-                    const groupTitle = document.createElement('h2');
-                    groupTitle.className = 'release-major-title';
-                    groupTitle.textContent = `Version ${majorGroup.major}`;
-                    groupEl.appendChild(groupTitle);
-
-                    const listEl = document.createElement('div');
-                    listEl.className = 'release-minor-list';
-
-                    majorGroup.versions.forEach(rel => {
-                        const relBlock = document.createElement('div');
-                        relBlock.className = 'release-block';
-
-                        let featuresHtml = '';
-                        if (rel.features && rel.features.length > 0) {
-                            featuresHtml = '<ul class="release-features">' +
-                                rel.features.map(f => `<li>${f}</li>`).join('') +
-                                '</ul>';
-                        }
-
-                        relBlock.innerHTML = `
-                            <div class="release-header">
-                                <h3 class="release-version">v${rel.version}</h3>
-                                <span class="release-date">${rel.date}</span>
-                            </div>
-                            ${featuresHtml}
-                        `;
-                        listEl.appendChild(relBlock);
-                    });
-
-                    groupEl.appendChild(listEl);
-                    container.appendChild(groupEl);
-                });
-
-            } catch (err) {
-                console.error("Error loading releases:", err);
-                container.innerHTML = '<p>Error loading release notes.</p>';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', loadReleases);
     </script>
 
     <!-- Install Modal -->
