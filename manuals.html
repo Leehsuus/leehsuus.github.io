@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manuals & Tutorials - AO3 Advanced Marker</title>
-    <link rel="icon" type="image/png" href="icon48.png">
+    <link rel="icon" type="image/png" href="assets/brand/icon48.png">
     <meta name="description" content="Guides and tutorials for the AO3 Advanced Marker extension.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
         <div class="container">
             <div class="nav-wrapper">
                 <a href="index.html" class="logo-group">
-                    <img src="icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <img src="assets/brand/icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
                     <span>AO3 Advanced Marker</span>
                 </a>
                 <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -73,21 +73,44 @@
                 <span>Choose Provider →</span>
             </div>
 
-            <!-- Highlights Guide (Placeholder) -->
-            <a href="#" class="manual-card fade-up" style="transition-delay: 100ms;">
+            <!-- Color System Guide -->
+            <a href="colorSystemGuide.html" class="manual-card fade-up" style="transition-delay: 100ms;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                </svg>
+                <h3>Color System Guide</h3>
+                <p>Learn how the reading status color system works, where it appears on AO3, and how to customize it.
+                </p>
+                <span>Read Guide →</span>
+            </a>
+
+            <!-- Chapter Reviews Guide -->
+            <a href="reviewsGuide.html" class="manual-card fade-up" style="transition-delay: 200ms;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M12 20h9" />
                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
                 </svg>
-                <h3>Text Highlights &amp; Reviews</h3>
-                <p>Discover how to annotate chapters, write reviews, and use the minimap to quickly navigate your
-                    highlights.</p>
-                <span>Coming Soon</span>
+                <h3>Chapter Reviews</h3>
+                <p>Learn how to annotate chapters, write detailed reviews as you read, and manage your notes.</p>
+                <span>Read Guide →</span>
+            </a>
+
+            <!-- Text Highlights Guide -->
+            <a href="highlightsGuide.html" class="manual-card fade-up" style="transition-delay: 300ms;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                </svg>
+                <h3>Text Highlights</h3>
+                <p>Discover how to select text, apply colors, use the minimap, and manage your highlights.</p>
+                <span>Read Guide →</span>
             </a>
 
             <!-- WTR Guide (Placeholder) -->
-            <a href="#" class="manual-card fade-up" style="transition-delay: 200ms;">
+            <a href="#" class="manual-card fade-up" style="transition-delay: 400ms;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
@@ -99,7 +122,7 @@
             </a>
 
             <!-- Stats Guide (Placeholder) -->
-            <a href="#" class="manual-card fade-up" style="transition-delay: 300ms;">
+            <a href="#" class="manual-card fade-up" style="transition-delay: 500ms;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
@@ -121,7 +144,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <h3>
-                        <img src="icon48.png" alt="" class="logo-icon"
+                        <img src="assets/brand/icon48.png" alt="" class="logo-icon"
                             style="width: 1.5rem; height: 1.5rem; box-shadow: none;">
                         AO3 Advanced Marker
                     </h3>
@@ -132,7 +155,8 @@
                     <h4>Resources</h4>
                     <ul>
                         <li><a href="index.html#features">Showcase</a>
-                    <a href="features.html">All Features</a></li>
+                            <a href="features.html">All Features</a>
+                        </li>
                         <li><a href="index.html#pro">Support (PRO)</a></li>
                         <li><a href="manuals.html">Manuals &amp; Guides</a></li>
                         <li><a href="releases.html">Release Notes</a></li>
@@ -241,7 +265,8 @@
                     </svg>
                     Chrome Web Store
                 </a>
-                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Also for Opera & Edge (PC)</span>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Also for Opera & Edge
+                    (PC)</span>
             </div>
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                 <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/"
@@ -252,7 +277,8 @@
                     </svg>
                     Firefox Add-ons
                 </a>
-                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">For PC & <strong>Mobile (Android)</strong></span>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">For PC & <strong>Mobile
+                        (Android)</strong></span>
             </div>
         </div>
     </div>

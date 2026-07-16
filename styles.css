@@ -701,6 +701,186 @@ nav a.active {
     filter: blur(20px);
 }
 
+/* --- COMMUNITY & REVIEWS SECTION --- */
+.community-section {
+    padding: 6rem 0;
+    background-color: var(--card-bg-solid);
+    border-top: 1px solid var(--border);
+}
+
+.ao3-highlight-card {
+    background: var(--light);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    padding: 3rem;
+    margin: 0 auto 4rem;
+    max-width: 800px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    text-align: center;
+}
+
+.ao3-quote-icon {
+    position: absolute;
+    top: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+}
+
+.ao3-quote-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+}
+
+.ao3-highlight-card blockquote {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--dark);
+    margin: 1rem 0 2rem;
+    line-height: 1.6;
+}
+
+.ao3-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: left;
+}
+
+.ao3-avatar {
+    width: 3rem;
+    height: 3rem;
+    background: #990000;
+    /* AO3 Red */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.ao3-author strong {
+    display: block;
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+.ao3-author span {
+    color: var(--dark-muted);
+    font-size: 0.9rem;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.review-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.review-stars {
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
+
+.platform-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.platform-badge.gumroad {
+    background: rgba(255, 144, 222, 0.2);
+    color: #c43290;
+}
+
+.platform-badge.firefox {
+    background: rgba(255, 113, 57, 0.2);
+    color: #d64a1a;
+}
+
+.platform-badge.chrome {
+    background: rgba(66, 133, 244, 0.2);
+    color: #2a6acb;
+}
+
+.review-text {
+    font-size: 1.05rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    line-height: 1.5;
+}
+
+.review-author {
+    font-size: 0.9rem;
+    color: var(--dark-muted);
+    font-weight: 500;
+}
+
+.summary-card {
+    text-align: center;
+}
+
+.summary-card .review-header {
+    margin-bottom: 1rem;
+    flex-direction: row;
+    gap: 0.5rem;
+    display: flex;
+}
+
+.summary-card .review-text {
+    margin-bottom: 0.5rem;
+    flex-grow: 0;
+}
+
+.summary-card .review-subtext {
+    font-size: 0.85rem;
+    color: var(--dark-muted);
+}
+
 /* --- SUPPORT / PRO SECTION --- */
 .pro-section {
     padding: 6rem 0;
@@ -1585,7 +1765,7 @@ footer {
     font-size: 1.5rem;
 }
 
-#sync-modal > p {
+#sync-modal>p {
     color: var(--dark-muted);
     margin-bottom: 1.5rem;
     font-size: 0.95rem;

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSONBin.io Sync Guide – AO3 Advanced Marker</title>
+    <title>Color System Guide – AO3 Advanced Marker</title>
     <meta name="description"
-        content="Step-by-step guide to setting up cloud synchronization for AO3 Advanced Marker Pro using JSONBin.io.">
+        content="Step-by-step guide to understanding and customizing the color system for reading statuses in AO3 Advanced Marker.">
     <link rel="icon" type="image/png" href="assets/brand/icon48.png">
 
     <!-- Google Fonts -->
@@ -54,11 +54,10 @@
                 <span>›</span>
                 <a href="manuals.html">Manuals</a>
                 <span>›</span>
-                <span>JSONBin.io Sync</span>
+                <span>Color System</span>
             </div>
-            <h1>JSONBin.io <span>Sync</span> Guide</h1>
-            <p>Set up cross-device sync for your reading progress, statistics, and reviews using JSONBin.io — your own
-                private, API-based cloud storage.</p>
+            <h1>Color <span>System</span> Guide</h1>
+            <p>Learn how the reading status color system works, where it appears on AO3, and how to fully customize it to your liking.</p>
         </div>
     </div>
 
@@ -69,173 +68,111 @@
             <!-- Main Content -->
             <article class="guide-content">
 
-                <p>This guide will walk you through setting up cross-device cloud synchronization using JSONBin.io.
-                    Follow these steps to back up and sync your reading progress, statistics, and reviews across all
-                    your browsers.</p>
+                <p>The AO3 Advanced Marker relies on a color-coded system to help you visually track your reading progress across the Archive. This guide explains how the system works, where the colors appear, and how you can personalize them.</p>
 
                 <!-- Section 1 -->
-                <div class="guide-section" id="sync-logic">
+                <div class="guide-section" id="how-it-works">
                     <div class="section-title">
                         <div class="section-num">1</div>
-                        <h2>Understanding the Synchronization Logic</h2>
+                        <h2>How the Color System Works</h2>
                     </div>
 
-                    <p>To avoid accidental data overwrites when switching between different devices (like your phone and
-                        your laptop), synchronization in AO3 Advanced Marker is <strong>semi-automatic</strong> by
-                        design:</p>
+                    <p>The extension uses 5 distinct color states to identify the status of any fanfiction on AO3. These states are mutually exclusive (a work can only have one status at a time):</p>
 
                     <ul>
-                        <li><strong>Automatic Backup:</strong> Pushes your local browser data to the cloud automatically
-                            every 24 hours (if enabled).</li>
-                        <li><strong>Manual Control:</strong> Allows you to explicitly pull (Download) or push (Upload)
-                            your data on demand directly from the AO3 website interface.</li>
+                        <li><strong>Read (Default: Green):</strong> You have fully read the work.</li>
+                        <li><strong>Partial (Default: Teal):</strong> You are currently reading the work and stopped at a specific chapter.</li>
+                        <li><strong>Updated (Default: Yellow):</strong> A work you previously marked as "Read" has a new chapter available.</li>
+                        <li><strong>Do Not Read (Default: Red):</strong> You have marked the work to be avoided.</li>
+                        <li><strong>Want to Read (Default: Purple) [PRO]:</strong> You have added the work to your reading queue.</li>
                     </ul>
-
-                    <div class="callout callout-tip">
-                        <div class="callout-icon">💡</div>
-                        <div class="callout-body">
-                            <strong>Multi-Device Golden Rule</strong>
-                            <p>If you read on multiple devices, turn <strong>Automatic Backup ON only on your primary
-                                    device</strong> (the one you use most frequently). Keep it OFF on secondary devices.
-                                When switching to a secondary device, manually click <strong>Download</strong> to load
-                                your latest progress. Before leaving that device, click <strong>Upload</strong> if you
-                                made any updates manually!</p>
-                        </div>
-                    </div>
                 </div>
 
                 <hr class="section-divider">
 
                 <!-- Section 2 -->
-                <div class="guide-section" id="create-bins">
+                <div class="guide-section" id="where-applied">
                     <div class="section-title">
                         <div class="section-num">2</div>
-                        <h2>Generating Your Cloud Bins on JSONBin.io</h2>
+                        <h2>Where the Colors are Applied</h2>
                     </div>
 
-                    <p>First, you need to create a free account on <a href="https://jsonbin.io" target="_blank"
-                            style="color:var(--primary)">JSONBin.io</a> to host your encrypted configuration data files.
-                    </p>
+                    <p>The color system visually transforms the AO3 interface in two primary locations:</p>
 
-                    <h3>Step 2.1 — Creating a New Bin</h3>
-                    <p>In your JSONBin dashboard, click to create a new bin. Inside the initialization text area, you
-                        must provide a valid structural format. Type a JSON structure with an empty string key-value
-                        pair:</p>
-                    <pre><code>{"":""}</code></pre>
-                    <p>This tells the hosting server that the bin is ready. The extension will automatically overwrite
-                        this placeholder with your real reading history once you trigger your first sync.</p>
+                    <h3>A. Work Page Buttons</h3>
+                    <p>When you open a specific fanfiction, the extension injects action buttons at the top and bottom of the page. The backgrounds of these buttons reflect the active color status:</p>
+                    <ul>
+                        <li>The <strong>"Mark as Read"</strong> button turns Green when active.</li>
+                        <li>The <strong>"Chapter Read"</strong> button turns Teal to indicate partial progress.</li>
+                        <li>The <strong>"Mark Do Not Read"</strong> button turns Red.</li>
+                        <li>The <strong>"Remove from WTR"</strong> button turns Purple.</li>
+                    </ul>
 
                     <figure class="figure">
-                        <img src="assets/sync-jsonbin/createBin.jpg" alt="Creating a new Bin on JSONBin.io dashboard">
-                        <figcaption>Figure 1 — Initializing a new bin with an empty JSON key-value pair.</figcaption>
+                        <img src="assets/color-system/workpageColoredButton.png" alt="Colored buttons on work page">
+                        <figcaption>Figure 1 — Work page action buttons changing colors according to the status.</figcaption>
                     </figure>
 
-                    <h3>Step 2.2 — Retrieving Your Bin IDs</h3>
-                    <p>Once saved, copy the unique alphanumeric identifier code generated for your newly created bin.
-                        You will need a Progress Bin ID, and optionally distinct Bin IDs for your reading statistics and
-                        chapter reviews.</p>
+                    <h3>B. Listing and Bookmark Blurbs</h3>
+                    <p>When browsing AO3 (Search Results, Tag Pages, User Bookmarks), the extension applies the colors directly to the work "blurbs" (the descriptive boxes for each fic):</p>
+                    <ul>
+                        <li>The entire background of the blurb gets a soft tint of the respective status color.</li>
+                        <li>A bright, colored badge appears on the blurb to clearly state the status (e.g., a Teal badge saying "Stopped at: Ch 3", or a Yellow badge saying "NEW CHAPTER!").</li>
+                        <li>The "Want to Read" SVG bookmark icon lights up in Purple when active.</li>
+                    </ul>
 
                     <figure class="figure">
-                        <img src="assets/sync-jsonbin/binID.jpg" alt="Locating the Bin ID on JSONBin dashboard">
-                        <figcaption>Figure 2 — Copying the generated unique Bin ID from the dashboard.</figcaption>
+                        <img src="assets/color-system/partial-donotread.png" alt="Partial and Do Not Read blurbs">
+                        <figcaption>Figure 2 — Blurbs styled for Partial and Do Not Read statuses.</figcaption>
                     </figure>
-
-                    <h3>Step 2.3 — Finding Your Master Key</h3>
-                    <p>Navigate to your JSONBin account API Keys tab to secure your secret Access Master Key. This token
-                        authorizes your extension to securely read and write data to your account.</p>
-
+                    
                     <figure class="figure">
-                        <img src="assets/sync-jsonbin/jsonBinMasterKey.jpg" alt="Locating the Master Key in JSONBin API Keys tab">
-                        <figcaption>Figure 3 — Locating and copying your secret account Master Key.</figcaption>
+                        <img src="assets/color-system/newChapter-read.png" alt="New Chapter and Read blurbs">
+                        <figcaption>Figure 3 — Blurbs highlighting New Chapter updates and fully Read works.</figcaption>
                     </figure>
                 </div>
 
                 <hr class="section-divider">
 
                 <!-- Section 3 -->
-                <div class="guide-section" id="configure">
+                <div class="guide-section" id="customization">
                     <div class="section-title">
                         <div class="section-num">3</div>
-                        <h2>Configuring the Extension Settings</h2>
+                        <h2>How to Configure Your Colors</h2>
                     </div>
 
-                    <p>Open the extension's dashboard options panel and navigate to the <strong>Cloud Settings</strong>
-                        tab on the sidebar layout.</p>
+                    <p>You can change the default colors at any time to match your personal aesthetic or accessibility needs.</p>
+
+                    <h3>Step 3.1 — Access the Options Dashboard</h3>
+                    <p>Click on the AO3 Advanced Marker extension icon in your browser toolbar to open the Options Page.</p>
+
+                    <h3>Step 3.2 — Navigate to the Customization Panel</h3>
+                    <p>In the left sidebar of the Options Page, click on the <strong>Customization</strong> tab. Once on this screen, scroll down to the <strong>Color Customizations Settings</strong> section.</p>
 
                     <figure class="figure">
-                        <img src="assets/sync-jsonbin/options.jpg" alt="Extension Options Dashboard showing Cloud Settings tab">
-                        <figcaption>Figure 4 — The Cloud Settings tab inside the AO3 Advanced Marker extension options
-                            panel.</figcaption>
+                        <img src="assets/color-system/optionsCustomization.png" alt="Color Customization Settings">
+                        <figcaption>Figure 4 — The Color Customizations Settings section in the Options Dashboard.</figcaption>
                     </figure>
 
-                    <p>Carefully paste your copied values into their respective input fields:</p>
-
-                    <ul class="step-list">
-                        <li>
-                            <div class="step-badge">1</div>
-                            <span><strong>Master Key:</strong> Paste your secret <code>X-Master-Key</code>.</span>
-                        </li>
-                        <li>
-                            <div class="step-badge">2</div>
-                            <span><strong>Progress Bin ID:</strong> Paste your primary reading progress tracker bin code
-                                <em>(Required)</em>.</span>
-                        </li>
-                        <li>
-                            <div class="step-badge">3</div>
-                            <span><strong>Stats Bin ID / Review Bin ID:</strong> Paste your optional secondary tracking
-                                storage codes.</span>
-                        </li>
-                    </ul>
-
-                    <figure class="figure">
-                        <img src="assets/sync-jsonbin/uploaded.jpg" alt="Cloud credentials saved in the extension fields">
-                        <figcaption>Figure 5 — Cloud configurations securely saved into the extension fields.
-                        </figcaption>
-                    </figure>
-                </div>
-
-                <hr class="section-divider">
-
-                <!-- Section 4 -->
-                <div class="guide-section" id="using-sync">
-                    <div class="section-title">
-                        <div class="section-num">4</div>
-                        <h2>Using Sync Features Inside AO3</h2>
-                    </div>
-
-                    <p>Once your Master Key and Progress Bin ID are saved, navigate to any work or history list page on
-                        AO3. Look at the top bar labeled <strong>Marker Tools</strong>.</p>
-
-                    <h3>Scenario A — Manual Sync Mode</h3>
-                    <p>With Automatic Backup disabled, both manual action buttons are fully available on your navbar
-                        layout:</p>
+                    <h3>Step 3.3 — Personalize the Palette</h3>
+                    <p>You have two ways to change the colors:</p>
                     <ul>
-                        <li><strong>Upload Backup (API):</strong> Pushes your local browser markers up to the cloud
-                            server storage.</li>
-                        <li><strong>Download Backup (API):</strong> Pulls your cloud record down to refresh your active
-                            browser history.</li>
+                        <li><strong>Native Color Picker:</strong> Click on the color swatch next to the status name to open your operating system's default color selector.</li>
+                        <li><strong>HEX Input:</strong> If you have a specific color in mind, you can type its HEX code (e.g., <code>#ff00ff</code>) directly into the text field. The extension includes validation to ensure the code is valid!</li>
                     </ul>
+                    
+                    <p>Once you make your changes, click the <strong>Save Settings</strong> button at the bottom of the screen. Your new colors will be applied immediately the next time you load an AO3 page.</p>
 
-                    <figure class="figure">
-                        <img src="assets/sync-jsonbin/upload-download.jpg" alt="Manual Upload and Download Buttons on AO3 toolbar">
-                        <figcaption>Figure 6 — Manual controls visible on AO3 when Automatic Backup is inactive.
-                        </figcaption>
-                    </figure>
+                    <h3>Step 3.4 — Restoring the Default Colors</h3>
+                    <p>If you ever want to revert back to the original color palette, simply click the <strong>Reset to Defaults</strong> button located at the bottom of the Color Customizations Settings section. Remember to click <strong>Save Settings</strong> afterwards to apply the reset!</p>
 
-                    <h3>Scenario B — Automatic Backup Mode</h3>
-                    <p>If you toggle the <strong>Automatic Backup</strong> switch ON inside your settings dashboard, the
-                        extension handles background updates automatically every 24 hours.</p>
-
-                    <figure class="figure">
-                        <img src="assets/sync-jsonbin/autoBackupActive.jpg" alt="Automatic Backup toggle enabled in settings">
-                        <figcaption>Figure 7 — Turning on the background daily automatic backup cycle.</figcaption>
-                    </figure>
-
-                    <p>When this mode is active, the manual <strong>Upload Backup</strong> button is automatically
-                        hidden from the top bar to keep your UI clean and prevent redundant API overwrites. The
-                        <strong>Download Backup</strong> button remains accessible so you can pull states whenever
-                        needed.
-                    </p>
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>Cloud Sync</strong>
+                            <p>If you have Cloud Sync enabled (via JSONBin or Google Drive), your custom colors will automatically be synced across all your devices!</p>
+                        </div>
+                    </div>
                 </div>
 
             </article>
@@ -244,10 +181,9 @@
             <aside class="toc-sidebar">
                 <h4>On This Page</h4>
                 <ul>
-                    <li><a href="#sync-logic">1. Synchronization Logic</a></li>
-                    <li><a href="#create-bins">2. Creating JSONBin Bins</a></li>
-                    <li><a href="#configure">3. Configuring the Extension</a></li>
-                    <li><a href="#using-sync">4. Using Sync on AO3</a></li>
+                    <li><a href="#how-it-works">1. How the System Works</a></li>
+                    <li><a href="#where-applied">2. Where Colors are Applied</a></li>
+                    <li><a href="#customization">3. Configuring Your Colors</a></li>
                 </ul>
             </aside>
 
@@ -282,7 +218,7 @@
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="releases.html">Release Notes</a></li>
-                        <li><a href="syncGuide.html" style="color: white;">Cloud Sync Guide</a></li>
+                        <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
                         <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank"
                                 rel="noopener">GitHub Repository</a></li>
                     </ul>
