@@ -328,26 +328,33 @@ nav a.active {
 
 @media (max-width: 860px) {
     .nav-dropdown,
-    .dropdown-content {
-        display: contents;
+    .dropdown-content,
+    .nav-dropdown:hover .dropdown-content,
+    .nav-dropdown:active .dropdown-content {
+        display: contents !important;
+        position: static !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
     }
     .dropdown-btn {
-        display: none;
+        display: none !important;
     }
     .nav-dropdown::after {
-        display: none;
+        display: none !important;
     }
     .dropdown-content a {
-        padding: 1rem 1.5rem;
-        font-size: 1.05rem;
-        color: var(--dark-muted);
-        border-bottom: 1px solid var(--border);
-        font-weight: 500;
-        white-space: normal;
+        padding: 1rem 1.5rem !important;
+        font-size: 1.05rem !important;
+        color: var(--dark-muted) !important;
+        border-bottom: 1px solid var(--border) !important;
+        font-weight: 500 !important;
+        white-space: normal !important;
     }
     .dropdown-content a:hover,
     .dropdown-content a.active {
-        background-color: transparent;
+        background-color: transparent !important;
+        color: var(--primary) !important;
     }
 }
 
