@@ -1,12 +1,37 @@
 [
   {
+    "major": "17",
+    "versions": [
+      {
+        "version": "17.0",
+        "date": "Coming Soon",
+        "features": [
+          "Active Notification Engine to alert you whenever your saved fics get new chapter updates."
+        ]
+      }
+    ]
+  },
+  {
+    "major": "16",
+    "versions": [
+      {
+        "version": "16.0",
+        "date": "Coming Soon",
+        "features": [
+          "Books Tracking Module to log pages read, track annual book goals, and rate physical/e-books alongside your AO3 fics."
+        ]
+      }
+    ]
+  },
+  {
     "major": "15",
     "versions": [
       {
         "version": "15.0",
         "date": "Coming Soon",
         "features": [
-          "Active Notification Engine to alert you whenever your saved fics get new chapter updates."
+          "AO3 Marker Wrapped (End of Year Summary) with a Bento Grid layout to visualize your reading habits.",
+          "Multi-Year Storage System with automatic archiving and cloud sync to preserve historical data."
         ]
       }
     ]
@@ -18,7 +43,12 @@
         "version": "14.0",
         "date": "In Development",
         "features": [
-          "Books Tracking Module to log pages read, track annual book goals, and rate physical/e-books alongside your AO3 fics."
+          "Kudos tracking and listing to map and display your given kudos.",
+          "Added time and date to chapter reviews.",
+          "Added checkpoints to the goal progress bar.",
+          "Dynamic year label in Stats Config.",
+          "Added 'Read' and 'Chapter Read' buttons to the end of the chapter page.",
+          "Added storage usage indicator in Options."
         ]
       }
     ]
