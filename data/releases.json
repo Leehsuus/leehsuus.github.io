@@ -44,11 +44,7 @@
         "date": "In Development",
         "features": [
           "Kudos tracking and listing to map and display your given kudos.",
-          "Added time and date to chapter reviews.",
-          "Added checkpoints to the goal progress bar.",
-          "Dynamic year label in Stats Config.",
-          "Added 'Read' and 'Chapter Read' buttons to the end of the chapter page.",
-          "Added storage usage indicator in Options."
+          "Added time and date to chapter reviews."
         ]
       }
     ]
@@ -56,6 +52,18 @@
   {
     "major": "13",
     "versions": [
+      {
+        "version": "13.7",
+        "date": "2026-07-23",
+        "features": [
+          "Added checkpoints to the goal progress bar.",
+          "Dynamic year label in Stats Config.",
+          "Added 'Read' and 'Chapter Read' buttons to the end of the chapter page.",
+          "Added storage usage indicator in Options.",
+          "Fixed an issue where the auto-folding feature could not be disabled after being activated.",
+          "Fixed the text color of the button on the work page."
+        ]
+      },
       {
         "version": "13.6",
         "date": "2026-07-03",
