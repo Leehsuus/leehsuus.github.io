@@ -17,6 +17,21 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Pink font override (colorSystemGuide.html only) ── */
+        :root {
+            --text: #c2185b;
+            --dark: #880e4f;
+            --dark-muted: #e91e8c;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #f48fb1;
+                --dark: #f8bbd0;
+                --dark-muted: #f06292;
+            }
+        }
+    </style>
 </head>
 
 <body>
