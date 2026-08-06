@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Want to Read Guide – AO3 Advanced Marker</title>
+    <meta name="description"
+        content="Step-by-step guide to using the Want to Read (WTR) PRO feature in AO3 Advanced Marker.">
+    <link rel="icon" type="image/png" href="assets/brand/icon48.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo-group">
+                    <img src="assets/brand/icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <span>AO3 Advanced Marker</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <a href="index.html#features">Showcase</a>
+                    <a href="features.html">All Features</a>
+                    <a href="index.html#pro">Support (PRO)</a>
+                    <a href="manuals.html" class="active">Manuals</a>
+                    <a href="releases.html">Releases</a>
+                    <div class="nav-dropdown">
+                        <span class="dropdown-btn">Legal <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg></span>
+                        <div class="dropdown-content">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                        </div>
+                    </div>
+                    <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank"
+                        rel="noopener">Install</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <a href="manuals.html">Manuals</a>
+                <span>›</span>
+                <span>Want to Read (PRO)</span>
+            </div>
+            <h1>Want to Read <span>(WTR)</span> Guide <span
+                    style="font-size: 0.5em; vertical-align: middle; font-weight: bold; margin-left: 0.5rem;">PRO</span>
+            </h1>
+            <p>Learn how to manage your reading backlog, use the header dropdown, and filter your bookmarks to find your next great read.</p>
+        </div>
+    </div>
+
+    <!-- Guide Body -->
+    <div class="container">
+        <div class="guide-layout">
+
+            <!-- Main Content -->
+            <article class="guide-content">
+
+                <p>The <strong>Want to Read (WTR)</strong> system is a premium feature designed to help you keep track of fanfics you are interested in but haven't started yet. Instead of cluttering your browser tabs, you can add them to a dedicated queue built right into the AO3 interface.</p>
+
+                <!-- Section 1 -->
+                <div class="guide-section" id="enabling-wtr">
+                    <div class="section-title">
+                        <div class="section-num">1</div>
+                        <h2>Enabling the WTR System</h2>
+                    </div>
+
+                    <p>Before you can use the WTR system, you must activate it in the extension's settings.</p>
+
+                    <p>Open the extension's Options Page and navigate to the <strong>Want to Read</strong> tab in the sidebar. Toggle the <strong>"Enable Want to Read (WTR) System"</strong> switch to turn the feature on. This is the master switch for all WTR functionalities.</p>
+                    <figure class="figure">
+                        <img src="assets/wtr/enablingTheWtrSystem.png" alt="WTR Enable Toggle">
+                        <figcaption>Figure 1 — Enabling the WTR system in the Options page.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 2 -->
+                <div class="guide-section" id="customizing-tag">
+                    <div class="section-title">
+                        <div class="section-num">2</div>
+                        <h2>Customizing the AO3 Bookmark Tag</h2>
+                    </div>
+
+                    <p>If you have enabled "Sync to AO3 Bookmarks" in the WTR settings, the extension will automatically create a private bookmark on AO3 when you queue a work. By default, it tags these bookmarks with <em>"AO3 Advanced Marker Want to Read"</em>.</p>
+                    <p>You can change this tag to anything you prefer (like "TBR" or "To Read") using the <strong>"Custom WTR Tag"</strong> input field in the WTR settings page. Changing this tag will apply to <strong>all future works added</strong> to the queue.</p>
+                    <figure class="figure">
+                        <img src="assets/wtr/customizingTheAo3BookmarkTag.png" alt="Custom WTR Tag setting">
+                        <figcaption>Figure 2 — Changing the custom WTR tag in the settings.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 3 -->
+                <div class="guide-section" id="adding-wtr">
+                    <div class="section-title">
+                        <div class="section-num">3</div>
+                        <h2>Adding Works to your Queue</h2>
+                    </div>
+
+                    <p>Once enabled, you will notice new WTR buttons seamlessly integrated into AO3.</p>
+
+                    <h3>Button Breakdown</h3>
+                    <ul>
+                        <li><strong>Bookmark Icon (Listings/Blurbs):</strong> Found next to the ✔ (Read) and ✕ (Do Not Read) buttons on search results. Clicking it adds the work to your WTR queue without opening it. It turns solid to indicate the work is queued.</li>
+                        <li><strong>"Want to Read" Button (Work Page):</strong> Found at the top and bottom navigation bars inside a specific work. Clicking it queues the work and highlights the button with the WTR color.</li>
+                        <li><strong>"Remove from WTR" Button (Work Page):</strong> If a work is already in your queue, the button changes to this active state. Clicking it removes the work from your backlog.</li>
+                    </ul>
+
+                    <figure class="figure">
+                        <img src="assets/wtr/addingWorksToYourQueue.png" alt="Overview of WTR buttons">
+                        <figcaption>Figure 3 — The WTR bookmark icon on blurbs (top) and the button on work pages (bottom).</figcaption>
+                    </figure>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>Note on Disabled Buttons</strong>
+                            <p>If you have already started reading a work (it is marked as <em>Partial</em> or <em>Read</em>), the WTR buttons will be automatically grayed out and disabled to prevent conflicts. WTR is strictly for unread works!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 4 -->
+                <div class="guide-section" id="accessing-wtr">
+                    <div class="section-title">
+                        <div class="section-num">4</div>
+                        <h2>Accessing your Queue</h2>
+                    </div>
+
+                    <p>Finding the fanfics you've saved is easy. The extension offers two powerful ways to access your WTR list.</p>
+
+                    <h3>The Header Dropdown</h3>
+                    <p>Look at the very top of your AO3 page (in the main navigation header). A new <strong>Bookmark Dropdown</strong> will appear alongside your username and standard AO3 links. This dropdown shows a counter of your queued works and allows you to quickly access them from any page.</p>
+                    <figure class="figure">
+                        <img src="assets/wtr/TheHeaderDropdown.png" alt="WTR header dropdown">
+                        <figcaption>Figure 4 — The WTR Header Dropdown showing recently queued works.</figcaption>
+                    </figure>
+
+                    <h3>The WTR Filter on Bookmarks</h3>
+                    <p>Navigate to your personal AO3 Bookmarks page (<code>/users/YOUR_USERNAME/bookmarks</code>). You will see a button labeled <strong>"Want to Read: OFF"</strong>.</p>
+                    <p>Clicking this button toggles the WTR Filter <strong>ON</strong>. When active, it hides all your standard bookmarks and displays <em>only</em> the works in your WTR queue. This is perfect for when you're specifically looking for something new to start reading.</p>
+                    <figure class="figure">
+                        <img src="assets/wtr/TheWtrFilterOnBookmarks.png" alt="WTR filter on bookmarks page">
+                        <figcaption>Figure 5 — Using the WTR filter button on the bookmarks page.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 5 -->
+                <div class="guide-section" id="auto-cleanup">
+                    <div class="section-title">
+                        <div class="section-num">5</div>
+                        <h2>Automatic Cleanup</h2>
+                    </div>
+
+                    <p>You don't need to manually manage your WTR queue! When you finally start reading a work and click <strong>"Chapter Read"</strong> or <strong>"Mark as Read"</strong>, the extension automatically detects that the work is in your WTR queue and removes it seamlessly.</p>
+                    <p>This means your queue stays clean automatically as you make progress on your backlog.</p>
+                </div>
+
+            </article>
+
+            <!-- Sidebar TOC -->
+            <aside class="toc-sidebar">
+                <h4>On This Page</h4>
+                <ul>
+                    <li><a href="#enabling-wtr">1. Enabling the WTR System</a></li>
+                    <li><a href="#customizing-tag">2. Customizing the Bookmark Tag</a></li>
+                    <li><a href="#adding-wtr">3. Adding Works to your Queue</a></li>
+                    <li><a href="#accessing-wtr">4. Accessing your Queue</a></li>
+                    <li><a href="#auto-cleanup">5. Automatic Cleanup</a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>
+                        <img src="assets/brand/icon48.png" alt="" class="logo-icon"
+                            style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
+                        AO3 Advanced Marker
+                    </h3>
+                    <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by
+                        introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Extension</h4>
+                    <ul>
+                        <li><a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Chrome Web
+                                Store</a></li>
+                        <li><a href="index.html#features">Showcase</a>
+                            <a href="features.html">All Features</a>
+                        </li>
+                        <li><a href="index.html#security">Security &amp; Cloud Sync</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal &amp; Support</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="releases.html">Release Notes</a></li>
+                        <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank"
+                                rel="noopener">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025-2026 AO3 Advanced Marker. Not affiliated with Archive of Our Own or the OTW.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Rate on Chrome Web
+                        Store</a>
+                    <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Install Modal -->
+    <div id="install-modal-backdrop"></div>
+    <div id="install-modal">
+        <button class="install-close" aria-label="Close" onclick="closeInstallModal()">&times;</button>
+        <h3>Choose your browser</h3>
+        <p>Select the store for your browser to install the extension.</p>
+        <div class="install-options">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                    class="btn-install-option btn-chrome" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+                    </svg>
+                    Chrome Web Store
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Also for Opera, Brave &
+                    Edge (PC)</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/"
+                    class="btn-install-option btn-firefox" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z" />
+                    </svg>
+                    Firefox Add-ons
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">For PC & <strong>Mobile
+                        (Android)</strong></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openInstallModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('install-modal-backdrop').style.display = 'block';
+            document.getElementById('install-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeInstallModal() {
+            document.getElementById('install-modal-backdrop').style.display = 'none';
+            document.getElementById('install-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.getElementById('install-modal-backdrop')?.addEventListener('click', closeInstallModal);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && document.getElementById('install-modal').style.display === 'block') closeInstallModal();
+        });
+    </script>
+</body>
+
+</html>
+
+<script>
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        navToggle.classList.toggle('open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    mainNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mainNav.classList.remove('open');
+            navToggle.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+</script>
