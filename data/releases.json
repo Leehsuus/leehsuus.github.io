@@ -42,18 +42,23 @@
     "versions": [
       {
         "version": "14.1",
-        "date": "In Development",
+        "date": "2026-09-09",
         "features": [
-          "Fixed a bug where DNR / Marked Read statuses disappeared when navigating between pages.",
-          "Fixed a bug where Bookmark Sync fired requests without rate limiting to AO3.",
-          "Updated the extension's logo."
+          "Updated the extension's logo across the interface.",
+          "Revamped the Reading Log history to visually differentiate reading actions with colored badges (Read, Chapter Read, Re-read) and now tracks the exact chapter numbers you read.",
+          "Added an undo button after marking a work as read.",
+          "Expanded the Top Fandoms and Authors panels to display more detailed insights.",
+          "Added 'Want to Read' (WTR) badges to work listings, matching the style of other tags.",
+          "Fixed a bug where the word count sometimes incorrectly recorded only ~28 words instead of the actual chapter count.",
+          "Fixed a bug where 'Do Not Read' or 'Marked Read' statuses disappeared when navigating between pages.",
+          "Fixed a bug where Bookmark Sync fired requests without rate limiting to AO3, improving sync stability."
         ]
       },
       {
         "version": "14.0",
-        "date": "2026-08-05",
+        "date": "2026-09-07",
         "features": [
-          "Kudos tracking and listing to map and display your given kudos."
+          "Kudos Tracking module: automatically map and display all your given kudos."
         ]
       }
     ]
@@ -63,13 +68,13 @@
     "versions": [
       {
         "version": "13.7",
-        "date": "2026-07-23",
+        "date": "2026-09-07",
         "features": [
+          "Fixed an issue where the auto-folding feature could not be disabled after being activated.",
+          "Added storage usage indicator in Options.",
+          "Added 'Read' and 'Chapter Read' buttons to the end of the chapter page.",
           "Added checkpoints to the goal progress bar.",
           "Dynamic year label in Stats Config.",
-          "Added 'Read' and 'Chapter Read' buttons to the end of the chapter page.",
-          "Added storage usage indicator in Options.",
-          "Fixed an issue where the auto-folding feature could not be disabled after being activated.",
           "Fixed the text color of the button on the work page."
         ]
       },
@@ -99,40 +104,40 @@
         "version": "13.3",
         "date": "2026-06-09",
         "features": [
-          "Completed the logic for bidirectional hexadecimal color synchronization.",
-          "Enforced global and local infinite scroll configuration settings.",
-          "Ensured consistent pagination behavior across listing types and bookmark grouping modes."
+          "Added option to customize where infinite scroll is active (tags, bookmarks, etc).",
+          "Enabled colors and filters on the 'Mark for Later' listing page.",
+          "Added a hex color input field for custom colors in options."
         ]
       },
       {
         "version": "13.2",
         "date": "2026-06-06",
         "features": [
-          "Fixed an issue where submitting a comment would cause the page to lose its references and the extension to stop functioning.",
-          "Added a custom scrollbar to the Notebook tab to prevent infinite scrolling on the main page.",
-          "Hidden the manual upload button on AO3 when automatic backups (Google Drive or JSONBin.io) are enabled.",
-          "Fixed an issue where the saved chapter link in the notebook did not correctly navigate to the chapter page.",
-          "Fixed an issue where restoring a Drive backup caused notebook items to display incorrect metadata (e.g., unknown author or tag IDs instead of names) when local reading history was missing.",
-          "Fixed the infinite scrolling issue in the reading history table on the stats panel by implementing a robust IntersectionObserver pagination system."
+          "Fixed infinite scroll on the history table in the stats dashboard.",
+          "Fixed an issue where Notebook items showed as 'work', unknown tag/author after restoring a Drive backup.",
+          "Fixed the chapter link in the Notebook not redirecting correctly.",
+          "Removed manual upload button from AO3 when automatic backup is enabled.",
+          "Added a scrollbar to the Notebook dashboard to prevent infinite page expansion.",
+          "Fixed a bug where the extension would stop working after submitting a review."
         ]
       },
       {
         "version": "13.1",
         "date": "2026-06-05",
         "features": [
-          "Added a 'Notebook' tab to view and manage all your saved chapter reviews in one place.",
-          "Optimized the extension's package size by loading demonstration media dynamically, making it faster to install and lighter on your browser."
+          "Created the Notebook dashboard to view all chapter reviews centrally.",
+          "Optimized demonstration GIFs to significantly reduce extension size."
         ]
       },
       {
         "version": "13.0",
         "date": "2026-06-05",
         "features": [
-          "Introduced Google Drive synchronization to easily backup and restore your reading data across devices.",
-          "Implemented secure Google account login for seamless cloud storage access.",
-          "Added automatic daily background backups for JSONBin.io to keep your data safe without manual effort.",
-          "Added the ability to manually download and restore your cloud backups directly from the interface.",
-          "Redesigned the review and analysis modal interface for a cleaner and more modern look."
+          "Redesigned the chapter review modal for a cleaner, modern look.",
+          "Added Google Drive Cloud Backup & Sync support.",
+          "Implemented automatic backup syncing for JSONBin.io.",
+          "Added manual backup download functionality.",
+          "Implemented secure OAuth2 authentication for cloud providers."
         ]
       }
     ]
@@ -144,14 +149,14 @@
         "version": "12.1",
         "date": "2026-06-05",
         "features": [
-          "Fixed a bug where the 'Want to Read' button would incorrectly re-enable after reading subsequent chapters of a work."
+          "Fixed a bug where the 'Want to Read' button became incorrectly re-enabled when navigating to the next chapter."
         ]
       },
       {
         "version": "12.0",
         "date": "2026-05-16",
         "features": [
-          "Introduced the 'Want to Read' queue (PRO feature), allowing you to save fics for later directly from the search and tag pages."
+          "Added 'Want to Read' functionality to save fics for later."
         ]
       }
     ]
@@ -163,15 +168,15 @@
         "version": "11.1",
         "date": "2026-05-11",
         "features": [
-          "Streamlined cloud settings by unifying the synchronization process for both reading progress and chapter reviews.",
-          "Added a custom scrollbar to the Highlights menu to prevent infinite scrolling issues when managing many saved highlights."
+          "Moved Chapter Review Bin ID to Cloud Settings and disabled manual upload/download buttons.",
+          "Added a scrollbar to the Highlights menu to prevent infinite page expansion."
         ]
       },
       {
         "version": "11.0",
         "date": "2026-05-08",
         "features": [
-          "Completely redesigned the extension's Options Dashboard for a more intuitive, user-friendly, and premium experience."
+          "Added 'Hide Read Works' filter to infinite scroll search pages."
         ]
       }
     ]
@@ -181,13 +186,9 @@
     "versions": [
       {
         "version": "10.1",
-        "date": "2026-04-27",
+        "date": "2026-05-01",
         "features": [
-          "Added color-coded visual indicators directly on the scrollbar so you can easily spot your highlights while reading.",
-          "Improved statistics formatting to display 'Millions' instead of thousands for very high word counts.",
-          "Adjusted the extension icon size for better visibility on Firefox Mobile.",
-          "Fixed an issue where the highlight color menu could overlap with other page elements.",
-          "Ensured the highlight menu dynamically respects your PRO status and feature toggles."
+          "Automatically redirect to Release Notes when the extension is updated."
         ]
       }
     ]
