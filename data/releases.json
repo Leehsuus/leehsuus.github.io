@@ -43,6 +43,13 @@
     "major": "14",
     "versions": [
       {
+        "version": "14.2",
+        "date": "2026-09-24",
+        "features": [
+          "Enhanced OAuth authentication flow by routing callbacks directly through the website, resulting in a more reliable login experience for cloud providers."
+        ]
+      },
+      {
         "version": "14.1",
         "date": "2026-09-09",
         "features": [
