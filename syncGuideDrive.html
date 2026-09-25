@@ -75,9 +75,9 @@
             <!-- Main Content -->
             <article class="guide-content">
 
-                <p>Seamless cross-device syncing is here! With the Google Drive integration, you no longer need to
-                    manually manage third-party API accounts, secret keys, or long Bin IDs. Your reading data is stored
-                    privately inside your own personal Google Drive account and is never shared.</p>
+                <p>The Google Drive integration provides seamless cross-device synchronization for your reading
+                    progress. Your data is stored privately inside a dedicated, hidden folder within your own Google
+                    Drive account, eliminating the need to manage third-party API keys or complex setups.</p>
 
                 <!-- Section 1 -->
                 <div class="guide-section" id="sync-logic">
@@ -114,13 +114,14 @@
                 <hr class="section-divider">
 
                 <!-- Section 2 -->
-                <div class="guide-section" id="desktop-setup">
+                <div class="guide-section" id="universal-setup">
                     <div class="section-title">
                         <div class="section-num">2</div>
-                        <h2>Desktop Setup (Chrome, Firefox, Edge, Opera, Opera GX, Brave)</h2>
+                        <h2>Universal Setup (Desktop &amp; Mobile)</h2>
                     </div>
 
-                    <p>Setting up your cloud connection on a desktop browser takes just two clicks:</p>
+                    <p>Thanks to the new unified web flow, setting up your cloud connection is exactly the same across
+                        all devices and browsers (including Firefox for Android):</p>
 
                     <ol class="step-list">
                         <li>
@@ -130,63 +131,48 @@
                         </li>
                         <li>
                             <div class="step-badge">2</div>
-                            <span>Under <strong>Storage Provider</strong>, select <strong>Google Drive</strong>.</span>
-                        </li>
-                        <li>
-                            <div class="step-badge">3</div>
-                            <span>Click <strong>Log In with Google</strong> and complete the authorization
-                                prompt.</span>
+                            <span>Under Storage Provider, select <strong>Google Drive</strong>.</span>
                         </li>
                     </ol>
 
                     <figure class="figure">
-                        <img src="assets/sync-drive/driveButton.png" alt="Google Drive Storage Provider Settings">
+                        <img src="assets/sync-drive/cloudSettings.png" alt="Cloud Settings Tab">
                         <figcaption>Figure 1 — Activating Google Drive as your storage provider in Cloud Settings.
                         </figcaption>
+                    </figure>
+
+                    <ol class="step-list" start="3">
+                        <li>
+                            <div class="step-badge">3</div>
+                            <span>Click <strong>Log In with Google</strong>. A new secure tab will open to handle your
+                                authentication.</span>
+                        </li>
+                    </ol>
+
+                    <figure class="figure">
+                        <img src="assets/sync-drive/loginPage.png" alt="Google Login Web Flow">
+                        <figcaption>Figure 2 — Completing the secure authentication flow in your browser.</figcaption>
+                    </figure>
+
+                    <ol class="step-list" start="4">
+                        <li>
+                            <div class="step-badge">4</div>
+                            <span>After successful login, make sure to check the box granting the extension permission to access your Google Drive.</span>
+                        </li>
+                    </ol>
+
+                    <figure class="figure">
+                        <img src="assets/sync-drive/checkBox.png" alt="Google Drive Access Permission Checkbox">
+                        <figcaption>Figure 3 — Granting Google Drive access permissions during the authentication flow.</figcaption>
                     </figure>
                 </div>
 
                 <hr class="section-divider">
 
                 <!-- Section 3 -->
-                <div class="guide-section" id="firefox-android">
-                    <div class="section-title">
-                        <div class="section-num">3</div>
-                        <h2>Firefox for Android Setup (Manual Token Import)</h2>
-                    </div>
-
-                    <p>Firefox for Android restricts extensions from spawning external authentication popups. To bypass
-                        this limitation, copy an authentication token generated from any of your desktop browsers.</p>
-
-                    <h3>Step 3.1 — Exporting the Token from Desktop</h3>
-                    <p>On your logged-in desktop extension, go to <strong>Cloud Settings</strong>. Under the active
-                        Google Account panel, click <strong>Export Sync Token</strong>. Copy the long encrypted string
-                        that appears in the text area.</p>
-
-                    <figure class="figure">
-                        <img src="assets/sync-drive/exportingToken.png" alt="Exporting Google Sync Token from Desktop">
-                        <figcaption>Figure 2 — Generating and copying your manual cross-device sync token on desktop.
-                        </figcaption>
-                    </figure>
-
-                    <h3>Step 3.2 — Importing the Token into Firefox Mobile</h3>
-                    <p>Open the extension settings in your Firefox for Android app. Select <strong>Google
-                            Drive</strong>, then click <em>"Using Firefox for Android? Import Token manually"</em>.
-                        Paste your copied string and click <strong>Import</strong>.</p>
-
-                    <figure class="figure">
-                        <img src="assets/sync-drive/loginButtons.png" alt="Importing Token into Firefox Mobile">
-                        <figcaption>Figure 3 — Pasting and importing the token on your Android device to log in
-                            automatically.</figcaption>
-                    </figure>
-                </div>
-
-                <hr class="section-divider">
-
-                <!-- Section 4 -->
                 <div class="guide-section" id="using-sync">
                     <div class="section-title">
-                        <div class="section-num">4</div>
+                        <div class="section-num">3</div>
                         <h2>Using Sync Features Inside AO3</h2>
                     </div>
 
@@ -195,15 +181,14 @@
 
                     <ul>
                         <li><strong>Upload to Drive:</strong> Saves your current local state to your cloud folder.
-                            <em>(Hidden when Automatic Backup is active.)</em>
-                        </li>
+                            <em>(Hidden when Automatic Backup is active.)</em></li>
                         <li><strong>Download from Drive:</strong> Pulls your cloud copy to refresh your active device
                             history.</li>
                     </ul>
 
                     <figure class="figure">
-                        <img src="assets/sync-drive/driveButtonsAO3.png" alt="Google Drive Sync Toolbar on AO3">
-                        <figcaption>Figure 4 — Cloud markers tool bar visible above work lists on AO3.</figcaption>
+                        <img src="assets/sync-drive/driveButtonsAO3.png" alt="AO3 Marker Tools Sync Buttons">
+                        <figcaption>Figure 4 — The Upload and Download sync buttons within the AO3 interface.</figcaption>
                     </figure>
 
                     <div class="callout callout-info">
@@ -224,9 +209,8 @@
                 <h4>On This Page</h4>
                 <ul>
                     <li><a href="#sync-logic">1. Synchronization Logic</a></li>
-                    <li><a href="#desktop-setup">2. Desktop Setup</a></li>
-                    <li><a href="#firefox-android">3. Firefox for Android</a></li>
-                    <li><a href="#using-sync">4. Using Sync on AO3</a></li>
+                    <li><a href="#universal-setup">2. Universal Setup</a></li>
+                    <li><a href="#using-sync">3. Using Sync on AO3</a></li>
                 </ul>
             </aside>
 
