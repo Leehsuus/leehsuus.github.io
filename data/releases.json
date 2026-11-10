@@ -45,9 +45,7 @@
         "date": "Coming Soon",
         "features": [
           "AO3 Marker Wrapped (End of Year Summary) with a Bento Grid layout to visualize your reading habits.",
-          "Multi-Year Storage System with automatic archiving and cloud sync to preserve historical data.",
-          "Added time and date to chapter reviews.",
-          "Added a helpful error prompt during Google login if Google Drive is not properly configured."
+          "Multi-Year Storage System with automatic archiving and cloud sync to preserve historical data."
         ]
       }
     ]
