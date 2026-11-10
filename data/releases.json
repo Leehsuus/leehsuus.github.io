@@ -1,12 +1,26 @@
 [
   {
+    "major": "18",
+    "versions": [
+      {
+        "version": "18.0",
+        "date": "Coming Soon",
+        "features": [
+          "Offline Library: save whole works to read without a connection, even if the author later deletes them (Free: up to 3 works, PRO: unlimited).",
+          "Reading controls now work in Entire Work view, so you can mark chapters as read without switching to chapter by chapter."
+        ]
+      }
+    ]
+  },
+  {
     "major": "17",
     "versions": [
       {
         "version": "17.0",
         "date": "Coming Soon",
         "features": [
-          "Active Notification Engine to alert you whenever your saved fics get new chapter updates."
+          "Custom Lists: save works into your own named, color-coded lists, like playlists (Free: 1 list, PRO: unlimited). Want to Read is now called TBR.",
+          "Fixed the layout of the Read and bookmark buttons in work listings."
         ]
       }
     ]
@@ -42,6 +56,16 @@
   {
     "major": "14",
     "versions": [
+      {
+        "version": "14.4",
+        "date": "Coming Soon",
+        "features": [
+          "Mark as Read no longer loses your reading when you leave the page, switch apps or lock your phone right after clicking, and each read is saved on the day you actually clicked. This fixes streaks breaking on iPhone.",
+          "Days when AO3 is down no longer break your reading streak.",
+          "New option to turn off the Undo message after Mark as Read, so your read is saved instantly.",
+          "Bookmarks waiting to sync are now sent to AO3 a few at a time, so pages stay fast after an outage."
+        ]
+      },
       {
         "version": "14.3",
         "date": "2026-10-18",
