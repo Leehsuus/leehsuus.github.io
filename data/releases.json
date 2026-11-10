@@ -43,6 +43,16 @@
     "major": "14",
     "versions": [
       {
+        "version": "14.3",
+        "date": "2026-10-18",
+        "features": [
+          "Security update for Google sign-in. You'll need to sign in with Google again once; your reading history and Drive backup stay safe.",
+          "Your Google Drive backup is now protected: a new or empty install can no longer overwrite the data you already have saved there.",
+          "A temporary connection problem no longer signs you out of Google.",
+          "Highlights and word counts are no longer affected by the AO3 donation banner."
+        ]
+      },
+      {
         "version": "14.2",
         "date": "2026-09-24",
         "features": [
