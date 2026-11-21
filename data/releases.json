@@ -32,7 +32,9 @@
         "version": "16.0",
         "date": "Coming Soon",
         "features": [
-          "Books Tracking Module to log pages read, track annual book goals, and rate physical/e-books alongside your AO3 fics."
+          "AO3 Marker Wrapped: a year-end summary of your reading (words read, top fandoms and authors, your favorite works and more) that you can save as an image and share. Free for everyone.",
+          "Look back at past years in Stats: each year's words read, goal progress, top fandoms and authors, and best streak are kept, and included in your cloud backup. Your streak also carries on into the new year.",
+          "My Books (PRO): search for physical or digital books and add them to your shelf, log the pages you read, and rate and review them. Books count toward your yearly goal and show up in Stats and in your Notebook, alongside your AO3 fics. No Google sign-in needed."
         ]
       }
     ]
@@ -42,10 +44,9 @@
     "versions": [
       {
         "version": "15.0",
-        "date": "Coming Soon",
+        "date": "Merged into v16.0",
         "features": [
-          "AO3 Marker Wrapped: a year-end summary of your reading (words read, top fandoms and authors, your favorite works and more) that you can save as an image and share.",
-          "Look back at past years in Stats: each year's words read, goal progress, top fandoms and authors, and best streak are kept, and included in your cloud backup. Your streak also carries on into the new year."
+          "This version was merged into v16.0. Everything planned for it (Wrapped and past years in Stats) is coming in v16.0."
         ]
       }
     ]
