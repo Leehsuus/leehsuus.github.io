@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Status Guide – AO3 Advanced Marker</title>
+    <meta name="description"
+        content="How to use Mark as Read, Chapter Read, Do Not Read and the NEW CHAPTER! badge in AO3 Advanced Marker, and what each badge means in AO3 lists.">
+    <link rel="icon" type="image/png" href="assets/brand/icon48.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo-group">
+                    <img src="assets/brand/icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <span>AO3 Advanced Marker</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <a href="index.html#features">Showcase</a>
+                    <a href="features.html">All Features</a>
+                    <a href="index.html#pro">Support (PRO)</a>
+                    <a href="manuals.html" class="active">Manuals</a>
+                    <a href="releases.html">Releases</a>
+                    <div class="nav-dropdown">
+                        <span class="dropdown-btn">Legal <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg></span>
+                        <div class="dropdown-content">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                        </div>
+                    </div>
+                    <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank"
+                        rel="noopener">Install</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <a href="manuals.html">Manuals</a>
+                <span>›</span>
+                <span>Reading Status</span>
+            </div>
+            <h1>Reading <span>Status</span> Guide</h1>
+            <p>Mark fics as read, save the chapter you stopped at, hide the ones you don't want to read, and see it all at a glance while you browse AO3.</p>
+        </div>
+    </div>
+
+    <!-- Guide Body -->
+    <div class="container">
+        <div class="guide-layout">
+
+            <!-- Main Content -->
+            <article class="guide-content">
+
+                <p>AO3 Advanced Marker was made to answer one question: <em>have I read this already?</em> Every fic you mark gets a status, and that status shows up on the fic's page and everywhere the fic appears in a list on AO3 — search results, tag pages and bookmarks.</p>
+
+                <div class="callout callout-info">
+                    <div class="callout-icon">ℹ️</div>
+                    <div class="callout-body">
+                        <strong>A fic has one status at a time</strong>
+                        <p>A fic is either <strong>Read</strong>, <strong>stopped at a chapter</strong> (Chapter Read), <strong>Do Not Read</strong>, or unmarked. Choosing one status clears the others. All of this is free.</p>
+                    </div>
+                </div>
+
+                <!-- Section 1 -->
+                <div class="guide-section" id="work-page-buttons">
+                    <div class="section-title">
+                        <div class="section-num">1</div>
+                        <h2>The Buttons on a Fic's Page</h2>
+                    </div>
+
+                    <p>When you open a fic, the extension adds its buttons next to AO3's own buttons (Entire Work, Bookmark, Comments…):</p>
+                    <ul>
+                        <li><strong>Mark as Read</strong> and <strong>Chapter Read</strong> — at the top and at the bottom of the page, so you can mark the fic as soon as you finish the chapter.</li>
+                        <li><strong>Mark Do Not Read</strong> and <strong>+ Re-read</strong> — at the top of the page.</li>
+                    </ul>
+                    <p>A button fills with its status color when it's active, so you can tell the fic's status as soon as the page opens.</p>
+                    <figure class="figure">
+                        <img src="assets/color-system/workpageColoredButton.png" alt="Mark as Read, Chapter Read, Mark Do Not Read and + Re-read buttons on a fic's page">
+                        <figcaption>Figure 1 — The buttons on a fic's page. Here, Chapter Read is active.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 2 -->
+                <div class="guide-section" id="mark-as-read">
+                    <div class="section-title">
+                        <div class="section-num">2</div>
+                        <h2>Mark as Read</h2>
+                    </div>
+
+                    <p>Finished the fic? Click <strong>Mark as Read</strong>. The button changes to <strong>"Read ✔"</strong> and turns green.</p>
+                    <ul>
+                        <li>It replaces Chapter Read and Do Not Read, if the fic had one of them.</li>
+                        <li>If Reading Stats are on, the fic's words count toward your yearly goal. See the <a href="statsGuide.html">Reading Stats guide</a>.</li>
+                        <li>If the fic was in your Want to Read queue (PRO), it leaves the queue.</li>
+                    </ul>
+                    <p>You can also mark a fic as read without opening it: in any list, click the <strong>✔</strong> button at the top right of the fic.</p>
+
+                    <h3>Changed your mind?</h3>
+                    <p>Right after you mark a fic as read, a notice with an <strong>UNDO</strong> button shows at the bottom right of the page for a few seconds. Click UNDO and nothing is saved. To unmark a fic later, click <strong>"Read ✔"</strong> (or the ✔ in a list) again.</p>
+                    <figure class="figure">
+                        <img src="assets/reading-status/undoNotice.png" alt="The notice with the UNDO button at the bottom right after marking a fic as read">
+                        <figcaption>Figure 2 — The Undo notice after Mark as Read. The bar under it shows the time left.</figcaption>
+                    </figure>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>Don't want the Undo notice?</strong>
+                            <p>You can turn it off so fics are marked instantly. See <a href="#undo-setting">section 7</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 3 -->
+                <div class="guide-section" id="chapter-read">
+                    <div class="section-title">
+                        <div class="section-num">3</div>
+                        <h2>Chapter Read: Save Where You Stopped</h2>
+                    </div>
+
+                    <p>Reading a long fic? When you finish a chapter, click <strong>Chapter Read</strong> on that chapter. The extension saves the chapter and the date, and the button turns teal while you're on that chapter.</p>
+                    <ul>
+                        <li>Next time, click <strong>Chapter Read</strong> on the new chapter you finished. The saved chapter moves forward.</li>
+                        <li>In lists, the fic shows a teal badge such as <strong>"Stopped at: Ch 3 (on 07/15/2026 at 20:04)"</strong>. <strong>Click the badge to go straight to that chapter</strong> and keep reading.</li>
+                        <li>If Reading Stats are on, the chapter's words count toward your yearly goal.</li>
+                        <li>When you finish the whole fic, click <strong>Mark as Read</strong>: it replaces the saved chapter.</li>
+                        <li>To clear the saved chapter, click <strong>Chapter Read</strong> again on the same chapter.</li>
+                    </ul>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>Seeing "Chapter content not detected yet"?</strong>
+                            <p>The chapter text hadn't finished loading. Wait a moment and click Chapter Read again.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 4 -->
+                <div class="guide-section" id="do-not-read">
+                    <div class="section-title">
+                        <div class="section-num">4</div>
+                        <h2>Do Not Read</h2>
+                    </div>
+
+                    <p>Found a fic you know you don't want to read? Mark it so you don't open it again by mistake.</p>
+                    <ul>
+                        <li>On the fic's page, click <strong>Mark Do Not Read</strong> (top of the page). The button changes to <strong>"Do Not Read X"</strong> and turns red.</li>
+                        <li>In a list, click the <strong>X</strong> button at the top right of the fic.</li>
+                    </ul>
+                    <p>Do Not Read clears Read and the saved chapter. Click the same button again to remove it.</p>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 5 -->
+                <div class="guide-section" id="new-chapter">
+                    <div class="section-title">
+                        <div class="section-num">5</div>
+                        <h2>NEW CHAPTER!</h2>
+                    </div>
+
+                    <p>When a fic you marked as read gets updated on AO3 after you marked it, it turns yellow in lists with a <strong>"NEW CHAPTER!"</strong> badge. That's your cue that there's more to read.</p>
+                    <p>After you read the new chapter:</p>
+                    <ul>
+                        <li>If the fic is still in progress, click <strong>Chapter Read</strong> on the chapter you finished. The badge changes to "Stopped at".</li>
+                        <li>If you're done for now, open the fic, click <strong>"Read ✔"</strong> to unmark it and then <strong>Mark as Read</strong> again. This saves today's date and the fic goes back to green.</li>
+                    </ul>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 6 -->
+                <div class="guide-section" id="list-badges">
+                    <div class="section-title">
+                        <div class="section-num">6</div>
+                        <h2>What You See in Lists</h2>
+                    </div>
+
+                    <p>In search results, tag pages and bookmarks, each fic you marked gets a soft background color and a badge under its title:</p>
+                    <ul>
+                        <li><strong>Read ✔</strong> (green) — you marked it as read.</li>
+                        <li><strong>NEW CHAPTER!</strong> (yellow) — you read it, and it was updated after that.</li>
+                        <li><strong>Stopped at: Ch N</strong> (teal) — the chapter you stopped at, with the date. Click it to open that chapter.</li>
+                        <li><strong>Do Not Read X</strong> (red) — you don't want to read it.</li>
+                        <li><strong>Want to Read</strong> (purple, PRO) — it's in your reading queue. See the <a href="wtrGuide.html">Want to Read guide</a>.</li>
+                    </ul>
+                    <p>Fics you haven't marked stay as they are. At the top right of each fic you'll find the <strong>✔</strong> (Mark as Read) and <strong>X</strong> (Do Not Read) buttons; the one that's active is colored.</p>
+                    <figure class="figure">
+                        <img src="assets/color-system/partial-donotread.png" alt="A Do Not Read fic and a fic with the Stopped at badge in a list">
+                        <figcaption>Figure 3 — A Do Not Read fic (red) and a fic stopped at chapter 1 (teal).</figcaption>
+                    </figure>
+                    <figure class="figure">
+                        <img src="assets/color-system/newChapter-read.png" alt="A fic with the NEW CHAPTER! badge and a Read fic in a list">
+                        <figcaption>Figure 4 — A read fic that got a new chapter (yellow) and a read fic (green).</figcaption>
+                    </figure>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>Want other colors?</strong>
+                            <p>Every status color can be changed. See the <a href="colorSystemGuide.html#customization">Color System guide</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 7 -->
+                <div class="guide-section" id="undo-setting">
+                    <div class="section-title">
+                        <div class="section-num">7</div>
+                        <h2>Turning the Undo Notice On or Off</h2>
+                    </div>
+
+                    <p>The Undo notice after Mark as Read is on by default. To change it:</p>
+                    <ol>
+                        <li>Open the extension's Options Page and go to <strong>Customization</strong>.</li>
+                        <li>Turn <strong>"Show Undo after "Mark as Read""</strong> on or off.</li>
+                        <li>Click <strong>Save Settings</strong>.</li>
+                    </ol>
+                    <p>With it off, fics are marked as read the moment you click, with no notice.</p>
+                    <figure class="figure">
+                        <img src="assets/reading-status/undoOption.png" alt="The Show Undo after Mark as Read switch in Customization and the Save Settings button">
+                        <figcaption>Figure 5 — The Undo setting in Customization.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 8 -->
+                <div class="guide-section" id="re-read">
+                    <div class="section-title">
+                        <div class="section-num">8</div>
+                        <h2>+ Re-read</h2>
+                    </div>
+
+                    <p>Reading a chapter again? Click <strong>+ Re-read</strong> (top of the fic's page) to add that chapter's words to your reading stats again. The fic's status doesn't change. This only works when Reading Stats are on.</p>
+                </div>
+
+            </article>
+
+            <!-- Sidebar TOC -->
+            <aside class="toc-sidebar">
+                <h4>On This Page</h4>
+                <ul>
+                    <li><a href="#work-page-buttons">1. The Buttons on a Fic's Page</a></li>
+                    <li><a href="#mark-as-read">2. Mark as Read</a></li>
+                    <li><a href="#chapter-read">3. Chapter Read</a></li>
+                    <li><a href="#do-not-read">4. Do Not Read</a></li>
+                    <li><a href="#new-chapter">5. NEW CHAPTER!</a></li>
+                    <li><a href="#list-badges">6. What You See in Lists</a></li>
+                    <li><a href="#undo-setting">7. The Undo Notice</a></li>
+                    <li><a href="#re-read">8. + Re-read</a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>
+                        <img src="assets/brand/icon48.png" alt="" class="logo-icon"
+                            style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
+                        AO3 Advanced Marker
+                    </h3>
+                    <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by
+                        introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Extension</h4>
+                    <ul>
+                        <li><a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Chrome Web
+                                Store</a></li>
+                        <li><a href="index.html#features">Showcase</a>
+                            <a href="features.html">All Features</a>
+                        </li>
+                        <li><a href="index.html#security">Security &amp; Cloud Sync</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal &amp; Support</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="releases.html">Release Notes</a></li>
+                        <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank"
+                                rel="noopener">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025-2026 AO3 Advanced Marker. Not affiliated with Archive of Our Own or the OTW.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Rate on Chrome Web
+                        Store</a>
+                    <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Install Modal -->
+    <div id="install-modal-backdrop"></div>
+    <div id="install-modal">
+        <button class="install-close" aria-label="Close" onclick="closeInstallModal()">&times;</button>
+        <h3>Choose your browser</h3>
+        <p>Select the store for your browser to install the extension.</p>
+        <div class="install-options">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                    class="btn-install-option btn-chrome" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+                    </svg>
+                    Chrome Web Store
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Also for Opera, Brave &
+                    Edge (PC)</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/"
+                    class="btn-install-option btn-firefox" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z" />
+                    </svg>
+                    Firefox Add-ons
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">For PC & <strong>Mobile
+                        (Android)</strong></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openInstallModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('install-modal-backdrop').style.display = 'block';
+            document.getElementById('install-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeInstallModal() {
+            document.getElementById('install-modal-backdrop').style.display = 'none';
+            document.getElementById('install-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.getElementById('install-modal-backdrop')?.addEventListener('click', closeInstallModal);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && document.getElementById('install-modal').style.display === 'block') closeInstallModal();
+        });
+    </script>
+</body>
+
+</html>
+
+<script>
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        navToggle.classList.toggle('open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    mainNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mainNav.classList.remove('open');
+            navToggle.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+</script>
