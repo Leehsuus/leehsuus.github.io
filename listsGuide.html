@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists & TBR Guide – AO3 Advanced Marker</title>
+    <meta name="description"
+        content="How to use custom lists and the TBR (To Be Read) list in AO3 Advanced Marker: save fics, default list, list dots, managing lists and TBR.">
+    <link rel="icon" type="image/png" href="assets/brand/icon48.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo-group">
+                    <img src="assets/brand/icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <span>AO3 Advanced Marker</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <a href="index.html#features">Showcase</a>
+                    <a href="features.html">All Features</a>
+                    <a href="index.html#pro">Support (PRO)</a>
+                    <a href="manuals.html" class="active">Manuals</a>
+                    <a href="releases.html">Releases</a>
+                    <div class="nav-dropdown">
+                        <span class="dropdown-btn">Legal <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg></span>
+                        <div class="dropdown-content">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                        </div>
+                    </div>
+                    <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank"
+                        rel="noopener">Install</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <a href="manuals.html">Manuals</a>
+                <span>›</span>
+                <span>Lists &amp; TBR</span>
+            </div>
+            <h1>Lists &amp; <span>TBR</span> Guide</h1>
+            <p>Save fics into your own lists — favorites, comfort reads, anything — and keep a To Be Read queue that cleans itself up.</p>
+        </div>
+    </div>
+
+    <!-- Guide Body -->
+    <div class="container">
+        <div class="guide-layout">
+
+            <!-- Main Content -->
+            <article class="guide-content">
+
+                <p>Lists work like playlists: you create them, give them any name and color, and save fics into them. A fic can be in as many lists as you like, whatever its reading status. Each list keeps the fic's title, author and fandom, so your lists still make sense if a fic leaves AO3.</p>
+
+                <div class="callout callout-info">
+                    <div class="callout-icon">ℹ️</div>
+                    <div class="callout-body">
+                        <strong>Free and PRO</strong>
+                        <p>Everyone can create <strong>one custom list</strong>. <strong>PRO</strong> unlocks unlimited lists and the <strong>TBR</strong> (To Be Read) list.</p>
+                    </div>
+                </div>
+
+                <div class="callout callout-tip">
+                    <div class="callout-icon">💡</div>
+                    <div class="callout-body">
+                        <strong>Used Want to Read before?</strong>
+                        <p>Want to Read is now called <strong>TBR</strong>. Your queue is all there, with the same rules and the same AO3 bookmark tag. The old Want to Read button became <strong>Save to List</strong>, explained below.</p>
+                    </div>
+                </div>
+
+                <!-- Section 1 -->
+                <div class="guide-section" id="turning-on">
+                    <div class="section-title">
+                        <div class="section-num">1</div>
+                        <h2>Turning Lists On</h2>
+                    </div>
+
+                    <p>Lists are on by default. You'll find their settings in the extension's Options Page, under <strong>Lists Settings</strong>:</p>
+                    <ul>
+                        <li><strong>Enable Lists</strong> — shows the list buttons on AO3.</li>
+                        <li><strong>Show Lists icon in AO3 header</strong> — adds a <strong>Lists</strong> shortcut to AO3's top bar, with the number of fics you've saved.</li>
+                        <li><strong>Open my lists</strong> — opens your lists right from the Options Page, even when AO3 is down.</li>
+                    </ul>
+                    <p>Click <strong>Save Settings</strong> after changing a switch.</p>
+                    <figure class="figure">
+                        <img src="assets/lists/listsSettings.png" alt="Lists Settings in the Options Page with the Open my lists button">
+                        <figcaption>Figure 1 — Lists Settings.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 2 -->
+                <div class="guide-section" id="saving">
+                    <div class="section-title">
+                        <div class="section-num">2</div>
+                        <h2>Saving a Fic to a List</h2>
+                    </div>
+
+                    <p>There are two buttons for saving:</p>
+                    <ul>
+                        <li>In any list of fics on AO3, the <strong>+</strong> button at the top right of the fic, next to ✔ and X.</li>
+                        <li>On the fic's page, <strong>Save to List</strong>, next to AO3's own buttons. Once the fic is saved, it shows how many lists it's in, like <strong>"Saved · 2 lists"</strong>.</li>
+                    </ul>
+                    <p>Both open the <strong>Save to…</strong> box. Tick the lists you want and untick the ones you don't — each change is saved right away. To find a list, start typing its name; if there's no list with that name, the box offers to <strong>create</strong> it and save the fic there.</p>
+                    <figure class="figure">
+                        <img src="assets/lists/saveTo.png" alt="The Save to box with lists to tick, a search field and the option to create a new list">
+                        <figcaption>Figure 2 — The Save to… box.</figcaption>
+                    </figure>
+                    <p>Once a fic is in a list, its + button and the Save to List button take the color of that list.</p>
+                    <figure class="figure">
+                        <img src="assets/lists/workSaveButton.png" alt="The Saved · 2 lists button on a fic's page">
+                        <figcaption>Figure 3 — Save to List on a fic's page.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 3 -->
+                <div class="guide-section" id="default-list">
+                    <div class="section-title">
+                        <div class="section-num">3</div>
+                        <h2>One-Click Saving with a Default List</h2>
+                    </div>
+
+                    <p>If you save most fics to the same list, make it your <strong>default list</strong> (see <a href="#edit-list">Editing a list</a>). Then the + button saves a fic to it in one click and shows a notice like <strong>"Saved to “Comfort fics”"</strong>. Click <strong>CHANGE</strong> on the notice to pick other lists instead.</p>
+                    <p>If the fic is already in a list, the + button opens the Save to… box, so you can manage it. Only one list can be the default; with PRO, it can also be your TBR.</p>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 4 -->
+                <div class="guide-section" id="while-browsing">
+                    <div class="section-title">
+                        <div class="section-num">4</div>
+                        <h2>Your Lists While You Browse</h2>
+                    </div>
+
+                    <p>In search results, tag pages and bookmarks, fics you've saved show small colored dots — one per list, up to three, then <strong>+N</strong>. Hover over the dots (or tap them on your phone) to see the names of the lists.</p>
+                    <p>Fics in your TBR that you haven't started also get a <strong>"To Be Read"</strong> badge under the title. A reading status (Read, Stopped at, Do Not Read) always comes first and takes the badge's place.</p>
+                    <figure class="figure">
+                        <img src="assets/lists/listsBlurb.png" alt="A fic in an AO3 list with colored list dots and the To Be Read badge">
+                        <figcaption>Figure 4 — List dots and the To Be Read badge in a list of fics.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 5 -->
+                <div class="guide-section" id="your-lists">
+                    <div class="section-title">
+                        <div class="section-num">5</div>
+                        <h2>Seeing and Managing Your Lists</h2>
+                    </div>
+
+                    <p>Open your lists in one of two ways:</p>
+                    <ul>
+                        <li>On AO3, click <strong>Lists</strong> in the top bar.</li>
+                        <li>In the Options Page, go to <strong>Lists Settings</strong> and click <strong>Open my lists</strong>. This works even when AO3 is down.</li>
+                    </ul>
+                    <figure class="figure">
+                        <img src="assets/lists/headerLists.png" alt="The Lists shortcut with the saved fics count in AO3's top bar">
+                        <figcaption>Figure 5 — The Lists shortcut in AO3's top bar.</figcaption>
+                    </figure>
+                    <p><strong>Your lists</strong> shows the TBR at the top (PRO) and your lists under <strong>My lists</strong>, each with its number of fics. Use the search to find a list, or <strong>New list</strong> to create one.</p>
+                    <figure class="figure">
+                        <img src="assets/lists/yourLists.png" alt="The Your lists screen with TBR pinned at the top and the custom lists below">
+                        <figcaption>Figure 6 — Your lists.</figcaption>
+                    </figure>
+
+                    <h3>Inside a list</h3>
+                    <p>Click a list to see its fics. Each fic shows its fandom, its reading status (Read, Stopped at, Do Not Read or Not started), its words and chapters, and when you saved it. Click the title to open the fic on AO3.</p>
+                    <ul>
+                        <li>Search by title, author or fandom, and sort by <strong>Newest</strong>, <strong>Oldest</strong> or <strong>A–Z</strong>.</li>
+                        <li>To take a fic out of the list, click its <strong>✕</strong> and confirm.</li>
+                    </ul>
+                    <figure class="figure">
+                        <img src="assets/lists/listItems.png" alt="The fics inside a list with reading status, words, chapters and the remove button">
+                        <figcaption>Figure 7 — The fics in a list.</figcaption>
+                    </figure>
+
+                    <h3 id="edit-list">Editing a list</h3>
+                    <p>Inside a list, click the pencil at the top to edit it:</p>
+                    <ul>
+                        <li><strong>Name</strong> — up to 50 characters.</li>
+                        <li><strong>Color</strong> — pick one of the colors, or click <strong>+</strong> to add a color of your own. To take a color out of the palette, click the <strong>✕</strong> on it and confirm.</li>
+                        <li><strong>Default list</strong> — turn it on to save to this list in one click (see <a href="#default-list">section 3</a>).</li>
+                        <li><strong>Delete list</strong> — deletes the list after you confirm. The fics stay in your other lists and in your reading history.</li>
+                    </ul>
+                    <p>Click <strong>Save</strong> to keep your changes.</p>
+                    <figure class="figure">
+                        <img src="assets/lists/editList.png" alt="The Edit list screen with name, color, default list switch and Delete list button">
+                        <figcaption>Figure 8 — Editing a list.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 6 -->
+                <div class="guide-section" id="tbr">
+                    <div class="section-title">
+                        <div class="section-num">6</div>
+                        <h2>TBR: To Be Read <span style="font-size: 0.6em; vertical-align: middle; font-weight: bold;">PRO</span></h2>
+                    </div>
+
+                    <p>The TBR is a special list for fics you haven't started yet. Turn it on in <strong>Lists Settings</strong> with <strong>Enable TBR</strong>; it then appears at the top of your lists and in the Save to… box.</p>
+                    <ul>
+                        <li><strong>It cleans itself up:</strong> when you click <strong>Chapter Read</strong> or <strong>Mark as Read</strong> on a fic in your TBR, it leaves the TBR. If you undo the Mark as Read, it goes back. Your other lists keep the fic.</li>
+                        <li><strong>Only fics you haven't started:</strong> for a fic you've already started or read, the TBR option in the Save to… box is grayed out.</li>
+                        <li>Marking a fic as <strong>Do Not Read</strong> doesn't take it out of the TBR; remove it yourself if you want.</li>
+                        <li><strong>Color:</strong> open the TBR and click the pencil (<strong>Edit TBR</strong>). This is also where you make the TBR your default list.</li>
+                    </ul>
+                    <figure class="figure">
+                        <img src="assets/lists/tbrItems.png" alt="The TBR list with fics not started yet">
+                        <figcaption>Figure 9 — Your TBR.</figcaption>
+                    </figure>
+
+                    <h3>TBR and your AO3 bookmarks</h3>
+                    <p>In <strong>Lists Settings</strong>, <strong>Sync TBR with AO3 Bookmarks</strong> creates a private bookmark on AO3 for every fic you add to your TBR, tagged <strong>"AO3 Advanced Marker Want to Read"</strong>. You can change the tag in <strong>Custom TBR Tag</strong>. Remember to click <strong>Save Settings</strong>.</p>
+                    <figure class="figure">
+                        <img src="assets/lists/tbrSettings.png" alt="TBR settings: Enable TBR, Sync TBR with AO3 Bookmarks and Custom TBR Tag">
+                        <figcaption>Figure 10 — TBR settings.</figcaption>
+                    </figure>
+                    <p>On your own bookmarks page, the <strong>Marker Tools</strong> bar gets a <strong>TBR</strong> button. With <strong>"TBR: OFF"</strong>, fics in your TBR are hidden from the bookmarks list, so it shows what you've already started. Click it to switch to <strong>"TBR: ON"</strong> and see only your TBR.</p>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 7 -->
+                <div class="guide-section" id="free-pro">
+                    <div class="section-title">
+                        <div class="section-num">7</div>
+                        <h2>Free Plan, PRO and Your Backup</h2>
+                    </div>
+
+                    <p>On the Free plan you can have one custom list. If you had more lists while you were PRO, nothing is deleted: all your lists stay visible and you can still remove fics from them, but only one accepts new fics. Click <strong>Choose list</strong> on the notice in Your lists to pick which one.</p>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>Backing up your lists</strong>
+                            <p>Your lists and TBR are saved with the rest of your data in your Google Drive backup. They are not saved to JSONBin, so if you still use JSONBin, switch to Google Drive in Cloud Settings. See the <a href="syncGuideDrive.html">Google Drive sync guide</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- Sidebar TOC -->
+            <aside class="toc-sidebar">
+                <h4>On This Page</h4>
+                <ul>
+                    <li><a href="#turning-on">1. Turning Lists On</a></li>
+                    <li><a href="#saving">2. Saving a Fic</a></li>
+                    <li><a href="#default-list">3. Default List</a></li>
+                    <li><a href="#while-browsing">4. While You Browse</a></li>
+                    <li><a href="#your-lists">5. Managing Your Lists</a></li>
+                    <li><a href="#tbr">6. TBR (PRO)</a></li>
+                    <li><a href="#free-pro">7. Free, PRO and Backup</a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>
+                        <img src="assets/brand/icon48.png" alt="" class="logo-icon"
+                            style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
+                        AO3 Advanced Marker
+                    </h3>
+                    <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by
+                        introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Extension</h4>
+                    <ul>
+                        <li><a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Chrome Web
+                                Store</a></li>
+                        <li><a href="index.html#features">Showcase</a>
+                            <a href="features.html">All Features</a>
+                        </li>
+                        <li><a href="index.html#security">Security &amp; Cloud Sync</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal &amp; Support</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="releases.html">Release Notes</a></li>
+                        <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank"
+                                rel="noopener">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025-2026 AO3 Advanced Marker. Not affiliated with Archive of Our Own or the OTW.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Rate on Chrome Web
+                        Store</a>
+                    <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Install Modal -->
+    <div id="install-modal-backdrop"></div>
+    <div id="install-modal">
+        <button class="install-close" aria-label="Close" onclick="closeInstallModal()">&times;</button>
+        <h3>Choose your browser</h3>
+        <p>Select the store for your browser to install the extension.</p>
+        <div class="install-options">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                    class="btn-install-option btn-chrome" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+                    </svg>
+                    Chrome Web Store
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Also for Opera, Brave &
+                    Edge (PC)</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/"
+                    class="btn-install-option btn-firefox" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z" />
+                    </svg>
+                    Firefox Add-ons
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">For PC & <strong>Mobile
+                        (Android)</strong></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openInstallModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('install-modal-backdrop').style.display = 'block';
+            document.getElementById('install-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeInstallModal() {
+            document.getElementById('install-modal-backdrop').style.display = 'none';
+            document.getElementById('install-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.getElementById('install-modal-backdrop')?.addEventListener('click', closeInstallModal);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && document.getElementById('install-modal').style.display === 'block') closeInstallModal();
+        });
+    </script>
+</body>
+
+</html>
+
+<script>
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        navToggle.classList.toggle('open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    mainNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mainNav.classList.remove('open');
+            navToggle.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+</script>
