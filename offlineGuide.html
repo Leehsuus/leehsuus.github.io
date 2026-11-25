@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Library Guide – AO3 Advanced Marker</title>
+    <meta name="description"
+        content="How to save AO3 fics to read without internet with AO3 Advanced Marker: Save Offline, the offline reader, display settings, automatic cleanup and Google Drive backup.">
+    <link rel="icon" type="image/png" href="assets/brand/icon48.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo-group">
+                    <img src="assets/brand/icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <span>AO3 Advanced Marker</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <a href="index.html#features">Showcase</a>
+                    <a href="features.html">All Features</a>
+                    <a href="index.html#pro">Support (PRO)</a>
+                    <a href="manuals.html" class="active">Manuals</a>
+                    <a href="releases.html">Releases</a>
+                    <div class="nav-dropdown">
+                        <span class="dropdown-btn">Legal <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg></span>
+                        <div class="dropdown-content">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                        </div>
+                    </div>
+                    <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank"
+                        rel="noopener">Install</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <a href="manuals.html">Manuals</a>
+                <span>›</span>
+                <span>Offline Library</span>
+            </div>
+            <h1>Offline <span>Library</span> Guide</h1>
+            <p>Save whole fics on your device and read them without internet, on a page that looks just like AO3.</p>
+        </div>
+    </div>
+
+    <!-- Guide Body -->
+    <div class="container">
+        <div class="guide-layout">
+
+            <!-- Main Content -->
+            <article class="guide-content">
+
+                <p>A fic you save offline opens in the extension's own reader, a copy of the AO3 page that works with no internet and even when AO3 is down. Everything else keeps working there: Chapter Read, Mark as Read, highlights, chapter reviews and star ratings.</p>
+
+                <div class="callout callout-info">
+                    <div class="callout-icon">ℹ️</div>
+                    <div class="callout-body">
+                        <strong>Free and PRO</strong>
+                        <p>Everyone can keep <strong>3 fics</strong> offline at a time and back them up to Google Drive. <strong>PRO</strong> unlocks unlimited fics, <strong>Keep forever</strong>, renewing fics and choosing when old fics are removed.</p>
+                    </div>
+                </div>
+
+                <!-- Section 1 -->
+                <div class="guide-section" id="turning-on">
+                    <div class="section-title">
+                        <div class="section-num">1</div>
+                        <h2>Turning the Offline Library On</h2>
+                    </div>
+
+                    <p>The Offline Library is on by default. Its settings are in the extension's Options Page, under <strong>Offline Library Settings</strong>:</p>
+                    <ul>
+                        <li><strong>Enable Offline Library</strong> — shows the <strong>Save Offline</strong> button on fic pages.</li>
+                        <li><strong>Automatic Cleanup</strong> (PRO) — how long saved fics stay on your device. See <a href="#cleanup">Automatic cleanup</a>.</li>
+                        <li><strong>Storage</strong> — how many fics are saved and how much space they use.</li>
+                        <li><strong>Google Drive Backup</strong> — copies your saved fics to your Google Drive. See <a href="#backup">Backing up</a>.</li>
+                    </ul>
+                    <p>Click <strong>Save Settings</strong> after changing a setting.</p>
+                    <figure class="figure">
+                        <img src="assets/offline/offlineSettings.png" alt="Offline Library Settings in the Options Page: feature toggle, automatic cleanup, storage and Google Drive backup">
+                        <figcaption>Figure 1 — Offline Library Settings.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 2 -->
+                <div class="guide-section" id="saving">
+                    <div class="section-title">
+                        <div class="section-num">2</div>
+                        <h2>Saving a Fic</h2>
+                    </div>
+
+                    <p>Open the fic on AO3 and click <strong>Save Offline</strong>, next to AO3's own buttons. The button shows <strong>Saving…</strong> for a moment, then changes to <strong>Read Offline ✔</strong>. The whole fic is saved, every chapter, even if you were reading Chapter by Chapter.</p>
+                    <figure class="figure">
+                        <img src="assets/offline/saveOffline.png" alt="The Read Offline button on a fic's page after the fic was saved">
+                        <figcaption>Figure 2 — Read Offline ✔ on a saved fic.</figcaption>
+                    </figure>
+                    <p>If the author posts a new chapter or edits the fic, the button changes to <strong>Update Offline Copy</strong>. Click it to save the new version.</p>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>Library full?</strong>
+                            <p>On the Free plan, when you already have 3 fics saved, a notice tells you the library is full. Remove a fic in My Offline Library to make room, or get PRO for unlimited fics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 3 -->
+                <div class="guide-section" id="reading">
+                    <div class="section-title">
+                        <div class="section-num">3</div>
+                        <h2>Reading Offline</h2>
+                    </div>
+
+                    <p>Click <strong>Read Offline ✔</strong> to open the fic in the offline reader. It opens the way you last read on AO3, Chapter by Chapter or Entire Work, at the chapter where you stopped.</p>
+                    <p>Without internet, you can open your saved fics from:</p>
+                    <ul>
+                        <li><strong>My Offline Library</strong>, in the Options Page (see <a href="#library">below</a>).</li>
+                        <li><strong>Your lists</strong>: a saved fic shows a <strong>Read offline</strong> button. See the <a href="listsGuide.html#your-lists">Lists guide</a>.</li>
+                    </ul>
+                    <p>In the reader you can mark chapters, highlight text and write reviews as usual. If you use <a href="bookmarksGuide.html#bookmark-sync">Sync to AO3 Bookmarks</a>, the bookmark is created the next time you open AO3.</p>
+                    <p>The reader adds two buttons to the fic's menu: <strong>Keep Forever</strong> (PRO, see <a href="#cleanup">Automatic cleanup</a>) and <strong>Remove Offline Copy</strong>.</p>
+                    <figure class="figure">
+                        <img src="assets/offline/readerMenu.png" alt="The offline reader with the Keep Forever and Remove Offline Copy buttons">
+                        <figcaption>Figure 3 — A fic in the offline reader.</figcaption>
+                    </figure>
+
+                    <h3 id="display">Theme, text size and font</h3>
+                    <p>Click the round <strong>Aa</strong> button at the bottom right of the reader to change how the fic looks:</p>
+                    <ul>
+                        <li><strong>Theme</strong> — Original, White, Sepia, Green or Dark.</li>
+                        <li><strong>Text size</strong> — from 80% to 200%.</li>
+                        <li><strong>Font</strong> — Original, Serif, Book or Sans-serif.</li>
+                    </ul>
+                    <p>Your choice is saved on this device and applies to every fic you open in the reader. It's free for everyone.</p>
+                    <figure class="figure">
+                        <img src="assets/offline/readerDisplay.png" alt="The display settings panel in the offline reader with the Sepia theme selected">
+                        <figcaption>Figure 4 — Display settings, with the Sepia theme.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 4 -->
+                <div class="guide-section" id="library">
+                    <div class="section-title">
+                        <div class="section-num">4</div>
+                        <h2>My Offline Library</h2>
+                    </div>
+
+                    <p>In the Options Page, open <strong>My Offline Library</strong> to see every fic saved on this device, with the date you saved it, its fandom, chapters, words and size. Use the search to find a fic by title, author or fandom.</p>
+                    <ul>
+                        <li>The colored label shows when the fic will be removed, like <strong>"Removed in 10 days"</strong>, or <strong>Kept forever</strong>. It turns red when there are 3 days or less left.</li>
+                        <li><strong>On Google Drive</strong> means this version of the fic is in your backup.</li>
+                        <li>On the right: open the fic, <strong>keep it forever</strong> (PRO) and <strong>✕</strong> to remove it.</li>
+                    </ul>
+                    <figure class="figure">
+                        <img src="assets/offline/offlineLibrary.png" alt="My Offline Library with four saved fics, their removal dates and the On Google Drive label">
+                        <figcaption>Figure 5 — My Offline Library.</figcaption>
+                    </figure>
+                    <p>Removing a fic only deletes the offline copy. Your reading progress, highlights and reviews are kept. If the fic is also on your Google Drive, a second question asks whether to delete it there too; choose <strong>Cancel</strong> to keep it on Drive.</p>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 5 -->
+                <div class="guide-section" id="cleanup">
+                    <div class="section-title">
+                        <div class="section-num">5</div>
+                        <h2>Automatic Cleanup and Keep Forever</h2>
+                    </div>
+
+                    <p>To free space, saved fics are removed from your device after a while. The cleanup runs when your browser starts, after you save a fic and when you open the Offline Library in the Options Page. It never touches your Google Drive backup.</p>
+                    <ul>
+                        <li><strong>Free</strong>: fics are removed 14 days after you save them.</li>
+                        <li><strong>PRO</strong>: choose 7, 14, 30 or 60 days, or <strong>Never</strong>, in Offline Library Settings.</li>
+                    </ul>
+                    <p>With PRO you can also:</p>
+                    <ul>
+                        <li><strong>Keep forever</strong> — the fic is never removed by the cleanup. Use the pin in My Offline Library or <strong>Keep Forever</strong> in the reader. The <strong>Kept forever</strong> tab lists these fics.</li>
+                        <li><strong>Renew</strong> — click a fic's removal label to start its time again. The <strong>Expiring soon</strong> tab lists fics removed within 7 days, with <strong>Renew all</strong> to renew them at once.</li>
+                    </ul>
+                    <figure class="figure">
+                        <img src="assets/offline/offlineExpiring.png" alt="The Expiring soon tab with the Renew all button">
+                        <figcaption>Figure 6 — Expiring soon and Renew all.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 6 -->
+                <div class="guide-section" id="backup">
+                    <div class="section-title">
+                        <div class="section-num">6</div>
+                        <h2>Backing Up to Google Drive</h2>
+                    </div>
+
+                    <p>Your saved fics can go to your own Google Drive, so you can read them on your other devices. It's free for everyone. First connect your Google account in <strong>Cloud Settings</strong> (see the <a href="syncGuideDrive.html">Google Drive sync guide</a>), then go to <strong>Offline Library Settings › Google Drive Backup</strong>:</p>
+                    <ul>
+                        <li><strong>Back up to Drive</strong> — sends the fics that are new or changed since your last backup. Back up after saving new fics; it doesn't happen on its own.</li>
+                        <li><strong>Restore from Drive</strong> — on another device, brings back the fics that are on your Drive and missing or older on this device.</li>
+                    </ul>
+                    <p>Fics removed by the cleanup stay on Drive, so you can restore them later. On the Free plan, a restore brings back only as many fics as fit in your 3 free spaces, newest first.</p>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 7 -->
+                <div class="guide-section" id="free-pro">
+                    <div class="section-title">
+                        <div class="section-num">7</div>
+                        <h2>Free Plan and PRO</h2>
+                    </div>
+
+                    <ul>
+                        <li><strong>Free</strong>: up to 3 fics at a time, removed after 14 days, reading offline, display settings and Google Drive backup.</li>
+                        <li><strong>PRO</strong>: unlimited fics, Keep forever, renewing fics and your choice of cleanup time.</li>
+                    </ul>
+                    <p>If you go back to the Free plan, nothing is deleted right away. You can't save new fics until you're under 3, and fics you kept forever follow the 14-day cleanup again.</p>
+                </div>
+
+            </article>
+
+            <!-- Sidebar TOC -->
+            <aside class="toc-sidebar">
+                <h4>On This Page</h4>
+                <ul>
+                    <li><a href="#turning-on">1. Turning It On</a></li>
+                    <li><a href="#saving">2. Saving a Fic</a></li>
+                    <li><a href="#reading">3. Reading Offline</a></li>
+                    <li><a href="#library">4. My Offline Library</a></li>
+                    <li><a href="#cleanup">5. Cleanup and Keep Forever</a></li>
+                    <li><a href="#backup">6. Google Drive Backup</a></li>
+                    <li><a href="#free-pro">7. Free and PRO</a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>
+                        <img src="assets/brand/icon48.png" alt="" class="logo-icon"
+                            style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
+                        AO3 Advanced Marker
+                    </h3>
+                    <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by
+                        introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Extension</h4>
+                    <ul>
+                        <li><a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Chrome Web
+                                Store</a></li>
+                        <li><a href="index.html#features">Showcase</a>
+                            <a href="features.html">All Features</a>
+                        </li>
+                        <li><a href="index.html#security">Security &amp; Cloud Sync</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal &amp; Support</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="releases.html">Release Notes</a></li>
+                        <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank"
+                                rel="noopener">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025-2026 AO3 Advanced Marker. Not affiliated with Archive of Our Own or the OTW.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Rate on Chrome Web
+                        Store</a>
+                    <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Install Modal -->
+    <div id="install-modal-backdrop"></div>
+    <div id="install-modal">
+        <button class="install-close" aria-label="Close" onclick="closeInstallModal()">&times;</button>
+        <h3>Choose your browser</h3>
+        <p>Select the store for your browser to install the extension.</p>
+        <div class="install-options">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                    class="btn-install-option btn-chrome" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+                    </svg>
+                    Chrome Web Store
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Also for Opera, Brave &
+                    Edge (PC)</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/"
+                    class="btn-install-option btn-firefox" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z" />
+                    </svg>
+                    Firefox Add-ons
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">For PC & <strong>Mobile
+                        (Android)</strong></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openInstallModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('install-modal-backdrop').style.display = 'block';
+            document.getElementById('install-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeInstallModal() {
+            document.getElementById('install-modal-backdrop').style.display = 'none';
+            document.getElementById('install-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.getElementById('install-modal-backdrop')?.addEventListener('click', closeInstallModal);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && document.getElementById('install-modal').style.display === 'block') closeInstallModal();
+        });
+    </script>
+</body>
+
+</html>
+
+<script>
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        navToggle.classList.toggle('open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    mainNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mainNav.classList.remove('open');
+            navToggle.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+</script>
