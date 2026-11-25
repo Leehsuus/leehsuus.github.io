@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browsing Lists Guide – AO3 Advanced Marker</title>
+    <meta name="description"
+        content="How to use the Active Reading Filter and Infinite Scroll in AO3 Advanced Marker to browse AO3 lists faster.">
+    <link rel="icon" type="image/png" href="assets/brand/icon48.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo-group">
+                    <img src="assets/brand/icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <span>AO3 Advanced Marker</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <a href="index.html#features">Showcase</a>
+                    <a href="features.html">All Features</a>
+                    <a href="index.html#pro">Support (PRO)</a>
+                    <a href="manuals.html" class="active">Manuals</a>
+                    <a href="releases.html">Releases</a>
+                    <div class="nav-dropdown">
+                        <span class="dropdown-btn">Legal <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg></span>
+                        <div class="dropdown-content">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                        </div>
+                    </div>
+                    <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank"
+                        rel="noopener">Install</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <a href="manuals.html">Manuals</a>
+                <span>›</span>
+                <span>Browsing Lists</span>
+            </div>
+            <h1>Browsing <span>Lists</span> Guide</h1>
+            <p>Hide what you've already read and keep scrolling without clicking through page numbers.</p>
+        </div>
+    </div>
+
+    <!-- Guide Body -->
+    <div class="container">
+        <div class="guide-layout">
+
+            <!-- Main Content -->
+            <article class="guide-content">
+
+                <p>These tools work on AO3's lists of fics: search results, tag and fandom pages, your bookmarks and Marked for Later. Both are free.</p>
+
+                <!-- Section 1 -->
+                <div class="guide-section" id="reading-filter">
+                    <div class="section-title">
+                        <div class="section-num">1</div>
+                        <h2>Active Reading Filter</h2>
+                    </div>
+
+                    <p>When you browse a tag you've read a lot of, finding something new means scrolling past fics you already know. The <strong>Active Reading Filter</strong> hides them for you.</p>
+                    <p>Above the list, look for the <strong>Marker Tools</strong> bar and click <strong>"Active Reading Filter: OFF"</strong>. It changes to <strong>ON</strong> and the list hides:</p>
+                    <ul>
+                        <li>fics you marked as <strong>Read</strong>;</li>
+                        <li>fics you marked as <strong>Do Not Read</strong>;</li>
+                        <li>fics you stopped at a chapter, but only when you've already read up to their last chapter.</li>
+                    </ul>
+                    <p>Fics you're still in the middle of stay in the list, so you don't lose track of them. Click the button again to show everything.</p>
+                    <figure class="figure">
+                        <img src="assets/sync-drive/driveButtonsAO3.png" alt="The Marker Tools bar with the Active Reading Filter button">
+                        <figcaption>Figure 1 — The Active Reading Filter button in the Marker Tools bar.</figcaption>
+                    </figure>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>The filter stays on</strong>
+                            <p>The extension remembers your choice: once it's on, it stays on in every list you open until you turn it off. If a list looks shorter than expected, check the button.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 2 -->
+                <div class="guide-section" id="infinite-scroll">
+                    <div class="section-title">
+                        <div class="section-num">2</div>
+                        <h2>Infinite Scroll</h2>
+                    </div>
+
+                    <p>With Infinite Scroll, you don't need AO3's page numbers. When you get near the end of the list, the next page loads below the fics you're seeing, with all of the extension's colors and badges. When there's nothing left, the list ends with <em>"No more works to load."</em></p>
+                    <p>It's on by default. To change where it works, open the Options Page, go to <strong>Customization</strong> and find <strong>Infinite Scroll / Pagination</strong>:</p>
+                    <ul>
+                        <li><strong>Enable Infinite Scroll (Global)</strong> — turns it on or off everywhere. With it off, AO3's page numbers come back.</li>
+                        <li><strong>On General Lists (Tags, Searches)</strong> — search results, tag and fandom pages.</li>
+                        <li><strong>On Bookmarks Page</strong> — your bookmarks.</li>
+                    </ul>
+                    <p>Click <strong>Save Settings</strong> after changing them.</p>
+                    <figure class="figure">
+                        <img src="assets/browsing/infiniteScrollOptions.png" alt="Infinite Scroll settings in Customization">
+                        <figcaption>Figure 2 — Infinite Scroll settings.</figcaption>
+                    </figure>
+
+                    <div class="callout callout-info">
+                        <div class="callout-icon">ℹ️</div>
+                        <div class="callout-body">
+                            <strong>Bookmarks grouped by fandom</strong>
+                            <p>If you use <strong>Group Bookmarks by Fandom</strong> (PRO), your bookmarks page shows a <strong>"Load more works"</strong> button instead of loading pages on its own.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- Sidebar TOC -->
+            <aside class="toc-sidebar">
+                <h4>On This Page</h4>
+                <ul>
+                    <li><a href="#reading-filter">1. Active Reading Filter</a></li>
+                    <li><a href="#infinite-scroll">2. Infinite Scroll</a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>
+                        <img src="assets/brand/icon48.png" alt="" class="logo-icon"
+                            style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
+                        AO3 Advanced Marker
+                    </h3>
+                    <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by
+                        introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Extension</h4>
+                    <ul>
+                        <li><a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Chrome Web
+                                Store</a></li>
+                        <li><a href="index.html#features">Showcase</a>
+                            <a href="features.html">All Features</a>
+                        </li>
+                        <li><a href="index.html#security">Security &amp; Cloud Sync</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal &amp; Support</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="releases.html">Release Notes</a></li>
+                        <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank"
+                                rel="noopener">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025-2026 AO3 Advanced Marker. Not affiliated with Archive of Our Own or the OTW.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Rate on Chrome Web
+                        Store</a>
+                    <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Install Modal -->
+    <div id="install-modal-backdrop"></div>
+    <div id="install-modal">
+        <button class="install-close" aria-label="Close" onclick="closeInstallModal()">&times;</button>
+        <h3>Choose your browser</h3>
+        <p>Select the store for your browser to install the extension.</p>
+        <div class="install-options">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                    class="btn-install-option btn-chrome" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+                    </svg>
+                    Chrome Web Store
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Also for Opera, Brave &
+                    Edge (PC)</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/"
+                    class="btn-install-option btn-firefox" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z" />
+                    </svg>
+                    Firefox Add-ons
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">For PC & <strong>Mobile
+                        (Android)</strong></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openInstallModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('install-modal-backdrop').style.display = 'block';
+            document.getElementById('install-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeInstallModal() {
+            document.getElementById('install-modal-backdrop').style.display = 'none';
+            document.getElementById('install-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.getElementById('install-modal-backdrop')?.addEventListener('click', closeInstallModal);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && document.getElementById('install-modal').style.display === 'block') closeInstallModal();
+        });
+    </script>
+</body>
+
+</html>
+
+<script>
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        navToggle.classList.toggle('open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    mainNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mainNav.classList.remove('open');
+            navToggle.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+</script>
