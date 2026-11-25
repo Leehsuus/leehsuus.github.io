@@ -91,6 +91,7 @@
                     <ul>
                         <li><strong>Works Read:</strong> Automatically recorded when you click the "Mark as Read" button. The extension calculates the new word count and chapter count added to your reading history.</li>
                         <li><strong>Chapters Read:</strong> Logged when you click "Chapter Read". The extension counts the exact number of words on the page and adds them to your total.</li>
+                        <li><strong>Re-reads:</strong> Logged when you click "+ Re-read" on a chapter you're reading again. Its words are added to your total, and the fic's status doesn't change. See the <a href="readingStatusGuide.html#re-read">Reading Status guide</a>.</li>
                     </ul>
                     
                     <p>All this data is compiled to provide you with insights like Total Words Read, Books Read (based on your custom Words Per Book conversion), Current Streak, Longest Streak, Daily Average, and your Top Fandoms and Authors.</p>
@@ -116,26 +117,79 @@
                     </figure>
 
                     <h3>B. Detailed Stats Dashboard</h3>
-                    <p>For an in-depth look at your reading habits, open the extension's Options Page and navigate to the <strong>Stats Dashboard</strong>. Here you will find:</p>
+                    <p>For an in-depth look at your reading habits, open the extension's Options Page and click <strong>Stats Data</strong> in the sidebar. Here you will find:</p>
                     <ul>
                         <li><strong>Annual Goal Progress:</strong> A visual progress bar tracking your yearly goal. Watch out for the Motivational Checkpoints (Gold Stars) that light up when you reach 33.3%, 66.6%, and 100% of your goal!</li>
-                        <li><strong>Reading Chart:</strong> A beautiful, interactive chart displaying your reading activity over time.</li>
-                        <li><strong>Top Metrics:</strong> See your most-read fandoms and authors.</li>
-                        <li><strong>Rating Analytics:</strong> A detailed table of your personal ratings per work.</li>
+                        <li><strong>Reading Volume (Last 7 Days):</strong> A chart of how many words you read on each of the last seven days.</li>
+                        <li><strong>Top Fandoms and Top Authors:</strong> Your most-read fandoms and authors, by words read.</li>
+                        <li><strong>Ratings &amp; Hall of Fame:</strong> What your star ratings say about your reading (<a href="#ratings">section 3</a>).</li>
+                        <li><strong>Detailed History:</strong> Every entry that counts toward your stats (<a href="#detailed-history">section 4</a>).</li>
                     </ul>
 
                     <figure class="figure">
                         <img src="assets/stats-data/detailedStatsDashboard.png" alt="Detailed Stats Dashboard inside the extension Options Page" style="width:100%;display:block;">
                         <figcaption>Figure 2 — The full Stats Dashboard inside the extension Options Page, featuring the interactive reading chart, goal progress, and top metrics.</figcaption>
                     </figure>
+
+                    <h3>C. Seeing More Fandoms and Authors</h3>
+                    <p>Top Fandoms and Top Authors start with your top three. Click <strong>"▼ Show More"</strong> to see up to ten, and click it again for ten more. When the whole list is showing, <strong>"▲ Show Less"</strong> takes you back to the top three.</p>
+                    <figure class="figure">
+                        <img src="assets/stats-data/topShowMore.png" alt="Top Fandoms list with the Show More button">
+                        <figcaption>Figure 3 — The Show More button under Top Fandoms.</figcaption>
+                    </figure>
                 </div>
 
                 <hr class="section-divider">
 
                 <!-- Section 3 -->
-                <div class="guide-section" id="customization">
+                <div class="guide-section" id="ratings">
                     <div class="section-title">
                         <div class="section-num">3</div>
+                        <h2>Ratings &amp; Hall of Fame</h2>
+                    </div>
+
+                    <p>When you rate chapters or fics with stars (see the <a href="reviewsGuide.html#star-ratings">Star Ratings guide</a>), the <strong>Ratings &amp; Hall of Fame</strong> section of Stats Data puts them together. Each fic counts with its average rating.</p>
+                    <ul>
+                        <li><strong>Rating Distribution:</strong> how many fics you gave each rating, from 5.0 down to 0.5.</li>
+                        <li><strong>Average Rating by Fandom:</strong> the average rating of the fics you rated in each fandom, highest first.</li>
+                        <li><strong>Your Hall of Fame:</strong> your three best-rated fics.</li>
+                    </ul>
+                    <figure class="figure">
+                        <img src="assets/stats-data/ratingsHallOfFame.png" alt="Rating Distribution, Average Rating by Fandom and Hall of Fame in Stats Data">
+                        <figcaption>Figure 4 — Ratings &amp; Hall of Fame.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 4 -->
+                <div class="guide-section" id="detailed-history">
+                    <div class="section-title">
+                        <div class="section-num">4</div>
+                        <h2>Detailed History</h2>
+                    </div>
+
+                    <p>At the bottom of Stats Data, <strong>Detailed History</strong> lists every entry that counts toward your stats, newest first. Each entry shows the date and time, the fic, the words it added and a label:</p>
+                    <ul>
+                        <li><strong>Read ✔</strong> — you marked the fic as read.</li>
+                        <li><strong>Chapter Read</strong> — you marked a chapter, shown with its number (for example, "Ch. 3").</li>
+                        <li><strong>Re-read</strong> — you logged a chapter with + Re-read.</li>
+                    </ul>
+
+                    <h3>Removing an entry</h3>
+                    <p>Logged something by mistake? Click the <strong>✕</strong> on the entry and confirm. The entry is removed and its words no longer count toward your stats and your yearly goal. This can't be undone.</p>
+                    <figure class="figure">
+                        <img src="assets/stats-data/detailedHistory.png" alt="Detailed History entries with Chapter Read, Read and Re-read labels and the remove button">
+                        <figcaption>Figure 5 — Detailed History, with the ✕ that removes an entry.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 5 -->
+                <div class="guide-section" id="customization">
+                    <div class="section-title">
+                        <div class="section-num">5</div>
                         <h2>How to Enable and Configure Stats</h2>
                     </div>
 
@@ -143,16 +197,16 @@
 
                     <figure class="figure">
                         <img src="assets/stats-data/howToEnableAndConfigureStats.png" alt="Stats Settings panel inside the extension Options Page" style="width:100%;display:block;">
-                        <figcaption>Figure 3 — The Stats Settings panel where you can enable tracking and configure your yearly reading goal.</figcaption>
+                        <figcaption>Figure 6 — The Stats Settings panel where you can enable tracking and configure your yearly reading goal.</figcaption>
                     </figure>
 
-                    <h3>Step 3.1 — Access the Options Dashboard</h3>
+                    <h3>Step 5.1 — Access the Options Dashboard</h3>
                     <p>Click on the AO3 Advanced Marker extension icon in your browser toolbar to open the Options Page.</p>
 
-                    <h3>Step 3.2 — Navigate to the Stats Settings Panel</h3>
+                    <h3>Step 5.2 — Navigate to the Stats Settings Panel</h3>
                     <p>In the left sidebar, click on the <strong>Stats Settings</strong> tab. Toggle the switch to enable Reading Stats Tracking.</p>
 
-                    <h3>Step 3.3 — Set Your Goals</h3>
+                    <h3>Step 5.3 — Set Your Goals</h3>
                     <p>Once enabled, you can configure:</p>
                     <ul>
                         <li><strong>Yearly Goal:</strong> Enter the number of "books" you want to read this year.</li>
@@ -178,7 +232,9 @@
                 <ul>
                     <li><a href="#how-it-works">1. How the System Works</a></li>
                     <li><a href="#where-applied">2. Where to Find Your Stats</a></li>
-                    <li><a href="#customization">3. Configuring Stats</a></li>
+                    <li><a href="#ratings">3. Ratings &amp; Hall of Fame</a></li>
+                    <li><a href="#detailed-history">4. Detailed History</a></li>
+                    <li><a href="#customization">5. Configuring Stats</a></li>
                 </ul>
             </aside>
 

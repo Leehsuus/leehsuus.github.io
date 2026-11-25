@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Kudos Guide – AO3 Advanced Marker</title>
+    <meta name="description"
+        content="How AO3 Advanced Marker keeps a list of every fic you left kudos on, grouped by fandom and searchable.">
+    <link rel="icon" type="image/png" href="assets/brand/icon48.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo-group">
+                    <img src="assets/brand/icon48.png" alt="AO3 Advanced Marker Logo" class="logo-icon">
+                    <span>AO3 Advanced Marker</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <nav id="main-nav">
+                    <a href="index.html#features">Showcase</a>
+                    <a href="features.html">All Features</a>
+                    <a href="index.html#pro">Support (PRO)</a>
+                    <a href="manuals.html" class="active">Manuals</a>
+                    <a href="releases.html">Releases</a>
+                    <div class="nav-dropdown">
+                        <span class="dropdown-btn">Legal <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg></span>
+                        <div class="dropdown-content">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                        </div>
+                    </div>
+                    <a href="#" onclick="openInstallModal(event)" class="btn-nav" target="_blank"
+                        rel="noopener">Install</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <a href="manuals.html">Manuals</a>
+                <span>›</span>
+                <span>My Kudos</span>
+            </div>
+            <h1>My <span>Kudos</span> Guide</h1>
+            <p>Keep a list of every fic you've left kudos on, organized by fandom.</p>
+        </div>
+    </div>
+
+    <!-- Guide Body -->
+    <div class="container">
+        <div class="guide-layout">
+
+            <!-- Main Content -->
+            <article class="guide-content">
+
+                <p>AO3 doesn't show you a list of the fics you've left kudos on. <strong>My Kudos</strong> keeps that list for you. It's free and on by default.</p>
+
+                <!-- Section 1 -->
+                <div class="guide-section" id="how-it-works">
+                    <div class="section-title">
+                        <div class="section-num">1</div>
+                        <h2>How Fics Get Into Your List</h2>
+                    </div>
+
+                    <p>Just leave kudos as usual. When you click AO3's <strong>Kudos ♥</strong> button on a fic, the extension saves it to My Kudos, under the fic's fandom.</p>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>What about kudos you left before?</strong>
+                            <p>The extension can't see kudos you left before tracking was on. To add one of those fics, open it and click <strong>Kudos ♥</strong> again: AO3 says you've already left kudos, and the extension adds the fic to your list.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 2 -->
+                <div class="guide-section" id="my-kudos-tab">
+                    <div class="section-title">
+                        <div class="section-num">2</div>
+                        <h2>The My Kudos Tab</h2>
+                    </div>
+
+                    <p>Open the extension's Options Page and click <strong>My Kudos</strong> in the sidebar.</p>
+                    <ul>
+                        <li>Your fics are grouped by fandom, in alphabetical order, with the number of fics in each. Click a fandom to open it; the most recent kudos come first.</li>
+                        <li>Each fic shows the date you left kudos, its title and author. Click a fic to open it on AO3.</li>
+                        <li>Use the search box to find a fic by title, author or fandom.</li>
+                        <li>To take a fic off your list, click its <strong>✕</strong> and confirm. This only removes it from My Kudos; your kudos on AO3 stays.</li>
+                    </ul>
+                    <figure class="figure">
+                        <img src="assets/kudos/myKudos.png" alt="The My Kudos tab with fics grouped by fandom, the search box and the remove button">
+                        <figcaption>Figure 1 — The My Kudos tab.</figcaption>
+                    </figure>
+
+                    <div class="callout callout-tip">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-body">
+                            <strong>Backed up with everything else</strong>
+                            <p>Your kudos list is part of your Google Drive backup. See the <a href="syncGuideDrive.html">Google Drive sync guide</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Section 3 -->
+                <div class="guide-section" id="turning-off">
+                    <div class="section-title">
+                        <div class="section-num">3</div>
+                        <h2>Turning Kudos Tracking Off</h2>
+                    </div>
+
+                    <p>Don't want this list? In the Options Page, go to <strong>Customization</strong>, turn off <strong>"Enable Kudos Tracking"</strong> and click <strong>Save Settings</strong>. The extension stops saving new kudos and the My Kudos tab is hidden. Turn it back on to see your list again.</p>
+                    <figure class="figure">
+                        <img src="assets/kudos/kudosOption.png" alt="The Enable Kudos Tracking option in Customization">
+                        <figcaption>Figure 2 — The Enable Kudos Tracking option.</figcaption>
+                    </figure>
+                </div>
+
+            </article>
+
+            <!-- Sidebar TOC -->
+            <aside class="toc-sidebar">
+                <h4>On This Page</h4>
+                <ul>
+                    <li><a href="#how-it-works">1. How Fics Get Into Your List</a></li>
+                    <li><a href="#my-kudos-tab">2. The My Kudos Tab</a></li>
+                    <li><a href="#turning-off">3. Turning Tracking Off</a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>
+                        <img src="assets/brand/icon48.png" alt="" class="logo-icon"
+                            style="width: 1.75rem; height: 1.75rem; box-shadow: none;">
+                        AO3 Advanced Marker
+                    </h3>
+                    <p>A browser extension dedicated to improving the reader experience on Archive of Our Own (AO3) by
+                        introducing progress tracking, bookmark management, highlights, and secure data sync.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Extension</h4>
+                    <ul>
+                        <li><a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Chrome Web
+                                Store</a></li>
+                        <li><a href="index.html#features">Showcase</a>
+                            <a href="features.html">All Features</a>
+                        </li>
+                        <li><a href="index.html#security">Security &amp; Cloud Sync</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal &amp; Support</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="releases.html">Release Notes</a></li>
+                        <li><a href="syncGuide.html">Cloud Sync Guide</a></li>
+                        <li><a href="https://github.com/leehsuus/ao3-extension-site" target="_blank"
+                                rel="noopener">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025-2026 AO3 Advanced Marker. Not affiliated with Archive of Our Own or the OTW.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" onclick="openInstallModal(event)" target="_blank" rel="noopener">Rate on Chrome Web
+                        Store</a>
+                    <a href="https://github.com/leehsuus/ao3-extension-site" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Install Modal -->
+    <div id="install-modal-backdrop"></div>
+    <div id="install-modal">
+        <button class="install-close" aria-label="Close" onclick="closeInstallModal()">&times;</button>
+        <h3>Choose your browser</h3>
+        <p>Select the store for your browser to install the extension.</p>
+        <div class="install-options">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://chromewebstore.google.com/detail/ao3-advanced-marker/mfpefhlopjkdhgjmihliggklkkkppfan"
+                    class="btn-install-option btn-chrome" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+                    </svg>
+                    Chrome Web Store
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Also for Opera, Brave &
+                    Edge (PC)</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/ao3-advanced-marker/"
+                    class="btn-install-option btn-firefox" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="flex-shrink:0">
+                        <path
+                            d="M11.96 2C6.44 2 1.96 6.48 1.96 12s4.48 10 10 10 10-4.48 10-10S17.48 2 11.96 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.33-11.83l-1.07-1.12-3.1 3.23c-.11-.04-.23-.07-.35-.07-1.1 0-2 .9-2 2 0 .15.02.29.05.42L6 14.67v2.1l4.02-4.14c.3.16.63.26.98.26 1.1 0 2-.9 2-2 0-.25-.05-.48-.13-.7l3.46-3.6z" />
+                    </svg>
+                    Firefox Add-ons
+                </a>
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">For PC & <strong>Mobile
+                        (Android)</strong></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openInstallModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('install-modal-backdrop').style.display = 'block';
+            document.getElementById('install-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeInstallModal() {
+            document.getElementById('install-modal-backdrop').style.display = 'none';
+            document.getElementById('install-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.getElementById('install-modal-backdrop')?.addEventListener('click', closeInstallModal);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && document.getElementById('install-modal').style.display === 'block') closeInstallModal();
+        });
+    </script>
+</body>
+
+</html>
+
+<script>
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        navToggle.classList.toggle('open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    mainNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mainNav.classList.remove('open');
+            navToggle.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+</script>
